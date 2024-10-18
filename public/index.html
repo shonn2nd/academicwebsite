@@ -1774,144 +1774,282 @@
 
   
   
-<div class="mt-16 sm:mt-20 container max-w-3xl w-full">
-  <div class="flex flex-col space-y-3">
+
+
+<div class="container px-8 mx-auto xl:px-5 py-5 lg:py-8 max-w-screen-lg ">
+  <div class="grid gap-10 md:grid-cols-2 lg:gap-10">
 
 
   
     
 
 
-<div class="pub-list-item view-citation" style="margin-bottom: 1rem">
-  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+
+
+
+
+
+
+
+<div class="group cursor-pointer">
 
   
-  
+  <div class="">
+    <div class="">
+      <div class="flex gap-3">
+        
+        <a href="/tags/r/"><span
+          class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300">R</span></a>
+        
+      </div>
+      
+      <h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+        href="/post/06_when-reorder-fails/" ><span
+        class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900">When `reorder` Fails
+          </span></a>
+      </h2>
+      
+      <div class="grow"><p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+        href="/post/06_when-reorder-fails/" >
+        I am using the mpg dataset included in the ggplot2 package.
+#load packages library(tidyverse) library(tidytext) #view data ## Rows: 234 ## Columns: 11 ## $ manufacturer &lt;chr&gt; &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;… ## $ model &lt;chr&gt; &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4 quattro&#34;, &#34;… ## $ displ &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.… ## $ year &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200… ## $ cyl &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, … ## $ trans &lt;chr&gt; &#34;auto(l5)&#34;, &#34;manual(m5)&#34;, &#34;manual(m6)&#34;, &#34;auto(av)&#34;, &#34;auto… ## $ drv &lt;chr&gt; &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4… ## $ cty &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1… ## $ hwy &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2… ## $ fl &lt;chr&gt; &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p… ## $ class &lt;chr&gt; &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;c… mpg %&gt;% group_by(trans) %&gt;% count() %&gt;% ungroup() %&gt;% ggplot(mapping = aes(trans, n)) &#43; geom_bar(stat = &#34;identity&#34;) </a></p>
+      </div>
+      <div class="flex-none">
+        <div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+          
+          
+          <time class="truncate text-sm" datetime="2024-07-13">Jul 13, 2024</time>
+        </div>
+      </div>
 
-  <span class="article-metadata li-cite-author">
-    
-
-  <span class="font-bold">
-      Shonn Cheng</span>
-  </span>
-  (2024).
-  <a href="/post/06_when-reorder-fails/" class="underline">When `reorder` Fails</a>.
-  
-
-  
-
-  
-  
-</div>
-
-  
-    
-
-
-<div class="pub-list-item view-citation" style="margin-bottom: 1rem">
-  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
-
-  
-  
-
-  <span class="article-metadata li-cite-author">
-    
-
-  <span class="font-bold">
-      Shonn Cheng</span>
-  </span>
-  (2024).
-  <a href="/post/05_coefficient-h/" class="underline">Coefficient H</a>.
-  
-
-  
-
-  
-  
-</div>
-
-  
-    
-
-
-<div class="pub-list-item view-citation" style="margin-bottom: 1rem">
-  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
-
-  
-  
-
-  <span class="article-metadata li-cite-author">
-    
-
-  <span class="font-bold">
-      Shonn Cheng</span>
-  </span>
-  (2024).
-  <a href="/post/04_create-dummy-variables/" class="underline">Create Dummy Variables</a>.
-  
-
-  
-
-  
-  
-</div>
-
-  
-    
-
-
-<div class="pub-list-item view-citation" style="margin-bottom: 1rem">
-  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
-
-  
-  
-
-  <span class="article-metadata li-cite-author">
-    
-
-  <span class="font-bold">
-      Shonn Cheng</span>, <span >
-      Ted</span>
-  </span>
-  (2023).
-  <a href="/post/get-started/" class="underline">🎉 Easily create your own simple yet highly customizable blog</a>.
-  
-
-  
-
-  
-  
-</div>
-
-  
-    
-
-
-<div class="pub-list-item view-citation" style="margin-bottom: 1rem">
-  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
-
-  
-  
-
-  <span class="article-metadata li-cite-author">
-    
-
-  <span class="font-bold">
-      Shonn Cheng</span>
-  </span>
-  (2023).
-  <a href="/post/second-brain/" class="underline">🧠 Sharpen your thinking with a second brain</a>.
-  
-
-  
-
-  
-  
-</div>
-
-  
-
+    </div>
   </div>
+</div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+<div class="group cursor-pointer">
+
+  
+  <div class="">
+    <div class="">
+      <div class="flex gap-3">
+        
+        <a href="/tags/r/"><span
+          class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300">R</span></a>
+        
+      </div>
+      
+      <h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+        href="/post/05_coefficient-h/" ><span
+        class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900">Coefficient H
+          </span></a>
+      </h2>
+      
+      <div class="grow"><p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+        href="/post/05_coefficient-h/" >
+        Please check McNeish (2018) for details. Here, I am using the NSCH dataset as an example.
+#load packages library(haven) library(tidyverse) library(userfriendlyscience) #import data data&lt;-read_sav(&#34;nsch.sav&#34;) #clear the current graphics frame and get ready for the next plot plot.new() </a></p>
+      </div>
+      <div class="flex-none">
+        <div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+          
+          
+          <time class="truncate text-sm" datetime="2024-04-08">Apr 8, 2024</time>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+<div class="group cursor-pointer">
+
+  
+  <div class="">
+    <div class="">
+      <div class="flex gap-3">
+        
+        <a href="/tags/r/"><span
+          class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300">R</span></a>
+        
+      </div>
+      
+      <h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+        href="/post/04_create-dummy-variables/" ><span
+        class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900">Create Dummy Variables
+          </span></a>
+      </h2>
+      
+      <div class="grow"><p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+        href="/post/04_create-dummy-variables/" >
+        Load Packages library(fastDummies) library(tidyverse) library(psych) Create a DataSet # Create a vector of race scores race &lt;- c(&#34;White&#34;, &#34;Black&#34;, &#34;Asian&#34;, &#34;Hispanic&#34;, &#34;Other&#34;) # Generate random income values for each race (100 cases) set.seed(123) # for reproducibility income &lt;- round(runif(100, min = 20000, max = 100000), digits = 2) # Repeat each race 20 times to get 100 cases race &lt;- rep(race, each = 20) # Combine race and income into a data frame data &lt;- data.frame(race, income) # Print the first few rows of the dataset print(head(data)) ## race income ## 1 White 43006.20 ## 2 White 83064.41 ## 3 White 52718.15 ## 4 White 90641.39 ## 5 White 95237.38 ## 6 White 23644.52 Create Dummy Variables data&lt;-data %&gt;% dummy_cols(select_columns = &#34;race&#34;) Regress Income on Race (African Americans as the Reference Category) fit&lt;-lm(income ~ race_Asian &#43; race_Hispanic &#43; race_Other &#43; race_White, data=data) summary(fit) ## ## Call: ## lm(formula = income ~ race_Asian &#43; race_Hispanic &#43; race_Other &#43; ## race_White, data = data) ## ## Residuals: ## Min 1Q Median 3Q Max ## -44169 -19531 -1137 18010 40481 ## ## Coefficients: ## Estimate Std. Error t value Pr(&gt;|t|) ## (Intercept) 66138 5066 13.055 &lt;2e-16 *** ## race_Asian -15015 7165 -2.096 0.0388 * ## race_Hispanic -7004 7165 -0.977 0.3308 ## race_Other -7173 7165 -1.001 0.3193 ## race_White -2073 7165 -0.289 0.7730 ## --- ## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 ## ## Residual standard error: 22660 on 95 degrees of freedom ## Multiple R-squared: 0.05237, Adjusted R-squared: 0.01247 ## F-statistic: 1.313 on 4 and 95 DF, p-value: 0.2709 </a></p>
+      </div>
+      <div class="flex-none">
+        <div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+          
+          
+          <time class="truncate text-sm" datetime="2024-02-15">Feb 15, 2024</time>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+<div class="group cursor-pointer">
+
+  
+  
+  
+    
+  
+  
+  <div class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
+
+    <a
+      class="relative block aspect-video"
+      href="/post/get-started/" >
+
+      <img alt="🎉 Easily create your own simple yet highly customizable blog"
+           class="object-fill transition-all"
+           data-nimg="fill"
+           decoding="async"
+           fetchpriority="high" height="540" loading="lazy" src="/post/get-started/featured_hu11426881157638868532.webp"
+           style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"
+           width="960"></a>
+  </div>
+  
+  <div class="">
+    <div class="">
+      <div class="flex gap-3">
+        
+        <a href="/tags/academic/"><span
+          class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300">Academic</span></a>
+        
+      </div>
+      
+      <h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+        href="/post/get-started/" ><span
+        class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900">🎉 Easily create your own simple yet highly customizable blog
+          </span></a>
+      </h2>
+      
+      <div class="grow"><p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+        href="/post/get-started/" >
+        Take full control of your personal brand and privacy by migrating away from the big tech platforms!</a></p>
+      </div>
+      <div class="flex-none">
+        <div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+          
+          
+          <time class="truncate text-sm" datetime="2023-10-27">Oct 27, 2023</time>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+<div class="group cursor-pointer">
+
+  
+  
+  
+    
+  
+  
+  <div class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
+
+    <a
+      class="relative block aspect-video"
+      href="/post/second-brain/" >
+
+      <img alt="🧠 Sharpen your thinking with a second brain"
+           class="object-fill transition-all"
+           data-nimg="fill"
+           decoding="async"
+           fetchpriority="high" height="540" loading="lazy" src="/post/second-brain/featured_hu4602361759068551107.webp"
+           style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"
+           width="960"></a>
+  </div>
+  
+  <div class="">
+    <div class="">
+      <div class="flex gap-3">
+        
+        <a href="/tags/second-brain/"><span
+          class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300">Second Brain</span></a>
+        
+      </div>
+      
+      <h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+        href="/post/second-brain/" ><span
+        class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900">🧠 Sharpen your thinking with a second brain
+          </span></a>
+      </h2>
+      
+      <div class="grow"><p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+        href="/post/second-brain/" >
+        Create a personal knowledge base and share your knowledge with your peers.</a></p>
+      </div>
+      <div class="flex-none">
+        <div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+          
+          
+          <time class="truncate text-sm" datetime="2023-10-26">Oct 26, 2023</time>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  
+
+    </div>
 </div>
 
 

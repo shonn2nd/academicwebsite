@@ -71,8 +71,9 @@ sections:
         folders:
           - post
     design:
-      view: citation
-      columns: 1
+      view: article-grid
+      columns: 2
+
 
 # - block: collection
 #   id: talks
