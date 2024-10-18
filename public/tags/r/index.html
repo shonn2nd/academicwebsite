@@ -156,7 +156,7 @@
 
   
   
-    <link rel="alternate" href="/tags/r/index.xml" type="application/rss+xml" title="Hugo Academic CV Theme" />
+    <link rel="alternate" href="/tags/r/index.xml" type="application/rss+xml" title="Dr. Shonn Cheng" />
   
 
   
@@ -188,9 +188,9 @@
     <meta property="twitter:site" content="@GetResearchDev" />
     <meta property="twitter:creator" content="@GetResearchDev" />
   
-  <meta property="og:site_name" content="Hugo Academic CV Theme" />
+  <meta property="og:site_name" content="Dr. Shonn Cheng" />
   <meta property="og:url" content="http://localhost:4321/tags/r/" />
-  <meta property="og:title" content="R | Hugo Academic CV Theme" />
+  <meta property="og:title" content="R | Dr. Shonn Cheng" />
   <meta property="og:description" content="The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website." /><meta property="og:image" content="http://localhost:4321/media/icon_hu7729264130191091259.png" />
     <meta property="twitter:image" content="http://localhost:4321/media/icon_hu7729264130191091259.png" /><meta property="og:locale" content="en-us" />
   
@@ -204,7 +204,7 @@
 
 
 
-  <title>R | Hugo Academic CV Theme</title>
+  <title>R | Dr. Shonn Cheng</title>
 
   
   
@@ -279,6 +279,7 @@
   
   
   
+  
     
       
       
@@ -437,7 +438,6 @@
       
       
     
-  
   
   
   
@@ -581,8 +581,8 @@
   <nav class="navbar px-3 flex justify-left">
     <div class="order-0 h-100">
       
-      <a class="navbar-brand" href="/" title="Hugo Academic CV Theme">
-        Dr. Shonn Cheng
+      <a class="navbar-brand" href="/" title="Dr. Shonn Cheng">
+        程聖倫博士
       </a>
     </div>
     
@@ -741,16 +741,16 @@
 
 
 
-<a href="/post/when-reorder-fails/"  class="mb-5">
+<a href="/post/06_when-reorder-fails/"  class="mb-5">
   <div class="md:flex">
     <div class="md:flex-shrink-0 overflow-hidden">
       
     </div>
     <div class="p-8">
-      <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">when reorder fails</div>
+      <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">When `reorder` Fails</div>
       <p class="block mt-1 text-sm leading-tight font-medium text-black dark:text-white">
         I am using the mpg dataset included in the ggplot2 package.
-#load packages library(tidyverse) library(tidytext) #view data glimpse(mpg) ## Rows: 234 ## Columns: 11 ## $ manufacturer &lt;chr&gt; &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;… ## $ model &lt;chr&gt; &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4 quattro&#34;, &#34;… ## $ displ &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.… ## $ year &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200… ## $ cyl &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, … ## $ trans &lt;chr&gt; &#34;auto(l5)&#34;, &#34;manual(m5)&#34;, &#34;manual(m6)&#34;, &#34;auto(av)&#34;, &#34;auto… ## $ drv &lt;chr&gt; &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4… ## $ cty &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1… ## $ hwy &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2… ## $ fl &lt;chr&gt; &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p… ## $ class &lt;chr&gt; &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;c… mpg %&gt;% group_by(trans) %&gt;% count() %&gt;% ungroup() %&gt;% ggplot(mapping = aes(trans, n)) &#43; geom_bar(stat = &#34;identity&#34;) </p>
+#load packages library(tidyverse) library(tidytext) #view data ## Rows: 234 ## Columns: 11 ## $ manufacturer &lt;chr&gt; &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;… ## $ model &lt;chr&gt; &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4 quattro&#34;, &#34;… ## $ displ &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.… ## $ year &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200… ## $ cyl &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, … ## $ trans &lt;chr&gt; &#34;auto(l5)&#34;, &#34;manual(m5)&#34;, &#34;manual(m6)&#34;, &#34;auto(av)&#34;, &#34;auto… ## $ drv &lt;chr&gt; &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4… ## $ cty &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1… ## $ hwy &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2… ## $ fl &lt;chr&gt; &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p… ## $ class &lt;chr&gt; &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;c… mpg %&gt;% group_by(trans) %&gt;% count() %&gt;% ungroup() %&gt;% ggplot(mapping = aes(trans, n)) &#43; geom_bar(stat = &#34;identity&#34;) </p>
       <p class="mt-2 text-gray-500 dark:text-gray-400 text-sm">Jul 13, 2024</p>
     </div>
   </div>
@@ -766,7 +766,32 @@
 
 
 
-<a href="/post/create-dummy-variables/"  class="mb-5">
+<a href="/post/05_coefficient-h/"  class="mb-5">
+  <div class="md:flex">
+    <div class="md:flex-shrink-0 overflow-hidden">
+      
+    </div>
+    <div class="p-8">
+      <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">Coefficient H</div>
+      <p class="block mt-1 text-sm leading-tight font-medium text-black dark:text-white">
+        Please check McNeish (2018) for details. Here, I am using the NSCH dataset as an example.
+#load packages library(haven) library(tidyverse) library(userfriendlyscience) #import data data&lt;-read_sav(&#34;nsch.sav&#34;) #clear the current graphics frame and get ready for the next plot plot.new() </p>
+      <p class="mt-2 text-gray-500 dark:text-gray-400 text-sm">Apr 8, 2024</p>
+    </div>
+  </div>
+</a>
+
+  
+  
+
+
+
+
+
+
+
+
+<a href="/post/04_create-dummy-variables/"  class="mb-5">
   <div class="md:flex">
     <div class="md:flex-shrink-0 overflow-hidden">
       
@@ -790,7 +815,7 @@
 
 
 
-<a href="/post/chinese-character-in-ggplot/"  class="mb-5">
+<a href="/post/03_chinese-character-in-ggplot/"  class="mb-5">
   <div class="md:flex">
     <div class="md:flex-shrink-0 overflow-hidden">
       
@@ -815,7 +840,7 @@
 
 
 
-<a href="/post/recoding-values/"  class="mb-5">
+<a href="/post/02_recoding-values/"  class="mb-5">
   <div class="md:flex">
     <div class="md:flex-shrink-0 overflow-hidden">
       
@@ -839,7 +864,7 @@
 
 
 
-<a href="/post/composite-scores/"  class="mb-5">
+<a href="/post/01_composite-scores/"  class="mb-5">
   <div class="md:flex">
     <div class="md:flex-shrink-0 overflow-hidden">
       

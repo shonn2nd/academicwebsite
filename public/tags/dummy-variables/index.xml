@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dummy Variables | Hugo Academic CV Theme</title>
+    <title>Dummy Variables | Dr. Shonn Cheng</title>
     <link>http://localhost:4321/tags/dummy-variables/</link>
       <atom:link href="http://localhost:4321/tags/dummy-variables/index.xml" rel="self" type="application/rss+xml" />
     <description>Dummy Variables</description>
@@ -14,9 +14,9 @@
     
     <item>
       <title>Create Dummy Variables</title>
-      <link>http://localhost:4321/post/create-dummy-variables/</link>
+      <link>http://localhost:4321/post/04_create-dummy-variables/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/create-dummy-variables/</guid>
+      <guid>http://localhost:4321/post/04_create-dummy-variables/</guid>
       <description>&lt;h2 id=&#34;load-packages&#34;&gt;Load Packages&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fastDummies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;

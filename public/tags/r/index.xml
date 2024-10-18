@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R | Hugo Academic CV Theme</title>
+    <title>R | Dr. Shonn Cheng</title>
     <link>http://localhost:4321/tags/r/</link>
       <atom:link href="http://localhost:4321/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
@@ -13,40 +13,36 @@
     </image>
     
     <item>
-      <title>when reorder fails</title>
-      <link>http://localhost:4321/post/when-reorder-fails/</link>
+      <title>When `reorder` Fails</title>
+      <link>http://localhost:4321/post/06_when-reorder-fails/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/when-reorder-fails/</guid>
+      <guid>http://localhost:4321/post/06_when-reorder-fails/</guid>
       <description>&lt;p&gt;I am using the &lt;em&gt;mpg&lt;/em&gt; dataset included in the &lt;strong&gt;ggplot2&lt;/strong&gt; package.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#load packages
-library(tidyverse)
-library(tidytext)
-
-#view data
-glimpse(mpg)
-
-## Rows: 234
-## Columns: 11
-## $ manufacturer &amp;lt;chr&amp;gt; &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;…
-## $ model        &amp;lt;chr&amp;gt; &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4 quattro&amp;quot;, &amp;quot;…
-## $ displ        &amp;lt;dbl&amp;gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…
-## $ year         &amp;lt;int&amp;gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…
-## $ cyl          &amp;lt;int&amp;gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …
-## $ trans        &amp;lt;chr&amp;gt; &amp;quot;auto(l5)&amp;quot;, &amp;quot;manual(m5)&amp;quot;, &amp;quot;manual(m6)&amp;quot;, &amp;quot;auto(av)&amp;quot;, &amp;quot;auto…
-## $ drv          &amp;lt;chr&amp;gt; &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4…
-## $ cty          &amp;lt;int&amp;gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…
-## $ hwy          &amp;lt;int&amp;gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…
-## $ fl           &amp;lt;chr&amp;gt; &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p…
-## $ class        &amp;lt;chr&amp;gt; &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;c…
-
-mpg %&amp;gt;% 
-  group_by(trans) %&amp;gt;% 
-  count() %&amp;gt;% 
-  ungroup() %&amp;gt;% 
-  ggplot(mapping = aes(trans, n)) +
-  geom_bar(stat = &amp;quot;identity&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;c1&#34;&gt;#load packages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidytext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;#view data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## Rows: 234
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## Columns: 11
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ manufacturer &amp;lt;chr&amp;gt; &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ model        &amp;lt;chr&amp;gt; &amp;#34;a4&amp;#34;, &amp;#34;a4&amp;#34;, &amp;#34;a4&amp;#34;, &amp;#34;a4&amp;#34;, &amp;#34;a4&amp;#34;, &amp;#34;a4&amp;#34;, &amp;#34;a4&amp;#34;, &amp;#34;a4 quattro&amp;#34;, &amp;#34;…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ displ        &amp;lt;dbl&amp;gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ year         &amp;lt;int&amp;gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ cyl          &amp;lt;int&amp;gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ trans        &amp;lt;chr&amp;gt; &amp;#34;auto(l5)&amp;#34;, &amp;#34;manual(m5)&amp;#34;, &amp;#34;manual(m6)&amp;#34;, &amp;#34;auto(av)&amp;#34;, &amp;#34;auto…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ drv          &amp;lt;chr&amp;gt; &amp;#34;f&amp;#34;, &amp;#34;f&amp;#34;, &amp;#34;f&amp;#34;, &amp;#34;f&amp;#34;, &amp;#34;f&amp;#34;, &amp;#34;f&amp;#34;, &amp;#34;f&amp;#34;, &amp;#34;4&amp;#34;, &amp;#34;4&amp;#34;, &amp;#34;4&amp;#34;, &amp;#34;4&amp;#34;, &amp;#34;4…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ cty          &amp;lt;int&amp;gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ hwy          &amp;lt;int&amp;gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ fl           &amp;lt;chr&amp;gt; &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p&amp;#34;, &amp;#34;p…
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ class        &amp;lt;chr&amp;gt; &amp;#34;compact&amp;#34;, &amp;#34;compact&amp;#34;, &amp;#34;compact&amp;#34;, &amp;#34;compact&amp;#34;, &amp;#34;compact&amp;#34;, &amp;#34;c…
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;mpg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ungroup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ggplot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mapping&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;aes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;geom_bar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;identity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
 
 
 
@@ -65,10 +61,10 @@ mpg %&amp;gt;%
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp 400w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu1140811414921459347.webp 760w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu12990393163660237665.webp 1200w&#34;
-               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp&#34;
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp 400w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu1140811414921459347.webp 760w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu12990393163660237665.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -76,14 +72,13 @@ mpg %&amp;gt;%
 &lt;/p&gt;
 &lt;p&gt;This plot is ok, but how about arranging the order of trans by
 frequency? We can use reorder.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mpg %&amp;gt;% 
-  group_by(trans) %&amp;gt;% 
-  count() %&amp;gt;% 
-  ungroup() %&amp;gt;% 
-  ggplot(mapping = aes(reorder(trans, n), n)) +
-  geom_bar(stat = &amp;quot;identity&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;mpg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ungroup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ggplot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mapping&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;aes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;reorder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;geom_bar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;identity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
 
 
 
@@ -102,10 +97,10 @@ frequency? We can use reorder.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp 400w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu6956270366342954430.webp 760w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu15862624282157221998.webp 1200w&#34;
-               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp&#34;
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp 400w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu6956270366342954430.webp 760w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu15862624282157221998.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -113,15 +108,14 @@ frequency? We can use reorder.&lt;/p&gt;
 &lt;/p&gt;
 &lt;p&gt;Ok, this is what we want. Let’s work with a more complicated example. We
 want the distribution of trans varied by drv.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mpg %&amp;gt;% 
-  group_by(drv, trans) %&amp;gt;% 
-  count() %&amp;gt;% 
-  ungroup() %&amp;gt;% 
-  ggplot(mapping = aes(reorder(trans, n), n)) +
-  geom_bar(stat = &amp;quot;identity&amp;quot;) +
-  facet_wrap(~ drv, scale = &amp;quot;free&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;mpg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;drv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ungroup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ggplot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mapping&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;aes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;reorder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;geom_bar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;identity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;facet_wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;~&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;drv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;free&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
 
 
 
@@ -140,10 +134,10 @@ want the distribution of trans varied by drv.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp 400w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu5537248906016968025.webp 760w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu13279030754524013892.webp 1200w&#34;
-               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp&#34;
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp 400w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu5537248906016968025.webp 760w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu13279030754524013892.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -151,15 +145,14 @@ want the distribution of trans varied by drv.&lt;/p&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;code&gt;reorder&lt;/code&gt; doesn’t work well with a third-dimension variable. Use
 &lt;code&gt;reorder_within&lt;/code&gt; (in &lt;strong&gt;tidytext&lt;/strong&gt; package) instead&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mpg %&amp;gt;% 
-  group_by(drv, trans) %&amp;gt;% 
-  count() %&amp;gt;% 
-  ungroup() %&amp;gt;% 
-  ggplot(mapping = aes(reorder_within(trans, n, drv), n)) +
-  geom_bar(stat = &amp;quot;identity&amp;quot;) +
-  facet_wrap(~ drv, scale = &amp;quot;free&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;mpg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;drv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ungroup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;ggplot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mapping&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;aes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;reorder_within&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;drv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;geom_bar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;identity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nf&#34;&gt;facet_wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;~&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;drv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;free&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
 
 
 
@@ -178,10 +171,10 @@ want the distribution of trans varied by drv.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp 400w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu1439226806147717583.webp 760w,
-               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu11637763058269063829.webp 1200w&#34;
-               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp&#34;
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp 400w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu1439226806147717583.webp 760w,
+               /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu11637763058269063829.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -191,10 +184,103 @@ want the distribution of trans varied by drv.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Coefficient H</title>
+      <link>http://localhost:4321/post/05_coefficient-h/</link>
+      <pubDate>Mon, 08 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/05_coefficient-h/</guid>
+      <description>&lt;p&gt;Please check McNeish (
+) for details. Here, I am
+using the NSCH dataset as an example.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#load packages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;haven&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;userfriendlyscience&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#import data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;read_sav&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;nsch.sav&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#clear the current graphics frame and get ready for the next plot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;plot.new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/05_coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu17639282134801580047.webp 400w,
+               /post/05_coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu8405816962159996353.webp 760w,
+               /post/05_coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu9823723784159577194.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/05_coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu17639282134801580047.webp&#34;
+               width=&#34;672&#34;
+               height=&#34;480&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;!-- --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#the answer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;across&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RECOGBEGIN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLEAREXP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WRITENAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RECSHAPES&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;. &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RECOGBEGIN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLEAREXP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WRITENAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RECSHAPES&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;scaleStructure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;## 
+## Information about this analysis:
+## 
+##                  Dataframe: .
+##                      Items: all
+##               Observations: 11648
+##      Positive correlations: 6 out of 6 (100%)
+## 
+## Estimates assuming interval level:
+## 
+##              Omega (total): 0.71
+##       Omega (hierarchical): 0.72
+##    Revelle&#39;s omega (total): 0.75
+## Greatest Lower Bound (GLB): 0.73
+##              Coefficient H: 0.74
+##           Cronbach&#39;s alpha: 0.7
+## Confidence intervals:
+##              Omega (total): [0.71, 0.72]
+##           Cronbach&#39;s alpha: [0.69, 0.71]
+## 
+## Estimates assuming ordinal level:
+## 
+##      Ordinal Omega (total): 0.8
+##  Ordinal Omega (hierarch.): 0.8
+##   Ordinal Cronbach&#39;s alpha: 0.8
+## Confidence intervals:
+##      Ordinal Omega (total): [0.8, 0.81]
+##   Ordinal Cronbach&#39;s alpha: [0.8, 0.81]
+## 
+## Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp;amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp;amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;
+entry-spacing=&#34;0&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-mcneish2018&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;McNeish, D. (2018). Thanks coefficient alpha, we’ll take it from here.
+&lt;em&gt;Psychological Methods&lt;/em&gt;, &lt;em&gt;23&lt;/em&gt;(3), 412–433.
+
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Create Dummy Variables</title>
-      <link>http://localhost:4321/post/create-dummy-variables/</link>
+      <link>http://localhost:4321/post/04_create-dummy-variables/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/create-dummy-variables/</guid>
+      <guid>http://localhost:4321/post/04_create-dummy-variables/</guid>
       <description>&lt;h2 id=&#34;load-packages&#34;&gt;Load Packages&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fastDummies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -256,9 +342,9 @@ want the distribution of trans varied by drv.&lt;/p&gt;
     
     <item>
       <title>How to Display Chinese Characters in ggplot2</title>
-      <link>http://localhost:4321/post/chinese-character-in-ggplot/</link>
+      <link>http://localhost:4321/post/03_chinese-character-in-ggplot/</link>
       <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/chinese-character-in-ggplot/</guid>
+      <guid>http://localhost:4321/post/03_chinese-character-in-ggplot/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In this post, I am going to demonstrate how to display Chinese characters in &lt;code&gt;ggplot2&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#loading necessary packages&lt;/span&gt;
@@ -288,10 +374,10 @@ want the distribution of trans varied by drv.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp 400w,
-               /post/chinese-character-in-ggplot/images/wang_hu1259382287652598984.webp 760w,
-               /post/chinese-character-in-ggplot/images/wang_hu10832729648128960289.webp 1200w&#34;
-               src=&#34;http://localhost:4321/post/chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp&#34;
+               /post/03_chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp 400w,
+               /post/03_chinese-character-in-ggplot/images/wang_hu1259382287652598984.webp 760w,
+               /post/03_chinese-character-in-ggplot/images/wang_hu10832729648128960289.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/03_chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp&#34;
                width=&#34;760&#34;
                height=&#34;374&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -361,7 +447,35 @@ want the distribution of trans varied by drv.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;geom_col&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;labs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;labs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Frequency&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;}}index_files/figure-html/unnamed-chunk-6-1.png&amp;quot; width=&amp;ldquo;672&amp;rdquo; /&amp;gt; This is not ideal. Our plot is not able to display Chinese characters. We need &lt;code&gt;showtext_auto()&lt;/code&gt; in &lt;code&gt;showtext&lt;/code&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu8547257808305059531.webp 400w,
+               /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu3412606853606006347.webp 760w,
+               /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu11110478410718567459.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu8547257808305059531.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;543&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This is not ideal. Our plot is not able to display Chinese characters. We need &lt;code&gt;showtext_auto()&lt;/code&gt; in &lt;code&gt;showtext&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#load showtext&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;showtext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -377,16 +491,43 @@ want the distribution of trans varied by drv.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;geom_col&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;labs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;labs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Frequency&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;}}index_files/figure-html/unnamed-chunk-7-1.png&amp;quot; width=&amp;ldquo;672&amp;rdquo; /&amp;gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu10957403112894761927.webp 400w,
+               /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu2006000322117652611.webp 760w,
+               /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu10268229641893216208.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu10957403112894761927.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;543&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
 &lt;p&gt;Bingo!!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Re-coding Values</title>
-      <link>http://localhost:4321/post/recoding-values/</link>
+      <link>http://localhost:4321/post/02_recoding-values/</link>
       <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/recoding-values/</guid>
+      <guid>http://localhost:4321/post/02_recoding-values/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Recoding values is one of the most common tasks a researcher needs to do before data analysis. For me, often I need to prepare my data in R first before using it for advanced statistical analyses in M&lt;em&gt;plus&lt;/em&gt;. In this case, it is important to recode missing values to a specific extreme value (e.g., -999) since it will be more efficient for M&lt;em&gt;plus&lt;/em&gt; to recognize and handle missing values. In this post, I will demonstrate &lt;strong&gt;a way&lt;/strong&gt; (Oh yeah! This is the beauty of R： All roads lead to Rome.) to handle the recording task using &lt;code&gt;case_when&lt;/code&gt; function in Tidyverse. There are different ways to get this job done, but I feel that &lt;code&gt;case_when&lt;/code&gt; makes the most sense to me. Let&amp;rsquo;s get started.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#load required packages&lt;/span&gt;
@@ -529,9 +670,9 @@ want the distribution of trans varied by drv.&lt;/p&gt;
     
     <item>
       <title>Computing Composite Scores (Mean)</title>
-      <link>http://localhost:4321/post/composite-scores/</link>
+      <link>http://localhost:4321/post/01_composite-scores/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/composite-scores/</guid>
+      <guid>http://localhost:4321/post/01_composite-scores/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this post, I am going to demonstrate how to compute composite scores or means aggregated over multiple items. There are &lt;strong&gt;at least&lt;/strong&gt; two approaches to achieve the goal.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s load necessary packages first.&lt;/p&gt;

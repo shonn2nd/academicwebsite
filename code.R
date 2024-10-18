@@ -4,7 +4,7 @@ blogdown::build_site()
 
 
 #this will help you sucessfully convert rmd to md files
----
+#---
   title: "test"
 date: "2024-10-18"
 output:
@@ -16,5 +16,5 @@ authors:
 tags: [R, dummy variables]
 categories: 
   - R
----
+#---
   
