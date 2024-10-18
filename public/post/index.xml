@@ -579,7 +579,7 @@ entry-spacing=&#34;0&#34; line-spacing=&#34;2&#34;&gt;
 
 
 
-&lt;div id=&#34;chart-642871395&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-351947628&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -597,7 +597,7 @@ entry-spacing=&#34;0&#34; line-spacing=&#34;2&#34;&gt;
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-642871395&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-351947628&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1373,6 +1373,75 @@ Parallel 4   :         des6, after des4, 1d
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 2  2   3   2   3 2.666667
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 3  3   4   5  NA 4.500000
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We have the identical results here. Using the full information approach &lt;code&gt;na.rm=T&lt;/code&gt;, for person 1, the mean is 1 ((1+1)/2) despite a missing value for item 2.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>http://localhost:4321/post/07_test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/07_test/</guid>
+      <description>&lt;h2 id=&#34;r-markdown&#34;&gt;R Markdown&lt;/h2&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see 
+.&lt;/p&gt;
+&lt;p&gt;When you click the &lt;strong&gt;Knit&lt;/strong&gt; button a document will be generated that
+includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&amp;lt;http://conflicted.r-lib.org/&amp;gt;) to force all conflicts to become errors
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;summary&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cars&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;including-plots&#34;&gt;Including Plots&lt;/h2&gt;
+&lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/07_test/index_files/figure-gfm/pressure-1_hu14082208042073440243.webp 400w,
+               /post/07_test/index_files/figure-gfm/pressure-1_hu7380362371133289810.webp 760w,
+               /post/07_test/index_files/figure-gfm/pressure-1_hu221982588013341155.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/07_test/index_files/figure-gfm/pressure-1_hu14082208042073440243.webp&#34;
+               width=&#34;672&#34;
+               height=&#34;480&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to
+prevent printing of the R code that generated the plot.&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,25 @@
+---
+title: "test"
+authors: 
+  - admin
+tags: [R, dummy variables]
+categories: 
+  - R
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+    toc: false
+    toc_depth: 2
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,      # Show R code in the output
+  results = "markup",  # Ensure that the results are rendered as markdown
+  message = TRUE,   # Hide messages from R
+  warning = FALSE,   # Hide warnings from R
+  highlight = TRUE   # Ensure that code is highlighted
+)
+```
