@@ -1,13 +1,13 @@
 ---
 # Display name
-title: 吳健雄
+title: Shonn Cheng
 
 # Name pronunciation (optional)
-name_pronunciation: Chien Shiung Wu
+name_pronunciation:
 
 # Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
+first_name: Shonn
+last_name: Cheng
 
 # Status emoji
 status:
@@ -20,40 +20,39 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Chief Scientist
+role: Assistant Professor
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: OpenAI
-    url: https://openai.com/
+  - name: National Taipei University of Technology
+    url: https://www-en.ntut.edu.tw/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:scheng@ntut.edu.tw'
     label: E-mail Me
   - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
+    url: https://twitter.com/shonn2nd
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/shonn2nd
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://www.linkedin.com/in/shonnslc/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/
+    url: https://scholar.google.com/citations?user=A_y6nEsAAAAJ&hl=en&oi=ao
   - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://orcid.org/0000-0003-2993-2031
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Motivation
+  - Expertise
+  - Training with Technology
+  - Analysis
 
 education:
-  - area: PhD Artificial Intelligence
-    institution: Stanford University
+  - area: PhD Educational Studies
+    institution: The Ohio State University
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
@@ -61,8 +60,8 @@ education:
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - area: MA Educational Studies
+    institution: The Ohio State University
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
@@ -72,8 +71,10 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - area: MA Education
+    institution: New Mexico State University
+  - area: BA English
+    institution: Wenzao Ursuline University of Languages
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
@@ -83,6 +84,10 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+  - area: AMS Business Administration
+    institution: National Taipei University of Business
+
 work:
   - position: Director of Cloud Infrastructure
     company_name: GenCoin
@@ -183,4 +188,4 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Dr. Shonn Cheng received his Ph.D. in Educational Studies at The Ohio State University (USA) in summer 2019. Thereafter, he pursued one-year postdoctoral training at Virginia Commonwealth University (USA). During 2020-2022, he worked as an Assistant Professor in the Department of Instructional Systems Design and Technology at Sam Houston State University (USA). Currently, Dr. Cheng is an Assistant Professor in the [Graduate Institute of Technological and Vocational Education](https://wwwtve.ntut.edu.tw/index.php?Lang=en) at National Taipei University of Technology (Taiwan) and the Director of the [META](https://135201.netlify.app/) Lab.
