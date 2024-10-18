@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R | Hugo Academic CV Theme</title>
-    <link>https://shonnslc.com/tags/r/</link>
-      <atom:link href="https://shonnslc.com/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/r/</link>
+      <atom:link href="http://localhost:4321/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 13 Jul 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://shonnslc.com/media/icon_hu7729264130191091259.png</url>
+      <url>http://localhost:4321/media/icon_hu7729264130191091259.png</url>
       <title>R</title>
-      <link>https://shonnslc.com/tags/r/</link>
+      <link>http://localhost:4321/tags/r/</link>
     </image>
     
     <item>
-      <title>When reorder Fails</title>
-      <link>https://shonnslc.com/post/when-reorder-fails/</link>
+      <title>when reorder fails</title>
+      <link>http://localhost:4321/post/when-reorder-fails/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/when-reorder-fails/</guid>
+      <guid>http://localhost:4321/post/when-reorder-fails/</guid>
       <description>&lt;p&gt;I am using the &lt;em&gt;mpg&lt;/em&gt; dataset included in the &lt;strong&gt;ggplot2&lt;/strong&gt; package.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#load packages
 library(tidyverse)
@@ -68,7 +68,7 @@ mpg %&amp;gt;%
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp 400w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu1140811414921459347.webp 760w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu12990393163660237665.webp 1200w&#34;
-               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp&#34;
+               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -105,7 +105,7 @@ frequency? We can use reorder.&lt;/p&gt;
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp 400w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu6956270366342954430.webp 760w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu15862624282157221998.webp 1200w&#34;
-               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp&#34;
+               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -143,7 +143,7 @@ want the distribution of trans varied by drv.&lt;/p&gt;
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp 400w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu5537248906016968025.webp 760w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu13279030754524013892.webp 1200w&#34;
-               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp&#34;
+               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -181,135 +181,41 @@ want the distribution of trans varied by drv.&lt;/p&gt;
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp 400w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu1439226806147717583.webp 760w,
                /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu11637763058269063829.webp 1200w&#34;
-               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp&#34;
+               src=&#34;http://localhost:4321/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Coefficient H</title>
-      <link>https://shonnslc.com/post/coefficient-h/</link>
-      <pubDate>Tue, 09 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/coefficient-h/</guid>
-      <description>&lt;p&gt;Please check McNeish (
-) for details. Here, I am
-using the NSCH dataset as an example.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#load packages
-library(haven)
-library(tidyverse)
-library(userfriendlyscience)
-
-#import data
-data&amp;lt;-read_sav(&amp;quot;nsch.sav&amp;quot;)
-
-#clear the current graphics frame and get ready for the next plot
-plot.new()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu17639282134801580047.webp 400w,
-               /post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu8405816962159996353.webp 760w,
-               /post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu9823723784159577194.webp 1200w&#34;
-               src=&#34;https://shonnslc.com/post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu17639282134801580047.webp&#34;
-               width=&#34;672&#34;
-               height=&#34;480&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#the answer
-data %&amp;gt;% 
-  filter(across(c(RECOGBEGIN, CLEAREXP, WRITENAME, RECSHAPES), ~ . &amp;lt; 6)) %&amp;gt;% 
-  select(RECOGBEGIN, CLEAREXP, WRITENAME, RECSHAPES) %&amp;gt;% 
-  scaleStructure()
-
-## 
-## Information about this analysis:
-## 
-##                  Dataframe: .
-##                      Items: all
-##               Observations: 11648
-##      Positive correlations: 6 out of 6 (100%)
-## 
-## Estimates assuming interval level:
-## 
-##              Omega (total): 0.71
-##       Omega (hierarchical): 0.72
-##    Revelle&#39;s omega (total): 0.75
-## Greatest Lower Bound (GLB): 0.73
-##              Coefficient H: 0.74
-##           Cronbach&#39;s alpha: 0.7
-## Confidence intervals:
-##              Omega (total): [0.71, 0.72]
-##           Cronbach&#39;s alpha: [0.69, 0.71]
-## 
-## Estimates assuming ordinal level:
-## 
-##      Ordinal Omega (total): 0.8
-##  Ordinal Omega (hierarch.): 0.8
-##   Ordinal Cronbach&#39;s alpha: 0.8
-## Confidence intervals:
-##      Ordinal Omega (total): [0.8, 0.81]
-##   Ordinal Cronbach&#39;s alpha: [0.8, 0.81]
-## 
-## Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp;amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp;amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;McNeish, D. (2018). Thanks coefficient alpha, we’ll take it from here.
-&lt;em&gt;Psychological Methods&lt;/em&gt;, &lt;em&gt;23&lt;/em&gt;(3), 412–433.
-
 &lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Create Dummy Variables</title>
-      <link>https://shonnslc.com/post/create-dummy-variables/</link>
+      <link>http://localhost:4321/post/create-dummy-variables/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/create-dummy-variables/</guid>
+      <guid>http://localhost:4321/post/create-dummy-variables/</guid>
       <description>&lt;h2 id=&#34;load-packages&#34;&gt;Load Packages&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;library(fastDummies)
-library(tidyverse)
-library(psych)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;create-a-dataset&#34;&gt;Create a DataSet&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;# Create a vector of race scores
-race &amp;lt;- c(&amp;quot;White&amp;quot;, &amp;quot;Black&amp;quot;, &amp;quot;Asian&amp;quot;, &amp;quot;Hispanic&amp;quot;, &amp;quot;Other&amp;quot;)
-
-# Generate random income values for each race (100 cases)
-set.seed(123) # for reproducibility
-income &amp;lt;- round(runif(100, min = 20000, max = 100000), digits = 2)
-
-# Repeat each race 20 times to get 100 cases
-race &amp;lt;- rep(race, each = 20)
-
-# Combine race and income into a data frame
-data &amp;lt;- data.frame(race, income)
-
-# Print the first few rows of the dataset
-print(head(data))
-
-##    race   income
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fastDummies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;psych&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-a-dataset&#34;&gt;Create a DataSet&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Create a vector of race scores&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;race&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;White&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Black&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Asian&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hispanic&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Other&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Generate random income values for each race (100 cases)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;set.seed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# for reproducibility&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;income&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;round&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;runif&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;min&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;20000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;100000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;digits&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Repeat each race 20 times to get 100 cases&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;race&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;rep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;race&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;each&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Combine race and income into a data frame&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;data.frame&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;race&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;income&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Print the first few rows of the dataset&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;##    race   income
 ## 1 White 43006.20
 ## 2 White 83064.41
 ## 3 White 52718.15
@@ -318,13 +224,11 @@ print(head(data))
 ## 6 White 23644.52
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;create-dummy-variables&#34;&gt;Create Dummy Variables&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;data&amp;lt;-data %&amp;gt;% dummy_cols(select_columns = &amp;quot;race&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;regress-income-on-race-african-americans-as-the-reference-category&#34;&gt;Regress Income on Race (African Americans as the Reference Category)&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;fit&amp;lt;-lm(income ~ race_Asian + race_Hispanic + race_Other + race_White, data=data)
-summary(fit)
-
-## 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;dummy_cols&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;select_columns&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;race&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;regress-income-on-race-african-americans-as-the-reference-category&#34;&gt;Regress Income on Race (African Americans as the Reference Category)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;fit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;lm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;income&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;race_Asian&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;race_Hispanic&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;race_Other&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;race_White&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;summary&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;## 
 ## Call:
 ## lm(formula = income ~ race_Asian + race_Hispanic + race_Other + 
 ##     race_White, data = data)
@@ -352,9 +256,9 @@ summary(fit)
     
     <item>
       <title>How to Display Chinese Characters in ggplot2</title>
-      <link>https://shonnslc.com/post/chinese-character-in-ggplot/</link>
+      <link>http://localhost:4321/post/chinese-character-in-ggplot/</link>
       <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/chinese-character-in-ggplot/</guid>
+      <guid>http://localhost:4321/post/chinese-character-in-ggplot/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In this post, I am going to demonstrate how to display Chinese characters in &lt;code&gt;ggplot2&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#loading necessary packages&lt;/span&gt;
@@ -387,7 +291,7 @@ summary(fit)
                /post/chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp 400w,
                /post/chinese-character-in-ggplot/images/wang_hu1259382287652598984.webp 760w,
                /post/chinese-character-in-ggplot/images/wang_hu10832729648128960289.webp 1200w&#34;
-               src=&#34;https://shonnslc.com/post/chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp&#34;
+               src=&#34;http://localhost:4321/post/chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp&#34;
                width=&#34;760&#34;
                height=&#34;374&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -480,9 +384,9 @@ summary(fit)
     
     <item>
       <title>Re-coding Values</title>
-      <link>https://shonnslc.com/post/recoding-values/</link>
+      <link>http://localhost:4321/post/recoding-values/</link>
       <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/recoding-values/</guid>
+      <guid>http://localhost:4321/post/recoding-values/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Recoding values is one of the most common tasks a researcher needs to do before data analysis. For me, often I need to prepare my data in R first before using it for advanced statistical analyses in M&lt;em&gt;plus&lt;/em&gt;. In this case, it is important to recode missing values to a specific extreme value (e.g., -999) since it will be more efficient for M&lt;em&gt;plus&lt;/em&gt; to recognize and handle missing values. In this post, I will demonstrate &lt;strong&gt;a way&lt;/strong&gt; (Oh yeah! This is the beauty of R： All roads lead to Rome.) to handle the recording task using &lt;code&gt;case_when&lt;/code&gt; function in Tidyverse. There are different ways to get this job done, but I feel that &lt;code&gt;case_when&lt;/code&gt; makes the most sense to me. Let&amp;rsquo;s get started.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#load required packages&lt;/span&gt;
@@ -625,9 +529,9 @@ summary(fit)
     
     <item>
       <title>Computing Composite Scores (Mean)</title>
-      <link>https://shonnslc.com/post/composite-scores/</link>
+      <link>http://localhost:4321/post/composite-scores/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/composite-scores/</guid>
+      <guid>http://localhost:4321/post/composite-scores/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this post, I am going to demonstrate how to compute composite scores or means aggregated over multiple items. There are &lt;strong&gt;at least&lt;/strong&gt; two approaches to achieve the goal.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s load necessary packages first.&lt;/p&gt;

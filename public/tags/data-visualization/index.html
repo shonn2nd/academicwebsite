@@ -241,7 +241,6 @@
   
   
   
-  
     
       
       
@@ -261,7 +260,6 @@
         
       
     
-  
   
   
   
@@ -749,7 +747,7 @@
       
     </div>
     <div class="p-8">
-      <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">When reorder Fails</div>
+      <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">when reorder fails</div>
       <p class="block mt-1 text-sm leading-tight font-medium text-black dark:text-white">
         I am using the mpg dataset included in the ggplot2 package.
 #load packages library(tidyverse) library(tidytext) #view data glimpse(mpg) ## Rows: 234 ## Columns: 11 ## $ manufacturer &lt;chr&gt; &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;audi&#34;, &#34;… ## $ model &lt;chr&gt; &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4&#34;, &#34;a4 quattro&#34;, &#34;… ## $ displ &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.… ## $ year &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200… ## $ cyl &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, … ## $ trans &lt;chr&gt; &#34;auto(l5)&#34;, &#34;manual(m5)&#34;, &#34;manual(m6)&#34;, &#34;auto(av)&#34;, &#34;auto… ## $ drv &lt;chr&gt; &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;f&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4&#34;, &#34;4… ## $ cty &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1… ## $ hwy &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2… ## $ fl &lt;chr&gt; &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p&#34;, &#34;p… ## $ class &lt;chr&gt; &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;compact&#34;, &#34;c… mpg %&gt;% group_by(trans) %&gt;% count() %&gt;% ungroup() %&gt;% ggplot(mapping = aes(trans, n)) &#43; geom_bar(stat = &#34;identity&#34;) </p>

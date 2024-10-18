@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Wrangling | Hugo Academic CV Theme</title>
-    <link>https://shonnslc.com/tags/data-wrangling/</link>
-      <atom:link href="https://shonnslc.com/tags/data-wrangling/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/data-wrangling/</link>
+      <atom:link href="http://localhost:4321/tags/data-wrangling/index.xml" rel="self" type="application/rss+xml" />
     <description>Data Wrangling</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 26 Aug 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://shonnslc.com/media/icon_hu7729264130191091259.png</url>
+      <url>http://localhost:4321/media/icon_hu7729264130191091259.png</url>
       <title>Data Wrangling</title>
-      <link>https://shonnslc.com/tags/data-wrangling/</link>
+      <link>http://localhost:4321/tags/data-wrangling/</link>
     </image>
     
     <item>
       <title>Re-coding Values</title>
-      <link>https://shonnslc.com/post/recoding-values/</link>
+      <link>http://localhost:4321/post/recoding-values/</link>
       <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/recoding-values/</guid>
+      <guid>http://localhost:4321/post/recoding-values/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Recoding values is one of the most common tasks a researcher needs to do before data analysis. For me, often I need to prepare my data in R first before using it for advanced statistical analyses in M&lt;em&gt;plus&lt;/em&gt;. In this case, it is important to recode missing values to a specific extreme value (e.g., -999) since it will be more efficient for M&lt;em&gt;plus&lt;/em&gt; to recognize and handle missing values. In this post, I will demonstrate &lt;strong&gt;a way&lt;/strong&gt; (Oh yeah! This is the beauty of R： All roads lead to Rome.) to handle the recording task using &lt;code&gt;case_when&lt;/code&gt; function in Tidyverse. There are different ways to get this job done, but I feel that &lt;code&gt;case_when&lt;/code&gt; makes the most sense to me. Let&amp;rsquo;s get started.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#load required packages&lt;/span&gt;

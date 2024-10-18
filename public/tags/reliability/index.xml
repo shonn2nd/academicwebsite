@@ -2,36 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reliability | Hugo Academic CV Theme</title>
-    <link>https://shonnslc.com/tags/reliability/</link>
-      <atom:link href="https://shonnslc.com/tags/reliability/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/reliability/</link>
+      <atom:link href="http://localhost:4321/tags/reliability/index.xml" rel="self" type="application/rss+xml" />
     <description>Reliability</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 09 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 08 Apr 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://shonnslc.com/media/icon_hu7729264130191091259.png</url>
+      <url>http://localhost:4321/media/icon_hu7729264130191091259.png</url>
       <title>Reliability</title>
-      <link>https://shonnslc.com/tags/reliability/</link>
+      <link>http://localhost:4321/tags/reliability/</link>
     </image>
     
     <item>
       <title>Coefficient H</title>
-      <link>https://shonnslc.com/post/coefficient-h/</link>
-      <pubDate>Tue, 09 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://shonnslc.com/post/coefficient-h/</guid>
+      <link>http://localhost:4321/post/coefficient-h/</link>
+      <pubDate>Mon, 08 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/coefficient-h/</guid>
       <description>&lt;p&gt;Please check McNeish (
 ) for details. Here, I am
 using the NSCH dataset as an example.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#load packages
-library(haven)
-library(tidyverse)
-library(userfriendlyscience)
-
-#import data
-data&amp;lt;-read_sav(&amp;quot;nsch.sav&amp;quot;)
-
-#clear the current graphics frame and get ready for the next plot
-plot.new()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#load packages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;haven&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;userfriendlyscience&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#import data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;read_sav&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;nsch.sav&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#clear the current graphics frame and get ready for the next plot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;plot.new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
 
 
 
@@ -50,22 +47,21 @@ plot.new()
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu17639282134801580047.webp 400w,
-               /post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu8405816962159996353.webp 760w,
-               /post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu9823723784159577194.webp 1200w&#34;
-               src=&#34;https://shonnslc.com/post/coefficient-h/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu17639282134801580047.webp&#34;
+               /post/coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu17639282134801580047.webp 400w,
+               /post/coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu8405816962159996353.webp 760w,
+               /post/coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu9823723784159577194.webp 1200w&#34;
+               src=&#34;http://localhost:4321/post/coefficient-h/index_files/figure-gfm/unnamed-chunk-3-1_hu17639282134801580047.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#the answer
-data %&amp;gt;% 
-  filter(across(c(RECOGBEGIN, CLEAREXP, WRITENAME, RECSHAPES), ~ . &amp;lt; 6)) %&amp;gt;% 
-  select(RECOGBEGIN, CLEAREXP, WRITENAME, RECSHAPES) %&amp;gt;% 
-  scaleStructure()
-
-## 
+&lt;!-- --&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#the answer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;across&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RECOGBEGIN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLEAREXP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WRITENAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RECSHAPES&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;. &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RECOGBEGIN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLEAREXP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WRITENAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RECSHAPES&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;scaleStructure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;## 
 ## Information about this analysis:
 ## 
 ##                  Dataframe: .
@@ -97,10 +93,15 @@ data %&amp;gt;%
 ## Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp;amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp;amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;
+entry-spacing=&#34;0&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-mcneish2018&#34; class=&#34;csl-entry&#34;&gt;
 &lt;p&gt;McNeish, D. (2018). Thanks coefficient alpha, we’ll take it from here.
 &lt;em&gt;Psychological Methods&lt;/em&gt;, &lt;em&gt;23&lt;/em&gt;(3), 412–433.
 
 &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
