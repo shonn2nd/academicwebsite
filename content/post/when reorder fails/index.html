@@ -1,0 +1,63 @@
+---
+title: "when reorder fails"
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+date: "2024-07-13"
+---
+
+
+
+<p>I am using the <em>mpg</em> dataset included in the <strong>ggplot2</strong> package.</p>
+<pre class="r"><code>#load packages
+library(tidyverse)
+library(tidytext)</code></pre>
+<pre class="r"><code>#view data
+glimpse(mpg)</code></pre>
+<pre><code>## Rows: 234
+## Columns: 11
+## $ manufacturer &lt;chr&gt; &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;…
+## $ model        &lt;chr&gt; &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4 quattro&quot;, &quot;…
+## $ displ        &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…
+## $ year         &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…
+## $ cyl          &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …
+## $ trans        &lt;chr&gt; &quot;auto(l5)&quot;, &quot;manual(m5)&quot;, &quot;manual(m6)&quot;, &quot;auto(av)&quot;, &quot;auto…
+## $ drv          &lt;chr&gt; &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;4&quot;, &quot;4&quot;, &quot;4&quot;, &quot;4&quot;, &quot;4…
+## $ cty          &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…
+## $ hwy          &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…
+## $ fl           &lt;chr&gt; &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p…
+## $ class        &lt;chr&gt; &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;c…</code></pre>
+<pre class="r"><code>mpg %&gt;% 
+  group_by(trans) %&gt;% 
+  count() %&gt;% 
+  ungroup() %&gt;% 
+  ggplot(mapping = aes(trans, n)) +
+  geom_bar(stat = &quot;identity&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>This plot is ok, but how about arranging the order of trans by frequency? We can use reorder.</p>
+<pre class="r"><code>mpg %&gt;% 
+  group_by(trans) %&gt;% 
+  count() %&gt;% 
+  ungroup() %&gt;% 
+  ggplot(mapping = aes(reorder(trans, n), n)) +
+  geom_bar(stat = &quot;identity&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Ok, this is what we want. Let’s work with a more complicated example. We want the distribution of trans varied by drv.</p>
+<pre class="r"><code>mpg %&gt;% 
+  group_by(drv, trans) %&gt;% 
+  count() %&gt;% 
+  ungroup() %&gt;% 
+  ggplot(mapping = aes(reorder(trans, n), n)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  facet_wrap(~ drv, scale = &quot;free&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><code>reorder</code> doesn’t work well with a third-dimension variable. Use <code>reorder_within</code> (in <strong>tidytext</strong> package) instead</p>
+<pre class="r"><code>mpg %&gt;% 
+  group_by(drv, trans) %&gt;% 
+  count() %&gt;% 
+  ungroup() %&gt;% 
+  ggplot(mapping = aes(reorder_within(trans, n, drv), n)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  facet_wrap(~ drv, scale = &quot;free&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>

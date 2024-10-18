@@ -1,0 +1,1674 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: October 18, 2024 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.2.0" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Shonn Cheng" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Introduction
+In this post, I am going to demonstrate how to display Chinese characters in ggplot2
+#loading necessary packages
+library(rvest)
+library(xml2)
+library(tidyverse)
+library(tidytext)
+library(knitr)
+Let&rsquo;s get our text data by scraping Chien-Ming Wang&rsquo;s page on Wikipedia. I will not explain the process of web scraping in this post (but will do this in another post). The focus is on displaying Chinese character in ggplot2." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:4321/post/chinese-character-in-ggplot/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu3247630877640252165.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu4166356570829923896.png" />
+
+  <link rel="canonical" href="http://localhost:4321/post/chinese-character-in-ggplot/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@GetResearchDev" />
+    <meta property="twitter:creator" content="@GetResearchDev" />
+  
+  <meta property="og:site_name" content="Hugo Academic CV Theme" />
+  <meta property="og:url" content="http://localhost:4321/post/chinese-character-in-ggplot/" />
+  <meta property="og:title" content="How to Display Chinese Characters in ggplot2 | Hugo Academic CV Theme" />
+  <meta property="og:description" content="Introduction
+In this post, I am going to demonstrate how to display Chinese characters in ggplot2
+#loading necessary packages
+library(rvest)
+library(xml2)
+library(tidyverse)
+library(tidytext)
+library(knitr)
+Let&rsquo;s get our text data by scraping Chien-Ming Wang&rsquo;s page on Wikipedia. I will not explain the process of web scraping in this post (but will do this in another post). The focus is on displaying Chinese character in ggplot2." /><meta property="og:image" content="http://localhost:4321/media/icon_hu7729264130191091259.png" />
+    <meta property="twitter:image" content="http://localhost:4321/media/icon_hu7729264130191091259.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-09-10T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-09-10T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  <title>How to Display Chinese Characters in ggplot2 | Hugo Academic CV Theme</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let element = document.getElementById('search');
+    let trigger = document.getElementById('search_toggle');
+
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        element.classList.toggle('hidden');
+        element.querySelector("input").value = ""
+        element.querySelector("input").focus()
+
+        if (!element.classList.contains('hidden')) {
+          let clear_trigger = document.querySelector('.pagefind-ui__search-clear');
+
+          if (clear_trigger && !clear_trigger.hasAttribute('listenerOnClick')) {
+            clear_trigger.setAttribute('listenerOnClick', 'true');
+
+            clear_trigger.addEventListener('click', () => {
+              element.classList.toggle('hidden');
+            });
+          }
+        }
+
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.js"
+    integrity=""
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+      
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+    
+  
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="Hugo Academic CV Theme">
+        Dr. Shonn Cheng
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Bio</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#publication"
+        >Publications</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#post"
+        >Blog</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+      <button
+        aria-label="search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        id="search_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+      </button>
+      
+
+      
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+
+<div id="search" class="hidden p-3"></div>
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      
+
+
+
+
+
+<div class="mx-auto flex max-w-screen-xl">
+  
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:hidden xl:block">
+  
+  <div class="px-4 pt-4 lg:hidden">
+    
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/"
+    
+  >Recent &amp; Upcoming Talks
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/example/"
+    
+  >Example Talk
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Blog
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/test/"
+    
+  >test
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/when-reorder-fails/"
+    
+  >when reorder fails
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/coefficient-h/"
+    
+  >Coefficient H
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/create-dummy-variables/"
+    
+  >Create Dummy Variables
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/get-started/"
+    
+  >🎉 Easily create your own simple yet highly customizable blog
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/second-brain/"
+    
+  >🧠 Sharpen your thinking with a second brain
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/data-visualization/"
+    
+  >📈 Communicate your results effectively with the best data visualizations
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/teach-courses/"
+    
+  >👩🏼‍🏫 Teach academic courses
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/project-management/"
+    
+  >✅ Manage your projects
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/post/chinese-character-in-ggplot/"
+    
+  >How to Display Chinese Characters in ggplot2
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"></ul>
+  
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/recoding-values/"
+    
+  >Re-coding Values
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/composite-scores/"
+    
+  >Computing Composite Scores (Mean)
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/projects/"
+    
+  >Projects
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/pandas/"
+    
+  >Pandas
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/pytorch/"
+    
+  >PyTorch
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/scikit/"
+    
+  >scikit-learn
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/experience/"
+    
+  >Experience
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/"
+    
+  >Teaching
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/js/"
+    
+  >Learn JavaScript
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/python/"
+    
+  >Learn Python
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/"
+    
+  >Recent Publications
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/preprint/"
+    
+  >An example preprint / working paper
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/journal-article/"
+    
+  >An example journal article
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/conference-paper/"
+    
+  >An example conference paper
+    </a>
+              
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <div class="max-xl:hidden h-0 w-64 shrink-0"></div></div>
+
+</aside>
+  
+
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul></ul>
+
+  
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+
+      
+
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">How to Display Chinese Characters in ggplot2</h1>
+
+      <div class="mt-4 mb-16">
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2"><span class="mr-1">Sep 10, 2021</span><span class="mx-1">·</span>
+        
+          
+          
+          <div class="group inline-flex items-center text-current gap-x-1.5 mx-1">
+            
+            
+            <img src="/author/shonn-cheng/avatar_hu2322715387666406889.webp" alt="Shonn Cheng" class="inline-block h-4 w-4 rounded-full border border-current" loading="lazy" />
+            
+            <div >Shonn Cheng</div>
+          </div>
+          
+        
+
+        
+        <span class="mx-1">·</span>
+        <span class="mx-1">
+          3 min read
+        </span>
+        
+        </div>
+
+        <div class="mt-3">
+          
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+      
+      
+      
+
+      
+      
+
+      <div class="prose prose-slate lg:prose-xl dark:prose-invert">
+        <h1 id="introduction">Introduction</h1>
+<p>In this post, I am going to demonstrate how to display Chinese characters in <code>ggplot2</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#loading necessary packages</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rvest</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">xml2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidytext</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">knitr</span><span class="p">)</span>
+</span></span></code></pre></div><p>Let&rsquo;s get our text data by scraping <a href="https://zh.wikipedia.org/wiki/%E7%8E%8B%E5%BB%BA%E6%B0%91_%28%E6%A3%92%E7%90%83%E5%93%A1%29" target="_blank" rel="noopener">Chien-Ming Wang</a>&rsquo;s page on Wikipedia. I will not explain the process of web scraping in this post (but will do this in another post). The focus is on displaying Chinese character in <code>ggplot2</code>.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="" srcset="
+               /post/chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp 400w,
+               /post/chinese-character-in-ggplot/images/wang_hu1259382287652598984.webp 760w,
+               /post/chinese-character-in-ggplot/images/wang_hu10832729648128960289.webp 1200w"
+               src="/post/chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp"
+               width="760"
+               height="374"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Web scraping part starts here:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#get access to Wang&#39;s wiki page</span>
+</span></span><span class="line"><span class="cl"><span class="n">wang</span> <span class="o">&lt;-</span> <span class="s">&#34;https://zh.wikipedia.org/wiki/%E7%8E%8B%E5%BB%BA%E6%B0%91_(%E6%A3%92%E7%90%83%E5%93%A1)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#read HTML and capture the HTML code</span>
+</span></span><span class="line"><span class="cl"><span class="n">wanghtml</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">wang</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#display our HTML object</span>
+</span></span><span class="line"><span class="cl"><span class="n">wanghtml</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## {html_document}
+</span></span><span class="line"><span class="cl">## &lt;html class=&#34;client-nojs&#34; lang=&#34;zh&#34; dir=&#34;ltr&#34;&gt;
+</span></span><span class="line"><span class="cl">## [1] &lt;head&gt;\n&lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=UTF-8 ...
+</span></span><span class="line"><span class="cl">## [2] &lt;body class=&#34;mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject  ...
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#compactly display the structure of the webpage</span>
+</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">wanghtml</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## List of 2
+</span></span><span class="line"><span class="cl">##  $ node:&lt;externalptr&gt; 
+</span></span><span class="line"><span class="cl">##  $ doc :&lt;externalptr&gt; 
+</span></span><span class="line"><span class="cl">##  - attr(*, &#34;class&#34;)= chr [1:2] &#34;xml_document&#34; &#34;xml_node&#34;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#find all the &lt;div&gt; nodes in the body of the page that have a class name containing &#39;mw-body-content mw-content-ltr&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio</span> <span class="o">&lt;-</span> <span class="n">wanghtml</span> <span class="o">%&gt;%</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">rvest</span><span class="o">::</span><span class="nf">html_nodes</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">xml2</span><span class="o">::</span><span class="nf">xml_find_all</span><span class="p">(</span><span class="s">&#34;//div[contains(@class, &#39;mw-body-content mw-content-ltr&#39;)]&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">rvest</span><span class="o">::</span><span class="nf">html_text</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#finally, we have our raw text data</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio_df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">bio</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#clean the raw data a little bit</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#remove the part in the wiki that is not related to his bio</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio_df</span><span class="o">&lt;-</span><span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;臺灣出生大聯盟選手列表.*&#34;</span><span class="p">,</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">bio_df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio_df</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">bio_df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio_df</span><span class="o">&lt;-</span><span class="n">bio_df</span> <span class="o">%&gt;%</span> <span class="nf">rename</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#remove numbers, punctuation, and English words</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio_clean</span><span class="o">&lt;-</span><span class="n">bio_df</span><span class="o">$</span><span class="n">text</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">str_remove_all</span><span class="p">(</span><span class="s">&#34;\\n|[:digit:]|[:lower:]|[:upper:]|[:punct:]&#34;</span><span class="p">)</span> 
+</span></span></code></pre></div><p>Now we have our clean data that is ready for analysis.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">kable</span><span class="p">(</span><span class="n">bio_clean</span><span class="p">)</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">x</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">&gt;  關於与王建民 棒球員標題相近或相同的条目請見王建民王建民皇家隊時期的王建民中信兄弟 背号二軍投手教練出生 年月日歲 臺灣臺南縣關廟鄉新埔村今臺南市關廟區新埔里打擊右投球右首秀年月日代表紐約洋基生涯成績 年球季止勝投敗投中繼救援三振四壞防禦率球队 美國職棒紐約洋基小聯盟短年華盛頓國民年多倫多藍鳥小聯盟年辛辛那提紅人小聯盟年芝加哥白襪小聯盟年亞特蘭大勇士小聯盟年西雅圖水手小聯盟年堪薩斯市皇家年獨立聯盟南馬里蘭藍蟹英语 獨立聯盟英语 年教練時期紐約洋基小聯盟客座教練年月日月日中華職棒富邦悍將二軍客座投手教練年月日月日年月年月日世界棒球強賽中華成棒隊牛棚教練年月日年月日中信兄弟二軍客座投手教練年中信兄弟二軍投手教練年 獎牌記錄代表 中華臺北男子棒球亞洲運動會年韓國釜山廣域市亞洲棒球錦標賽年日本北海道王建民英語 年月日是臺灣職業棒球運動員位置為投手臺南市關廟區人曾效力於美國職棒大聯盟紐約洋基華盛頓國民多倫多藍鳥堪薩斯市皇家等隊在大聯盟個球季累計勝敗是台灣投手在大聯盟中累計勝投最高者許多臺灣媒體在報導王建民的新聞時常暱稱其為建仔王葛格臺灣之光美國媒體也稱之為 並稱王引起的風潮為王建民現象目录 早年生活 求學階段 業餘棒球 前往美國 美國職棒 紐約洋基 多次受傷 華盛頓國民 多倫多藍鳥 小聯盟出賽 堪薩斯市皇家 教練時期 球員分析 投球風格 生涯數據 私人生活 個人成就 獲獎記錄 其它榮譽 另見 參考資料 外部連結早年生活编辑求學階段编辑 王建民的出生地臺南縣關廟鄉王建民於年月日出生在台南縣郊區關廟鄉新埔村今臺南市關廟區新埔里之後主要於台南市成長生父王炳穎三叔在家排行第三小時候因為大哥王炳煌無子嗣王炳穎便決定將王建民過繼至長兄戶口下由其大伯養育長大其大伯經營工廠 王建民在就讀崇學國小期間因不喜歡唸書且身高過人而加入籃球校隊在兼任籃球與棒球校隊教練的鼓勵下開始打棒球於校隊徵選時自願加入棒球隊在崇學國小少棒隊中擔任投手年時王建民當選成為第九屆世界軟式少棒錦標賽中華代表隊球員成為其第一次入選出國比賽的代表隊選手就讀建興國中時經由教練張錫杰調教後在未來的發展上奠定了深厚的根基建興國中在王建民之後也培養岀郭泓志胡金龍羅錦龍等職棒選手儘管養父母強烈反對他打棒球希望他能夠成為企業家但在王建民決心毅力與堅持最後還是讓他繼續打球青棒時期的王建民選擇加入傳統青棒勁旅榮工隊當時的榮工隊即中華中學的前身總教練為蕭文勝在榮工隊時期高中生的王建民逐步強化了自身的投球能力與體格擁有達公分的身高與增重後勻稱的身材最快球速也進步到了左右國外球探亦開始將王列入觀察名單年榮工青棒隊獲得全國棒球選拔賽冠軍王建民也因此入選在加拿大舉行的第十七屆世界青棒錦標賽中華代表隊選手由於需要辦理出國護照等證件王建民便請父母將戶籍資料從家鄉臺南寄至球隊所在的臺北但也因此發現戶籍謄本資料上登記自己為養子無法接受事實的王建民連夜趕回台南詢問父母才知道親生父母是自己的三叔業餘棒球编辑在發現自己的三叔是親生父親而從小扶養長大的父母則是養父母後王建民一開始無法接受事實甚至一度不肯打球最後在長輩與教練勸說下才慢慢接受事實並重新投入棒球運動年王建民進入台北市立體育學院就讀並成為第三屆亞洲青棒錦標賽中華青棒代表隊由於獲得曾效力日本職棒的總教練高英傑指導及獲得有指叉球王子之稱的學長蔡仲南教導指叉球下王建民投球技術獲得進一步提升在年台灣青棒則是蓬勃發展同年曹錦輝投出台灣青棒史新高的快速球而左投的郭泓志也達到加上世界青棒錦標賽在臺灣舉行很多國外球探紛紛來到台灣而在同年王建民除了參加三國四強國際棒球邀請賽第八屆荷蘭港口盃中華成棒代表隊外也投出多場精彩的比賽其中他在梅花旗大學棒球賽預賽上對強敵文化大學完投九局只被打出七支安打而且送出次三振率隊以比取勝上大學之後才學的指叉球在這一役發揮得淋漓盡致年王建民在大揚盃四國五強成棒邀請賽與甲組成棒春季聯賽中表現優異除了投出業餘時期的極速其滑球也受到球探的註記包括台灣大聯盟中華職棒興農牛日本職棒中日龍乃至於美國職棒大聯盟的西雅圖水手波士頓紅襪亞特蘭大勇士洛杉磯道奇紐約大都會洛杉磯安納罕天使科羅拉多落磯亞利桑那響尾蛇與紐約洋基等球隊都對他展現出極大的興趣雖然亞特蘭大勇士開出的價碼比紐約洋基還要來得高但因為偶像羅傑克萊門斯的關係王建民最後選擇投入紐約洋基前往美國编辑 到了美國後王建民學會其重要的球種伸卡球年月日與紐約洋基隊簽下萬美元含萬學費與萬旅費簽約金額的小聯盟合約王建民以交換學生的身份前往洋基隊的小聯盟系統出賽王建民從小聯盟的短期球隊出發並投出不錯表現然而在年王建民就因肩關節唇撕裂施行關節鏡手術本年度日程都在復健直到年月才在球隊復出年月王建民接受中華成棒代表隊徵召參加第十四屆南韓釜山亞運其中王建民在中華隊對日本的準決賽中接替先發投手宋肇基後援又局而無失分勝投幫助中華隊打進金牌戰年開始王建民首度獲邀參加大聯盟春訓熱身賽並升上球隊同年月他再度接受中華成棒代表隊徵召參加日本札幌舉辦的第二十二屆亞洲棒球錦標賽王建民於中華隊的先發對戰南韓局失分而無關勝敗並取得體育補充役資格儘管之後王建民一度有放棄在美國的職業棒球而返回臺灣的念頭但隨著迎娶吳嘉姈為妻子兩人並共同至美國生活後改觀年年初王建民至台南官田營區入伍接受軍事訓練天之後以接受大聯盟紐約洋基隊代訓名義出國再度獲邀參加大聯盟熱身賽但只投人次就因傷退場這年王建民還是從球隊出發並在季中順利升上球隊升上後的夏天在投手教練尼爾艾倫英语 及捕手薩法沙諾英语 的指導下王建民開始練習投伸卡球成為日後在大聯盟崛起的招牌球種此外王建民也連續三年接受中華成棒代表隊徵召於該年參加希臘舉辦的第二十八屆雅典奧運美國職棒编辑紐約洋基编辑 年的王建民以勝之姿拿下美聯勝投王各項數據皆為生涯年年月王建民在大聯盟春訓熱身賽投出出色成績開季從球隊出發年月日在小聯盟待了年的王建民於睡夢中被通知升上大聯盟年月日美東時間下午時分王建民在大聯盟初登板面對多倫多藍鳥最終無關勝敗成為第一個在洋基出賽的台灣棒球選手也是台灣第三位登上美國職棒大聯盟的球員及繼曹錦輝之後第二位登上大聯盟的台灣籍投手年月日王建民在主場率領洋基擊敗西雅圖水手獲得大聯盟生涯第一勝在年大聯盟球季例行賽中王建民新人球季共出賽場有次先發和次中繼戰績勝敗同年洋基隊晉級季後賽王建民因而在月日成為台灣第一位於美國職棒大聯盟季後賽出賽的投手年球季王建民憑藉著優異的下沉快速球又稱為快速伸卡球在洋基隊先發輪值中表現優異並因投球特性而獲得滾地球王子稱號同年月日王建民在主場對坦帕灣魔鬼魚完封對手局而只被擊出支一壘安打這是王建民生涯第二次完投也是大聯盟生涯第一次完投完封勝最後其在年大聯盟球季例行賽拿下勝敗與明尼蘇達雙城的王牌左投友漢桑塔那並列該年度的大聯盟勝投王也是大聯盟第一位亞洲籍的勝投王同時超越南韓投手朴贊浩在年創下的勝成績成為在美國職棒大聯盟單季最多勝紀錄的亞洲籍投手年季後賽首輪美國聯盟分區賽王建民於月日在主場對戰底特律老虎並成功拿下勝投除了是個人季後賽首勝外也成為大聯盟史上第一位在季後賽獲得勝投的亞洲投手並且是紐約洋基在該年度季後賽的唯一一場勝投年月日王建民獲得美國職棒美國聯盟賽揚獎票選得分第名 年的王建民第二次拿下勝三振數次為生涯新高年月日王建民因為於春訓時拉傷大腿錯失主投洋基年球季的開幕戰在傷勢復原後復出的王建民在月日於客場對上坦帕灣光芒吞下首敗不過儘管面臨二連敗同年月時確定入選為時代雜誌年全球百位最有影響力人物成為台灣第三位獲得此榮譽的人物年月日王建民在主場對水手的比賽中主投局僅失分還投了局的完全比賽雖然在局上遭擊出陽春全壘打但瑕不掩瑜王建民年球季首場勝投到手年月日王建民主場迎戰響尾蛇與響尾蛇的王牌布蘭登偉伯展開一場滾地球大師的對決戲碼王建民主投局被敲支零星安打掉分外加略勝第一局挨了三分砲的偉伯局掉分一籌最後洋基留下勝利建仔也獲得勝投賽後響尾蛇總教練鮑勃馬文說過去他形容自家王牌偉伯的伸卡球像磚塊但王建民的伸卡球卻像鉛球年月日王建民在主場對上紐約大都會主投局投出在大聯盟生涯新高的次三振最後也獲得勝投年月日他在主場對洛杉磯安那罕天使隊主投又局而締造生涯新高的連勝同時達成對美聯隊伍除了洋基之外均有獲勝的紀錄年月日美國聯盟分區賽王建民生涯首度在僅休息天的情況下再度先發但主投局又人次便丟分退場最終洋基輸給克里夫蘭印地安人在系列賽以被淘汰王建民在該系列賽中雖然吞下連場敗投被打爆不過在年球季結束王建民仍取得勝敗的成績勝投數並列聯盟第二名除了維持自己創下的勝的亞洲投手紀錄外也成為洋基隊史上第二位連續年拿下勝的王牌投手許多洋基球員也表示讚揚多次受傷编辑 年月日的一場比賽中王建民即將被換下場總教練手上拿著球就代表原投手要被換下場的意思年春訓期間已經在大聯盟投滿年的王建民因為超級二年級生條款正式取得薪資仲裁資格由於在洋基陣容中逐漸被視為王牌因此進行生涯首度仲裁提出年薪萬美元儘管最後仲裁失敗而由洋基球團開出的年薪萬美元勝出但也成為台灣運動史上第一位年薪破億的運動員年月日被視為重要王牌球員的王建民擔任洋基年開幕戰先發為其職業生涯首度擔任球隊開幕戰先發投手此戰迎戰多倫多藍鳥王建民繳出主投局失分的優質先發終場洋基以獲勝王建民也拿下年第勝年月日在客場對芝加哥白襪主投局獲勝以生涯先發場比賽取得生涯第勝是亞洲投手最快達到第勝的球員紀錄也是繼年紐約大都會投手德懷特古登以生涯先發場奪勝後近年來最快達此記錄的大聯盟投手在年球季王建民再度獲得時代雜誌年全球百位最有影響力人物也獲選史上第一位以棒球員身份拿下的第屆十大傑出青年獎不過在月日王建民於客場對上休士頓太空人雖然主投局無失分而獲得勝投但比賽途中他從太空人王牌投手洛伊奧斯華手中打出短打上壘再從二壘跑回本壘得分時因跑壘不慎而扭傷右腳腳踝隨後立刻送至醫院進行核磁共振成像檢查確認右腳掌中間的蹠跗韌帶拉傷與右腳腓骨長肌肌腱撕裂傷需固定傷口休養周後才能開始復健由於復健期間的狀況並不理想使得王建民在年球季提前報銷雖然這季僅留下勝敗的成績不過部分美國媒體仍認定王建民球季投完的成績仍然可以達到年的水準年月日洋基球團和王建民達成協議年的薪資為年萬美元藉此避掉薪資仲裁在年球季卡斯坦查爾斯沙巴西亞柏奈特兩名著名投手加盟洋基後使得王建民從原本的王牌一號先發降為三號但由於王建民積極備戰及熱身賽的表現狀況理想很快就被教練團調升至二號先發期間王建民特別戴者繡上王字的新手套並馬上獲得沙巴西亞等隊友的關注同時王建民被選為球場看版球星之一並在月日春訓期間擔任新洋基球場首次啟用的先發投手以重視王建民過去對球隊的貢獻這次對上芝加哥小熊隊熱身賽中王建民主投局失分最後取得球場開幕後的勝投然而王建民年開季先後被金鶯光芒和印地安人打爆防禦率升高至以上後來在健康檢查中發現腰部有傷被安排至小聯盟進行復健賽調整並計畫最快至月日重回先發輪值不過直到月日王建民才再度登板並在對戰費城費城人擔任中繼投手接替先發投手柏奈特投球主投局被敲出支安打失掉分並有次三振重回大聯盟後雖然王建民的投球內容及成績有所回升但還是與受傷前有落差洋基再次為王安排檢查決定以復健方式來治療患部但進行相關醫療後王仍感覺傷勢未有太大進展年月日王建民出戰藍鳥時在第六局右肩拉傷下場經過診斷後確定是拉傷和黏液囊腫發炎為此總教練吉拉迪將王放入天傷兵名單後在取得洋基隊同意下王建民由經紀公司安排下至阿拉巴馬州接受運動醫學權威醫生詹姆斯安德魯斯英语 進一步的檢查認定王的傷勢為右肩關節囊的韌帶撕裂 隨後透過關節鏡手術進行肩關節囊韌帶損傷修補使得王的年球季宣告提前結束華盛頓國民编辑 年月已經加入華盛頓國民的王建民年月日紐約洋基隊於主場擊敗費城人隊取得第座大聯盟世界大賽冠軍但王建民因傷勢未復原而未參與世界大賽冠軍賽同年月日由於按大聯盟規章若與前年度於大聯盟登錄的球員換約至多僅能減薪洋基至少得付萬美元洋基擔心王建民傷後無法回復原有水準而決定選擇不換約使其提前成為沒有合約的自由球員雖然後續紐約洋基隊提出以小聯盟約續約等待養傷完成並接受測試後回到大聯盟並簽大聯盟合約然而由於王建民也可以選擇加入其他大聯盟的球隊其與經紀人艾倫尼洛 決定到自由市場探詢比洋基更合適的合約年月日王建民以一年萬美金加上激勵獎金萬美金的條件共計最高約萬美元的合約加入華盛頓國民月日雙方召開加盟記者會宣布正式簽約球衣號但在月日王建民因傷復健華盛頓國民隊官方網站正式宣佈無法趕上球季同年月日華盛頓國民隊公佈結果確定不執行和王建民的直接續約權王建民從月日開始正式成自由球員不過在隔年春訓前華盛頓國民隊以一年萬美金及激勵獎金再度網羅自月日經長期復健的王建民開始在小聯盟進行數場復健賽且讓國民隊評估重新回到大聯盟比賽中開季前被列入天傷兵名單年月日國民隊宣佈王建民重新回到大聯盟月日王建民重返美國職棒大聯盟先發出戰紐約大都會隊主投局失分分其中分是自責分雖然復出首戰即敗投第二次先發出戰勇士隊也未獲得勝投到了月日王建民在芝加哥客場第三次先發出戰小熊隊主投局被擊出支安打無失分協助華盛頓國民隊以比擊敗小熊隊拿下傷癒後及本季首場大聯盟勝投而在月日對決勇士隊主投六局失一分率領國民隊以擊敗勇士拿下本季第四勝同時敲出他大聯盟生涯的第一支安打和第一分打點年球季留下總計四勝三負防禦率的成績王建民在復出後的不錯表現也使國民隊決定再與其續約一年年月日對洋基熱身賽投局用了球球好球球速最快哩被打出支安打三振次保送次無失分於第局洋基隊第二棒羅素馬丁打出投手前滾地球王建民接到球直接往一壘衝要踩壘包時重心不穩摔跤跌倒左腿後肌肉拉傷此傷勢使他在開季時列入傷兵名單中月日國民隊對勇士隊的比賽王建民本季初登板中繼主投局失分拿下勝投不過在月日王建民因為先發表現不佳被調到牛棚擔任長中繼來調整控球的節奏月日被以右臀拉傷為由放進天傷兵名單牛棚空缺由亨利羅德裡格斯英语 接替月日重返大聯盟先發出戰密爾瓦基釀酒人主投局失分但由於國民守備失誤過多球隊最終仍以比輸球由於王建民在年的表現不如預期且多次受傷進入傷兵名單國民隊決定不再續約王建民再度成為自由球員多倫多藍鳥编辑 參加年世界棒球經典賽的王建民在不續約與發生緋聞的情況下王建民於該年季後決定返國投入經典賽國家隊希望藉由國際賽的好表現來尋求新合約年月日王建民代表中華隊在第三屆世界棒球經典賽首輪出戰澳洲隊主投六局無失分終場以比擊敗澳洲拿下勝投月日王建民在日本東京巨蛋主投經典賽複賽首場比賽對上日本隊主投六局無失分但中華隊終場比落敗王建民於當年度世界棒球經典賽預複賽合計投出局無失分的佳績優異的表現獲得美國日本多支球團的注意與洽詢最後在同年月日王建民選擇與個人投出生涯高峰的洋基隊簽下帶逃脫條款的小聯盟合約重回熟悉的環境月日王建民在小聯盟出賽然而洋基隊在開季後始終未將王建民升上大聯盟 年加入多倫多藍鳥的王建民擔任藍鳥隊的先發投手因為無法登上大聯盟王建民在月日決定行使逃脫權而解除與洋基的合約轉而與同屬美東球隊的多倫多藍鳥簽約於月日首次出場先發月日對遊騎兵主投局無失分獲得在藍鳥隊的首勝不過在同年月日對老虎投局失分退場被球隊指定派遣後下放小聯盟年月日王建民被叫上大聯盟對休斯頓太空人擔任先發主投局失五分吞敗投王建民再度被指定派遣回到水牛城野牛隊月日水牛城野牛隊頒發東山再起獎給王建民表彰他本季對野牛隊的貢獻月日根據合約王建民結束與多倫多藍鳥的合約成為自由球員王建民於本季在藍鳥隊升上大聯盟有過場先發出賽 王建民於藍鳥隊水牛城野牛擔任先發投手在之前已遭藍鳥隊指定轉讓而下放調整小聯盟出賽编辑年月日王建民與辛辛那提紅人簽定附有大聯盟春訓邀約的小聯盟合約小聯盟月薪萬美元登上大聯盟則為年薪萬美元上大聯盟後若再遭下放年薪則以萬美元計算此外附有激勵獎金以及逃脫條脫提供兩次逃脫機會年月日結束大聯盟春訓後被下放小聯盟球季開始後從小聯盟路易斯維爾蝙蝠英语 隊出發因為無法得到登上大聯盟的機會月日紅人隊宣布王建民選擇逃脫離開紅人隊年月日加入美國職棒芝加哥白襪隊所屬的小聯盟夏洛特騎士英语 隊背號為號年球季沒有升上大聯盟的機會總共場先發戰績勝敗防禦率年月日王建民與亞特蘭大勇士簽下小聯盟合約獲邀參加年大聯盟春訓球季開始後在谷內勇士英语 隊出賽但在年月日王建民被勇士隊釋出為旅美年生涯首次遭解約因無法獲得其他大聯盟球隊的合約月日王與美國大西洋獨立聯盟 藍蟹隊 簽約藉此延續旅美生涯王建民轉戰獨立聯盟後在獨立聯盟先發主投先發了場比賽並皆拿下勝投防禦率僅因此在年月日王建民與西雅圖水手隊簽下小聯盟合約投身小聯盟塔科瑪雨人隊再度重新回到大聯盟體系重回水手小聯盟體系並結束小聯盟球季後王建民仍未得到月擴編升上大聯盟之機會堪薩斯市皇家编辑年月王建民經過經紀人張嘉元介紹開始接觸德州棒球農場與其主人 於月正式展開為期週的改造訓練而在年球季結束後王建民再次成為自由球員 於年加入堪薩斯市皇家隊的王建民擔任皇家隊的後援投手年月日王建民與去年冠軍隊堪薩斯市皇家簽下小聯盟合約若上大聯盟基本薪萬美金最高激勵獎金可達年薪萬美金經過德州棒球農場的訓練改造後王建民於春訓期間球速明顯提升最快甚至可達最後於春訓出賽場場先發留下勝敗防禦率成績月日王建民在局上半達成本季大聯盟的初登板於領先時面對雙城以局安打保送三振的內容結束比賽月日前局打完以落後國民的皇家推出王建民在局上半登板投球以局三振的內容結束這個半局再靠著局下 的再見安打逆轉獲勝王建民相隔天再拿勝投月日皇家與老虎的比賽王建民以局無失分的成績拿下本季第四勝也正式達到生涯個勝負總和的門檻而他勝敗生涯勝率排在大聯盟史上的第名月日移出日傷兵名單並被球隊列入指定派遣當週釋出後再次成為自由球員本季成績為勝敗結算勝敗生涯勝率排在大聯盟史上的第名教練時期编辑年王建民於春訓時期擔任洋基隊小聯盟的客座教練同年月日於陳金鋒的牽線下在三周內擔任富邦悍將二軍客座投手教練同年月再度擔任此職務且長期協助訓練年受中華隊總教練洪一中之邀加入世界棒球強賽的中華隊教練團擔任牛棚教練一職年加入中信兄弟教練團擔任二軍客座投手教練球員分析编辑投球風格编辑身材高大的王建民以四分之三斜肩投球機制投球主戰的球路為伸卡球二縫線快速球與滑球另外則有四縫線快速球變速球指叉球等球路作為陪襯於全盛時期王最倚賴的伸卡球能穩定地投在<del>約</del>配比較少的四縫線速球約在<del>約</del>主力變化球滑球則約在<del>約</del>憑著出色的伸卡球威力王成為一名成功的滾地球型投手能有效降低打者擊出長打的機率以減少失分但其變化球品質相對不足所以王的三振能力在大聯盟中僅屬劣於平均的水準生涯為於年球季王有感於肩傷後復出的球速球威明顯不若以往因此於本身的實戰球路中再加上新練成的曲球作為搭配王建民的伸卡球採二縫線握法中指扣住縫線加壓以接近快速球的投球方式投出球路軌跡會朝左打者外角快速下沈再加上球速夠快讓打者不易掌握更能造成滾地球出局生涯最快球速曾達約從年球季開始逐漸增加使用量的滑球也以接近快速球的出手方式投出藉此擾亂打者讓打者難以預測或鎖定單一球路來揮擊使得王的配球自升上大聯盟後一慣的以伸卡球為主體演變成能視比賽當日的身體狀況予以調整王建民在球員生涯中的最快球速為年於小聯盟比賽中投出的約生涯數據编辑小聯盟投球成績年度所屬球隊等級出賽先發局數勝投敗投中繼救援完投完封保送三振被全壘打責失勝率防禦率紐約洋基短期紐約洋基短期 紐約洋基新人聯盟紐約洋基紐約洋基紐約洋基 紐約洋基紐約洋基高階紐約洋基華盛頓國民華盛頓國民高階華盛頓國民華盛頓國民 華盛頓國民華盛頓國民高階 華盛頓國民 華盛頓國民紐約洋基多倫多藍鳥 辛辛那提紅人 芝加哥白襪 亞特蘭大勇士 備註年開刀年新人聯盟及年為復健賽例行賽投球成績年度所屬球隊等級出賽先發局數勝投敗投中繼救援完投完封觸身保送三振被全壘打責失勝率防禦率紐約洋基 紐約洋基紐約洋基 紐約洋基紐約洋基華盛頓國民 華盛頓國民 多倫多藍鳥堪薩斯市皇家 例行賽打擊記錄年度所屬球隊等級出賽打數打點得分安打二壘打三壘打全壘打保送三振犧打盜壘長打率打擊率紐約洋基紐約洋基紐約洋基紐約洋基紐約洋基華盛頓國民華盛頓國民多倫多藍鳥堪薩斯市皇家季後賽投球記錄年度所屬球隊系列戰出賽先發局數勝投敗投中繼救援完投完封觸身保送三振被全壘打責失勝率防禦率紐約洋基 紐約洋基 紐約洋基 私人生活编辑王建民的配偶為吳嘉姈王建民赴美前即認識兩人於年亞錦賽後留台期間於同年月日於台南成婚婚後兩人仍赴美共同生活年月日約早上九時太太吳嘉姈於美國紐約產下長子王鵬硯 賈斯汀傑西王於出生孩子擁有美國公民與中華民國國民的雙重國籍而王建民也成為首位子女於大聯盟生涯期間誕生的台灣籍美國職棒大聯盟球員年月日次子王照升 誕生不過在年一向給人愛家好男人形象的王建民卻在開季後不久爆發外遇緋聞月日王建民搶在壹周刊同日出刊前在美國召開記者會坦承自己在年因為職業球員事業低潮而爆發一段婚外情這段關係維持約八個月這次事件也震驚許多球迷另外王建民因過去在美常受邀去參觀育幼院或看病童因此有成立基金會以資助弱勢兒童的計畫並於年月日成立小王子加油基金會個人成就编辑獲獎記錄编辑年獲得第九屆世界軟式少棒錦標賽最佳投手獎年獲行政院體育委員會頒發運動精英獎年度最佳男運動員年蟬聯行政院體育委員會頒發運動精英獎年度最佳男運動員年王建民以十九勝並列年度勝投王的優異表現獲頒總統表揚狀當日比賽前在洋基球場球團破天荒安排高規格表揚儀式在大型看板打出 台灣之子字樣由播報員宣讀表揚狀的內容王建民在全場數萬球迷歡呼聲中接受表揚年獲得美國職棒大聯盟官網的球迷票選為年度最佳先發投手 年中華民國教育部頒發一等教育文化獎章表彰王建民長期致力推展棒球運動乃教育部史上第十七位得主也是第一位以體育文化特殊貢獻獲獎者同時是目前所有得獎者中最年輕的年獲救國團頒發的民國九十六年青年獎章年以勝敗的成績獲球迷票選為四月份 百事可樂關鍵時刻球員 為台灣球員第一次獲得此獎年王建民當選第屆中華民國十大傑出青年其它榮譽编辑年獲美國運動畫刊雜誌評比為今年備受注目的二十位運動員之一年王建民在球隊時期的號球衣被球隊列為退休背號以紀念王建民在該球隊的貢獻為洋基第二個退休背號年出戰巴爾的摩金鶯隊獲得勝投以勝的成績締造大聯盟亞洲籍投手單季最多勝投與明尼蘇達雙城隊的左投友漢桑塔那並列該年度的大聯盟勝投王年王建民在洋基隊主場迎戰來訪的底特律老虎隊順利拿下勝投成為大聯盟亞洲第一位在季後賽取得勝投的投手年擔任第十六屆洲際盃代言人並獲邀擔任中華隊與古巴隊之戰的開球貴賓年入選該年度時代年度全球最具有影響力的百大人物之一成為台灣第三位得此殊榮的人年入選該年度時代年度全球最有影響力的百大人物之一是台灣唯一連續兩年皆入選的人年紀錄片後勁王建民是加拿大華裔導演陳惟揚 耗費約四年時間紀錄王建民在德州棒球農場練習並重返大聯盟的時期該片在年月獲得洛杉磯亞太影展觀眾票選最佳國際紀錄片獎入圍第屆金馬獎最佳紀錄片同年月在台灣上映另見编辑</td>
+      </tr>
+  </tbody>
+</table>
+<p>There are different approaches to analyze text data in R. Here, I am using a tidy approach.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#tokenize your text data</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio_clean</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">bio_clean</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bio_clean</span><span class="o">&lt;-</span><span class="n">bio_clean</span> <span class="o">%&gt;%</span> <span class="nf">rename</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">toks</span><span class="o">&lt;-</span><span class="n">bio_clean</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">unnest_tokens</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#find out those Chinese characters that occur more than 20 times in the wiki</span>
+</span></span><span class="line"><span class="cl"><span class="n">toks</span><span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">count</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="m">20</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">word</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">word</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_col</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&#34;Frequency&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>}}index_files/figure-html/unnamed-chunk-6-1.png&quot; width=&ldquo;672&rdquo; /&gt; This is not ideal. Our plot is not able to display Chinese characters. We need <code>showtext_auto()</code> in <code>showtext</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#load showtext</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">showtext</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#call showtext_auto()</span>
+</span></span><span class="line"><span class="cl"><span class="nf">showtext_auto</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#run the same code for plotting the text analysis</span>
+</span></span><span class="line"><span class="cl"><span class="n">toks</span><span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">count</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="m">20</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">word</span> <span class="o">=</span> <span class="nf">reorder</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">word</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_col</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&#34;Frequency&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>}}index_files/figure-html/unnamed-chunk-7-1.png&quot; width=&ldquo;672&rdquo; /&gt;</p>
+<p>Bingo!!</p>
+
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2021-09-10T00:00:00.000Z">
+    <span>Last updated on</span>
+    Sep 10, 2021</time>
+
+      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+        
+        <div class="max-w-prose print:hidden">
+  
+  
+
+  
+
+<div class="flex justify-center">
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/r/">R</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/chinese-characters/">Chinese Characters</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/ggplot2/">Ggplot2</a>
+  
+</div>
+
+
+  
+<section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fchinese-character-in-ggplot%2F&amp;text=How&#43;to&#43;Display&#43;Chinese&#43;Characters&#43;in&#43;ggplot2"
+    title="X"
+    aria-label="X"
+    id="share-link-x"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fchinese-character-in-ggplot%2F&amp;t=How&#43;to&#43;Display&#43;Chinese&#43;Characters&#43;in&#43;ggplot2"
+    title="Facebook"
+    aria-label="Facebook"
+    id="share-link-facebook"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+    
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="mailto:?subject=How%20to%20Display%20Chinese%20Characters%20in%20ggplot2&amp;body=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fchinese-character-in-ggplot%2F"
+    title="Email"
+    aria-label="Email"
+    id="share-link-email"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fchinese-character-in-ggplot%2F&amp;title=How&#43;to&#43;Display&#43;Chinese&#43;Characters&#43;in&#43;ggplot2"
+    title="LinkedIn"
+    aria-label="LinkedIn"
+    id="share-link-linkedin"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="whatsapp://send?text=How&#43;to&#43;Display&#43;Chinese&#43;Characters&#43;in&#43;ggplot2%20http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fchinese-character-in-ggplot%2F"
+    title="WhatsApp"
+    aria-label="WhatsApp"
+    id="share-link-whatsapp"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m187.58 144.84-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40 88.1 88.1 0 0 0 88 88 40 40 0 0 0 40-40 8 8 0 0 0-4.42-7.16ZM152 176a72.08 72.08 0 0 1-72-72 24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51 56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74 23 11.48A24 24 0 0 1 152 176ZM128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24Zm0 192a87.87 87.87 0 0 1-44.06-11.81 8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216Z"/></svg>
+  </a>
+  
+</section>
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+  
+  
+  
+    
+  
+  
+  
+
+<div class="flex pt-12 pb-4">
+  
+  
+  <img
+    class="mr-4 h-24 w-24 rounded-full"
+    width="96"
+    height="96"
+    alt="Shonn Cheng"
+  src="/author/shonn-cheng/avatar_hu17523650293450813940.jpg"
+  loading="lazy"
+  />
+  
+  <div class="place-self-center">
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Authors
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      <a href="http://localhost:4321/" class="no-underline">
+      Shonn Cheng
+      </a>
+    </div>
+
+    
+    <div class="text-sm font-bold text-neutral-700 dark:text-neutral-300">
+    Assistant Professor
+    </div>
+    
+
+
+    
+
+    <div class="text-2xl sm:text-lg pt-1">
+
+      
+<div class="flex flex-wrap text-neutral-500 dark:text-neutral-300">
+  
+    
+    
+    
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="mailto:scheng@ntut.edu.tw"
+      
+      aria-label="At-Symbol"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://twitter.com/shonn2nd"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/X"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://github.com/shonn2nd"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/Github"
+    ><svg style="height: 1em;" fill="currentColor" viewBox="3 3 18 18"><path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://www.linkedin.com/in/shonnslc/"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/Linkedin"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://scholar.google.com/citations?user=A_y6nEsAAAAJ&amp;hl=en&amp;oi=ao"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Academicons/Google-Scholar"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M343.759 106.662V79.43L363.524 64h-213.89L20.476 176.274h85.656a82.339 82.339 0 0 0-.219 6.225c0 20.845 7.22 38.087 21.672 51.861c14.453 13.797 32.252 20.648 53.327 20.648c4.923 0 9.75-.368 14.438-1.024c-2.907 6.5-4.374 12.523-4.374 18.142c0 9.875 4.499 20.43 13.467 31.642c-39.234 2.67-68.061 9.732-86.437 21.163c-10.531 6.5-19 14.704-25.39 24.531c-6.391 9.9-9.578 20.515-9.578 31.962c0 9.648 2.062 18.336 6.219 26.062c4.156 7.726 9.578 14.07 16.312 18.984c6.718 4.968 14.469 9.101 23.219 12.469c8.734 3.344 17.406 5.718 26.061 7.062A167.052 167.052 0 0 0 180.555 448c13.469 0 26.953-1.734 40.547-5.187c13.562-3.485 26.28-8.642 38.171-15.493c11.86-6.805 21.515-16.086 28.922-27.718c7.39-11.68 11.094-24.805 11.094-39.336c0-11.016-2.25-21.039-6.75-30.14c-4.468-9.073-9.938-16.542-16.452-22.345c-6.501-5.813-13-11.155-19.516-15.968c-6.5-4.845-12-9.75-16.468-14.813c-4.485-5.046-6.735-10.054-6.735-14.984c0-4.921 1.734-9.672 5.216-14.265c3.455-4.61 7.674-9.048 12.61-13.306c4.937-4.25 9.875-8.968 14.796-14.133c4.922-5.147 9.141-11.827 12.61-20.008c3.485-8.18 5.203-17.445 5.203-27.757c0-13.453-2.547-24.46-7.547-33.314c-.594-1.022-1.218-1.803-1.875-3.022l56.907-46.672v17.119c-7.393.93-6.624 5.345-6.624 10.635V245.96c0 5.958 4.875 10.834 10.834 10.834h3.989c5.958 0 10.833-4.875 10.833-10.834V117.293c0-5.277.778-9.688-6.561-10.63zm-107.36 222.48c1.14.75 3.704 2.78 7.718 6.038c4.05 3.243 6.797 5.695 8.266 7.414a443.553 443.553 0 0 1 6.376 7.547c2.813 3.375 4.718 6.304 5.718 8.734c1 2.477 2.016 5.461 3.047 8.946a38.27 38.27 0 0 1 1.485 10.562c0 17.048-6.564 29.68-19.656 37.859c-13.125 8.18-28.767 12.274-46.938 12.274c-9.187 0-18.203-1.093-27.063-3.196c-8.843-2.116-17.311-5.336-25.39-9.601c-8.078-4.258-14.577-10.204-19.5-17.797c-4.938-7.64-7.407-16.415-7.407-26.25c0-10.32 2.797-19.29 8.422-26.906c5.594-7.625 12.938-13.391 22.032-17.315c9.063-3.946 18.25-6.742 27.562-8.398a157.865 157.865 0 0 1 28.438-2.555c4.47 0 7.936.25 10.405.696c.455.219 3.032 2.07 7.735 5.563c4.704 3.462 7.625 5.595 8.75 6.384zm-3.359-100.579c-7.406 8.86-17.734 13.288-30.953 13.288c-11.86 0-22.298-4.764-31.266-14.312c-9-9.523-15.422-20.328-19.344-32.43c-3.937-12.109-5.906-23.984-5.906-35.648c0-13.694 3.596-25.352 10.781-34.976c7.187-9.65 17.5-14.485 30.938-14.485c11.875 0 22.374 5.038 31.437 15.157c9.094 10.085 15.61 21.413 19.517 33.968c3.922 12.54 5.873 24.53 5.873 35.984c0 13.446-3.702 24.61-11.076 33.454z"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://orcid.org/0000-0003-2993-2031"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Academicons/Orcid"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M336.62 194.538c-7.13-3.328-13.866-5.56-20.253-6.614c-6.365-1.095-16.574-1.612-30.71-1.612h-36.704v152.747h37.634c14.673 0 26.081-1.013 34.224-3.017c8.142-2.004 14.921-4.526 20.356-7.626a69.448 69.448 0 0 0 14.942-11.388c14.488-14.714 21.742-33.273 21.742-55.717c0-22.052-7.44-40.052-22.341-53.982c-5.498-5.166-11.822-9.444-18.89-12.793zM256 8C119.022 8 8 119.042 8 256s111.022 248 248 248s248-111.042 248-248S392.978 8 256 8Zm-82.336 357.513h-29.389V160.148h29.389zM158.95 138.696c-11.14 0-20.213-9.01-20.213-20.212c0-11.118 9.052-20.191 20.213-20.191c11.18 0 20.232 9.052 20.232 20.191a20.194 20.194 0 0 1-20.232 20.212zm241.386 163.597c-5.29 12.545-12.834 23.581-22.65 33.088c-9.982 9.837-21.597 17.194-34.844 22.196c-7.75 3.017-14.839 5.063-21.307 6.117c-6.49 1.013-18.828 1.509-37.076 1.509h-64.956V160.148h69.233c27.962 0 50.034 4.154 66.32 12.545c16.265 8.37 29.181 20.728 38.792 36.972c9.61 16.265 14.425 34.018 14.425 53.196c.023 13.765-2.666 26.908-7.936 39.432z"/></svg></a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+
+
+
+
+  
+  
+    
+    
+    
+      
+      
+    
+<div class="pt-1 no-prose w-full">
+  <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+  <div class="flex flex-col md:flex-row flex-nowrap justify-between gap-5 pt-2">
+    <div class="">
+      
+        <a class="group flex no-underline" href="/post/project-management/">
+          <span
+            class="mt-[-0.3rem] me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline rtl:hidden">&larr;</span></span>
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >✅ Manage your projects</span>
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                Oct 23, 2023
+              
+            </span>
+          </span>
+        </a>
+      
+    </div>
+    <div class="">
+      
+        <a class="group flex text-right no-underline" href="/post/recoding-values/">
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Re-coding Values</span
+            >
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                Aug 26, 2021
+              
+            </span>
+          </span>
+          <span
+            class="mt-[-0.3rem] ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline">&rarr;</span></span>
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+  
+
+
+  
+
+
+
+</div>
+
+      </div>
+
+    </main>
+  </article>
+</div>
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2024 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualization | Hugo Academic CV Theme</title>
+    <link>https://shonnslc.com/tags/data-visualization/</link>
+      <atom:link href="https://shonnslc.com/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data Visualization</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 13 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shonnslc.com/media/icon_hu7729264130191091259.png</url>
+      <title>Data Visualization</title>
+      <link>https://shonnslc.com/tags/data-visualization/</link>
+    </image>
+    
+    <item>
+      <title>When reorder Fails</title>
+      <link>https://shonnslc.com/post/when-reorder-fails/</link>
+      <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://shonnslc.com/post/when-reorder-fails/</guid>
+      <description>&lt;p&gt;I am using the &lt;em&gt;mpg&lt;/em&gt; dataset included in the &lt;strong&gt;ggplot2&lt;/strong&gt; package.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#load packages
+library(tidyverse)
+library(tidytext)
+
+#view data
+glimpse(mpg)
+
+## Rows: 234
+## Columns: 11
+## $ manufacturer &amp;lt;chr&amp;gt; &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;…
+## $ model        &amp;lt;chr&amp;gt; &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4 quattro&amp;quot;, &amp;quot;…
+## $ displ        &amp;lt;dbl&amp;gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…
+## $ year         &amp;lt;int&amp;gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…
+## $ cyl          &amp;lt;int&amp;gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …
+## $ trans        &amp;lt;chr&amp;gt; &amp;quot;auto(l5)&amp;quot;, &amp;quot;manual(m5)&amp;quot;, &amp;quot;manual(m6)&amp;quot;, &amp;quot;auto(av)&amp;quot;, &amp;quot;auto…
+## $ drv          &amp;lt;chr&amp;gt; &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;4…
+## $ cty          &amp;lt;int&amp;gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…
+## $ hwy          &amp;lt;int&amp;gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…
+## $ fl           &amp;lt;chr&amp;gt; &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;p…
+## $ class        &amp;lt;chr&amp;gt; &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;compact&amp;quot;, &amp;quot;c…
+
+mpg %&amp;gt;% 
+  group_by(trans) %&amp;gt;% 
+  count() %&amp;gt;% 
+  ungroup() %&amp;gt;% 
+  ggplot(mapping = aes(trans, n)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp 400w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu1140811414921459347.webp 760w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu12990393163660237665.webp 1200w&#34;
+               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp&#34;
+               width=&#34;672&#34;
+               height=&#34;480&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This plot is ok, but how about arranging the order of trans by
+frequency? We can use reorder.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mpg %&amp;gt;% 
+  group_by(trans) %&amp;gt;% 
+  count() %&amp;gt;% 
+  ungroup() %&amp;gt;% 
+  ggplot(mapping = aes(reorder(trans, n), n)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp 400w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu6956270366342954430.webp 760w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu15862624282157221998.webp 1200w&#34;
+               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp&#34;
+               width=&#34;672&#34;
+               height=&#34;480&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Ok, this is what we want. Let’s work with a more complicated example. We
+want the distribution of trans varied by drv.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mpg %&amp;gt;% 
+  group_by(drv, trans) %&amp;gt;% 
+  count() %&amp;gt;% 
+  ungroup() %&amp;gt;% 
+  ggplot(mapping = aes(reorder(trans, n), n)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;) +
+  facet_wrap(~ drv, scale = &amp;quot;free&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp 400w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu5537248906016968025.webp 760w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu13279030754524013892.webp 1200w&#34;
+               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp&#34;
+               width=&#34;672&#34;
+               height=&#34;480&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;reorder&lt;/code&gt; doesn’t work well with a third-dimension variable. Use
+&lt;code&gt;reorder_within&lt;/code&gt; (in &lt;strong&gt;tidytext&lt;/strong&gt; package) instead&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mpg %&amp;gt;% 
+  group_by(drv, trans) %&amp;gt;% 
+  count() %&amp;gt;% 
+  ungroup() %&amp;gt;% 
+  ggplot(mapping = aes(reorder_within(trans, n, drv), n)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;) +
+  facet_wrap(~ drv, scale = &amp;quot;free&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp 400w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu1439226806147717583.webp 760w,
+               /post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu11637763058269063829.webp 1200w&#34;
+               src=&#34;https://shonnslc.com/post/when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp&#34;
+               width=&#34;672&#34;
+               height=&#34;480&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
