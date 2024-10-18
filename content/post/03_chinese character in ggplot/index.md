@@ -6,7 +6,7 @@ date: "2021-09-10T00:00:00Z"
 
 authors: 
 - admin
-tags: [R, Chinese characters, ggplot2]
+tags: [R, Chinese characters, data visualization]
 categories: 
 - R
 ---
@@ -108,7 +108,9 @@ toks%>%
   labs(x = "Frequency")
 ```
 
-}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /\> This is not ideal. Our plot is not able to display Chinese characters. We need `showtext_auto()` in `showtext`.
+![](index_files/figure-html/unnamed-chunk-5-1.png)
+
+This is not ideal. Our plot is not able to display Chinese characters. We need `showtext_auto()` in `showtext`.
 
 ``` r
 #load showtext
@@ -128,6 +130,6 @@ toks%>%
   labs(x = "Frequency")
 ```
 
-}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /\>
+![](index_files/figure-html/unnamed-chunk-7-1.png)
 
 Bingo!!
