@@ -446,6 +446,9 @@
   
   
   
+  
+  
+  
 
 
 
@@ -838,6 +841,14 @@
   >✅ Manage your projects
     </a>
               
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/composite-scores/"
+    
+  >Computing Composite Scores (Mean)
+    </a>
+              
             </li></ul>
       </div></li>
         <li class=""><a
@@ -1083,7 +1094,7 @@
 
 
 
-<div id="chart-718463295" class="chart"></div>
+<div id="chart-127964853" class="chart"></div>
 <script>
   async function fetchChartJSON() {
     console.debug('Hugo Blox fetching chart JSON...')
@@ -1101,7 +1112,7 @@
 
       fetchChartJSON().then(chart => {
         console.debug('Plotting chart...')
-        window.Plotly.newPlot('chart-718463295', chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot('chart-127964853', chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

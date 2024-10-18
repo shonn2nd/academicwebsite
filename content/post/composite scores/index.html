@@ -1,0 +1,97 @@
+---
+title: "Computing Composite Scores (Mean)"
+output: html_document
+# Date published
+date: "2021-07-23T00:00:00Z"
+
+authors: 
+- admin
+tags: [R, explore]
+categories: 
+- R
+---
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this post, I am going to demonstrate how to compute composite scores or means aggregated over multiple items. There are <strong>at least</strong> two approaches to achieve the goal.</p>
+<p>Let’s load necessary packages first.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<p>Create hypothetical data sets: one with complete data and one with missing values.</p>
+<pre class="r"><code>#id = unique id number for each participant
+#se refers self-efficacy
+#se1 refers to the first survey item of the self-efficacy scale
+mydata&lt;-data.frame(
+  id = c(1:3),
+  se1 = c(1, 3, 4),
+  se2 = c(2, 2, 5),
+  se3 = c(1, 3, 3)
+)
+
+missdata&lt;-data.frame(
+  id = c(1:3),
+  se1 = c(1, 3, 4),
+  se2 = c(NA, 2, 5),
+  se3 = c(1, 3, NA)
+)</code></pre>
+<p>Check our data set.</p>
+<pre class="r"><code>mydata</code></pre>
+<pre><code>##   id se1 se2 se3
+## 1  1   1   2   1
+## 2  2   3   2   3
+## 3  3   4   5   3</code></pre>
+<pre class="r"><code>missdata</code></pre>
+<pre><code>##   id se1 se2 se3
+## 1  1   1  NA   1
+## 2  2   3   2   3
+## 3  3   4   5  NA</code></pre>
+<p>We are ready to explore the data.</p>
+</div>
+<div id="first-approach-r-base-functions" class="section level2">
+<h2>First Approach: R Base Functions</h2>
+<p>Since we are interested in computing means, <code>rowMeans</code> will do the work. We need to create a new variable called <strong>se</strong> to represent each participant’s overall level of self-efficacy and specify what columns or items are needed for computing the composite score for each person (mean in this case). Let’s play with our complete data set <code>mydata</code> first.</p>
+<pre class="r"><code>mydata$se&lt;-rowMeans(mydata[, c(&quot;se1&quot;, &quot;se2&quot;, &quot;se3&quot;)], na.rm=T)
+mydata</code></pre>
+<pre><code>##   id se1 se2 se3       se
+## 1  1   1   2   1 1.333333
+## 2  2   3   2   3 2.666667
+## 3  3   4   5   3 4.000000</code></pre>
+<p><code>na.rm</code> is an argument for determining how to deal with cases with missing values. It is not particularly relevant here since there is no missing value in <code>mydata</code>.</p>
+</div>
+<div id="second-approach-tidyverse" class="section level2">
+<h2>Second Approach: Tidyverse</h2>
+<pre class="r"><code>mydata %&gt;% mutate (se = rowMeans(select(., c(&quot;se1&quot;, &quot;se2&quot;, &quot;se3&quot;)), na.rm=T))</code></pre>
+<pre><code>##   id se1 se2 se3       se
+## 1  1   1   2   1 1.333333
+## 2  2   3   2   3 2.666667
+## 3  3   4   5   3 4.000000</code></pre>
+<p><code>mutate</code> is a great function to <strong>create</strong> new variables. <code>select</code> is another function to <strong>select</strong> the variables needed. <strong>.</strong> (dot) refers to <code>mydata</code>. Here, <code>na.rm</code> is also not particularly relevant here since there is no missing value. It looks like we have identical values. Good!</p>
+</div>
+<div id="deal-with-missing-values" class="section level2">
+<h2>Deal with Missing Values</h2>
+<p><code>na.rm</code> will be relevant when dealing with data containing missing values. <code>na.rm = FALSE</code> is very similar to the idea of <strong>list-wise deletion</strong>. That is, R will not compute the composite score for any row or person that contains a missing value for the items you selected. On the contrary, <code>na.rm = TRUE</code> is very similar to the idea of the <strong>full information</strong> approach. That is, R will utilize all the possible information from the items to compute the mean. If there is a missing value in one of the three items, R will still compute the mean based on the values of the other two items.</p>
+<pre class="r"><code>#list-wise deletion approach
+missdata$list&lt;-rowMeans(missdata[, c(&quot;se1&quot;, &quot;se2&quot;, &quot;se3&quot;)], na.rm=F)
+#full information approach
+missdata$full&lt;-rowMeans(missdata[, c(&quot;se1&quot;, &quot;se2&quot;, &quot;se3&quot;)], na.rm=T)
+missdata</code></pre>
+<pre><code>##   id se1 se2 se3     list     full
+## 1  1   1  NA   1       NA 1.000000
+## 2  2   3   2   3 2.666667 2.666667
+## 3  3   4   5  NA       NA 4.500000</code></pre>
+<p>As you can see here, since there is a missing value for person 1 and person 3 in one of the self-efficacy items, <code>na.rm=F</code> will discard all the other information from items that do contain information and will not compute the mean for that person. On the contrary, <code>na.rm=T</code> will still compute the mean based on the information from items that do not have missing values. This idea is the same when using Tidyverse.</p>
+<pre class="r"><code>#list-wise deletion approach
+missdata %&gt;% mutate (list = rowMeans(select(., c(&quot;se1&quot;, &quot;se2&quot;, &quot;se3&quot;)), na.rm=F))</code></pre>
+<pre><code>##   id se1 se2 se3     list
+## 1  1   1  NA   1       NA
+## 2  2   3   2   3 2.666667
+## 3  3   4   5  NA       NA</code></pre>
+<pre class="r"><code>#full information approach
+missdata %&gt;% mutate (full = rowMeans(select(., c(&quot;se1&quot;, &quot;se2&quot;, &quot;se3&quot;)), na.rm=T))</code></pre>
+<pre><code>##   id se1 se2 se3     full
+## 1  1   1  NA   1 1.000000
+## 2  2   3   2   3 2.666667
+## 3  3   4   5  NA 4.500000</code></pre>
+<p>We have the identical results here. Using the full information approach <code>na.rm=T</code>, for person 1, the mean is 1 ((1+1)/2) despite a missing value for item 2.</p>
+</div>
