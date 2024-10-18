@@ -1,5 +1,5 @@
 ---
-title: "when reorder fails"
+title: "When `reorder` Fails"
 date: "2024-07-13"
 output:
   md_document:
