@@ -20,6 +20,7 @@ I am using the *mpg* dataset included in the **ggplot2** package.
    library(tidytext)
 
     #view data
+    mpg
 ```
 ```
     ## Rows: 234
