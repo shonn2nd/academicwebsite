@@ -2,27 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Visualization | Dr. Shonn Cheng</title>
-    <link>http://localhost:5833/tags/data-visualization/</link>
-      <atom:link href="http://localhost:5833/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:5334/tags/data-visualization/</link>
+      <atom:link href="http://localhost:5334/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
     <description>Data Visualization</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 13 Jul 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:5833/media/icon_hu7729264130191091259.png</url>
+      <url>http://localhost:5334/media/icon_hu10943837494220831082.png</url>
       <title>Data Visualization</title>
-      <link>http://localhost:5833/tags/data-visualization/</link>
+      <link>http://localhost:5334/tags/data-visualization/</link>
     </image>
     
     <item>
       <title>When `reorder` Fails</title>
-      <link>http://localhost:5833/post/06_when-reorder-fails/</link>
+      <link>http://localhost:5334/post/06_when-reorder-fails/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:5833/post/06_when-reorder-fails/</guid>
+      <guid>http://localhost:5334/post/06_when-reorder-fails/</guid>
       <description>&lt;p&gt;I am using the &lt;em&gt;mpg&lt;/em&gt; dataset included in the &lt;strong&gt;ggplot2&lt;/strong&gt; package.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;c1&#34;&gt;#load packages&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidytext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;#view data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;mpg&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## Rows: 234
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## Columns: 11
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ## $ manufacturer &amp;lt;chr&amp;gt; &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;audi&amp;#34;, &amp;#34;…
@@ -64,7 +65,7 @@
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp 400w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu1140811414921459347.webp 760w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu12990393163660237665.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp&#34;
+               src=&#34;http://localhost:5334/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-3-1_hu287259542552428841.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -100,7 +101,7 @@ frequency? We can use reorder.&lt;/p&gt;
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp 400w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu6956270366342954430.webp 760w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu15862624282157221998.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp&#34;
+               src=&#34;http://localhost:5334/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-4-1_hu10578774700853261870.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -137,7 +138,7 @@ want the distribution of trans varied by drv.&lt;/p&gt;
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp 400w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu5537248906016968025.webp 760w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu13279030754524013892.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp&#34;
+               src=&#34;http://localhost:5334/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-5-1_hu6626454790057709701.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -174,7 +175,7 @@ want the distribution of trans varied by drv.&lt;/p&gt;
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp 400w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu1439226806147717583.webp 760w,
                /post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu11637763058269063829.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp&#34;
+               src=&#34;http://localhost:5334/post/06_when-reorder-fails/index_files/figure-markdown_strict/unnamed-chunk-6-1_hu17784079745885245718.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -185,9 +186,9 @@ want the distribution of trans varied by drv.&lt;/p&gt;
     
     <item>
       <title>How to Display Chinese Characters in ggplot2</title>
-      <link>http://localhost:5833/post/03_chinese-character-in-ggplot/</link>
+      <link>http://localhost:5334/post/03_chinese-character-in-ggplot/</link>
       <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:5833/post/03_chinese-character-in-ggplot/</guid>
+      <guid>http://localhost:5334/post/03_chinese-character-in-ggplot/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In this post, I am going to demonstrate how to display Chinese characters in &lt;code&gt;ggplot2&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#loading necessary packages&lt;/span&gt;
@@ -220,7 +221,7 @@ want the distribution of trans varied by drv.&lt;/p&gt;
                /post/03_chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp 400w,
                /post/03_chinese-character-in-ggplot/images/wang_hu1259382287652598984.webp 760w,
                /post/03_chinese-character-in-ggplot/images/wang_hu10832729648128960289.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/03_chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp&#34;
+               src=&#34;http://localhost:5334/post/03_chinese-character-in-ggplot/images/wang_hu15954620842524368626.webp&#34;
                width=&#34;760&#34;
                height=&#34;374&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -312,7 +313,7 @@ want the distribution of trans varied by drv.&lt;/p&gt;
                /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu8547257808305059531.webp 400w,
                /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu3412606853606006347.webp 760w,
                /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu11110478410718567459.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu8547257808305059531.webp&#34;
+               src=&#34;http://localhost:5334/post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-5-1_hu8547257808305059531.webp&#34;
                width=&#34;760&#34;
                height=&#34;543&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -356,7 +357,7 @@ want the distribution of trans varied by drv.&lt;/p&gt;
                /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu10957403112894761927.webp 400w,
                /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu2006000322117652611.webp 760w,
                /post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu10268229641893216208.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu10957403112894761927.webp&#34;
+               src=&#34;http://localhost:5334/post/03_chinese-character-in-ggplot/index_files/figure-html/unnamed-chunk-7-1_hu10957403112894761927.webp&#34;
                width=&#34;760&#34;
                height=&#34;543&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

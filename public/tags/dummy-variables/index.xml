@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dummy Variables | Dr. Shonn Cheng</title>
-    <link>http://localhost:5833/tags/dummy-variables/</link>
-      <atom:link href="http://localhost:5833/tags/dummy-variables/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:5334/tags/dummy-variables/</link>
+      <atom:link href="http://localhost:5334/tags/dummy-variables/index.xml" rel="self" type="application/rss+xml" />
     <description>Dummy Variables</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:5833/media/icon_hu7729264130191091259.png</url>
+      <url>http://localhost:5334/media/icon_hu10943837494220831082.png</url>
       <title>Dummy Variables</title>
-      <link>http://localhost:5833/tags/dummy-variables/</link>
+      <link>http://localhost:5334/tags/dummy-variables/</link>
     </image>
     
     <item>
       <title>Create Dummy Variables</title>
-      <link>http://localhost:5833/post/04_create-dummy-variables/</link>
+      <link>http://localhost:5334/post/04_create-dummy-variables/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:5833/post/04_create-dummy-variables/</guid>
+      <guid>http://localhost:5334/post/04_create-dummy-variables/</guid>
       <description>&lt;h2 id=&#34;load-packages&#34;&gt;Load Packages&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fastDummies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -78,9 +78,9 @@
     
     <item>
       <title>test</title>
-      <link>http://localhost:5833/post/07_test/</link>
+      <link>http://localhost:5334/post/07_test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:5833/post/07_test/</guid>
+      <guid>http://localhost:5334/post/07_test/</guid>
       <description>&lt;h2 id=&#34;r-markdown&#34;&gt;R Markdown&lt;/h2&gt;
 &lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax
 for authoring HTML, PDF, and MS Word documents. For more details on
@@ -134,7 +134,7 @@ chunks within the document. You can embed an R code chunk like this:&lt;/p&gt;
                /post/07_test/index_files/figure-gfm/pressure-1_hu14082208042073440243.webp 400w,
                /post/07_test/index_files/figure-gfm/pressure-1_hu7380362371133289810.webp 760w,
                /post/07_test/index_files/figure-gfm/pressure-1_hu221982588013341155.webp 1200w&#34;
-               src=&#34;http://localhost:5833/post/07_test/index_files/figure-gfm/pressure-1_hu14082208042073440243.webp&#34;
+               src=&#34;http://localhost:5334/post/07_test/index_files/figure-gfm/pressure-1_hu14082208042073440243.webp&#34;
                width=&#34;672&#34;
                height=&#34;480&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
