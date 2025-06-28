@@ -3,6 +3,7 @@ title: "Why Do We Need to Care About Endogeneity?"
 authors: 
   - admin
 tags: [R, stats]
+date: "2025-06-28"
 categories: 
   - R
 output:
@@ -11,8 +12,11 @@ output:
     preserve_yaml: true
     toc: false
     toc_depth: 2
+math: true
 draft: false
 ---
+
+Let’s consider a simple linear regression model:
 
 $$
 y = \beta_0 + \beta_1 x + \varepsilon
