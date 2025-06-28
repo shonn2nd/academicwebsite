@@ -8,6 +8,7 @@
       "aside",
       "audio",
       "body",
+      "br",
       "button",
       "caption",
       "circle",
@@ -574,9 +575,13 @@
       "TableOfContents",
       "about-me",
       "callouts",
-      "chart-738651429",
+      "chart-257316849",
+      "chart-394672815",
+      "chart-431259876",
+      "chart-942367185",
       "charts",
       "code",
+      "consequence",
       "create-a-dataset",
       "create-dummy-variables",
       "crowd-funded-open-source-software",
@@ -594,6 +599,7 @@
       "including-plots",
       "inline-images",
       "inspiration",
+      "interpretation",
       "introduction",
       "license",
       "load-packages",
@@ -630,6 +636,7 @@
       "site-header",
       "spoiler-2",
       "spoiler-3",
+      "summary",
       "sun",
       "task-1-recode-missing-values-to--999",
       "task-2-recode-values-for-reverse-scoring-items",
@@ -639,7 +646,9 @@
       "themes",
       "todo-lists",
       "top",
-      "video"
+      "video",
+      "what-if-textcovx-varepsilon-neq-0",
+      "what-ols-assumes"
     ]
   }
 }

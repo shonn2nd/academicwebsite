@@ -1,0 +1,90 @@
+---
+title: "Why Do We Need to Care About Endogeneity?"
+authors: 
+  - admin
+tags: [R, stats]
+categories: 
+  - R
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+    toc: false
+    toc_depth: 2
+draft: true
+---
+
+
+
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x + \varepsilon
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(y\)</span>: outcome variable<br />
+</li>
+<li><span class="math inline">\(x\)</span>: predictor<br />
+</li>
+<li><span class="math inline">\(\varepsilon\)</span>: error term (disturbance or residual)<br />
+</li>
+<li><span class="math inline">\(\beta_0, \beta_1\)</span>: parameters to estimate</li>
+</ul>
+<hr />
+<div id="what-ols-assumes" class="section level2">
+<h2>What OLS Assumes</h2>
+<p>For the OLS (Ordinary Least Squares) estimator to be <strong>unbiased</strong>, one of the Gauss-Markov assumptions is:</p>
+<p><span class="math display">\[
+\mathbb{E}[\varepsilon \mid x] = 0 \quad \text{or} \quad \text{Cov}(x, \varepsilon) = 0
+\]</span></p>
+<p>This means the error term must <strong>not</strong> be correlated with the predictor <span class="math inline">\(x\)</span>.</p>
+<hr />
+</div>
+<div id="what-if-textcovx-varepsilon-neq-0" class="section level2">
+<h2>What If <span class="math inline">\(\text{Cov}(x, \varepsilon) \neq 0\)</span>?</h2>
+<p>Let’s derive the OLS estimate of <span class="math inline">\(\beta_1\)</span>:</p>
+<p><span class="math display">\[
+\hat{\beta}_1 = \frac{\text{Cov}(x, y)}{\text{Var}(x)}
+\]</span></p>
+<p>Substitute <span class="math inline">\(y = \beta_0 + \beta_1 x + \varepsilon\)</span>:</p>
+<p><span class="math display">\[
+\text{Cov}(x, y) = \text{Cov}(x, \beta_0 + \beta_1 x + \varepsilon) = \beta_1 \text{Var}(x) + \text{Cov}(x, \varepsilon)
+\]</span></p>
+<p>So the estimator becomes:</p>
+<p><span class="math display">\[
+\hat{\beta}_1 = \frac{\beta_1 \text{Var}(x) + \text{Cov}(x, \varepsilon)}{\text{Var}(x)}
+\]</span></p>
+<p><span class="math display">\[
+\Rightarrow \hat{\beta}_1 = \beta_1 + \frac{\text{Cov}(x, \varepsilon)}{\text{Var}(x)}
+\]</span></p>
+<hr />
+</div>
+<div id="consequence" class="section level2">
+<h2>Consequence</h2>
+<p>If <span class="math inline">\(\text{Cov}(x, \varepsilon) \neq 0\)</span>, then:</p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_1 \neq \beta_1\)</span></li>
+<li>Your estimate is <strong>biased</strong></li>
+<li>You cannot trust the regression results to reflect a true causal relationship</li>
+</ul>
+<hr />
+</div>
+<div id="interpretation" class="section level2">
+<h2>Interpretation</h2>
+<p>Imagine you’re studying the effect of <strong>study hours (<span class="math inline">\(x\)</span>)</strong> on <strong>test scores (<span class="math inline">\(y\)</span>)</strong>.<br />
+If <strong>motivation</strong> affects both study hours and test scores but is <strong>not included</strong> in the model, it ends up in the error term <span class="math inline">\(\varepsilon\)</span>.<br />
+Since <span class="math inline">\(x\)</span> (study hours) is related to motivation, now <span class="math inline">\(x\)</span> is <strong>correlated with</strong> <span class="math inline">\(\varepsilon\)</span>.<br />
+As a result, your estimate of the effect of study hours on test scores (<span class="math inline">\(\hat{\beta}_1\)</span>) will be <strong>biased</strong>.</p>
+<hr />
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>This is known as an <strong>endogeneity problem</strong>, and it violates a core OLS assumption.<br />
+To fix it, consider methods like:</p>
+<ul>
+<li>Instrumental variables (IV)</li>
+<li>Fixed effects models</li>
+<li>Control function approaches</li>
+<li>Structural Equation Modeling</li>
+</ul>
+<hr />
+</div>
