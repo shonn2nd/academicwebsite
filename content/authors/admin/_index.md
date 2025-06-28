@@ -45,10 +45,10 @@ profiles:
     url: https://orcid.org/0000-0003-2993-2031
 
 interests:
-  - Motivation
-  - Expertise
-  - Training with Technology
-  - Analysis
+  - [M]otivation
+  - [E]xpertise
+  - [T]raining with Technology
+  - [A]nalysis
 
 education:
   - area: PhD Educational Studies
