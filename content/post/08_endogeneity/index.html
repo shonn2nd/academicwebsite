@@ -11,7 +11,7 @@ output:
     preserve_yaml: true
     toc: false
     toc_depth: 2
-draft: true
+draft: false
 ---
 
 
@@ -70,21 +70,8 @@ y = \beta_0 + \beta_1 x + \varepsilon
 </div>
 <div id="interpretation" class="section level2">
 <h2>Interpretation</h2>
-<p>Imagine you’re studying the effect of <strong>study hours (<span class="math inline">\(x\)</span>)</strong> on <strong>test scores (<span class="math inline">\(y\)</span>)</strong>.<br />
+<p>Imagine you’re studying the effect of <strong>study hours (</strong><span class="math inline">\(x\)</span>) on <strong>test scores (</strong><span class="math inline">\(y\)</span>).<br />
 If <strong>motivation</strong> affects both study hours and test scores but is <strong>not included</strong> in the model, it ends up in the error term <span class="math inline">\(\varepsilon\)</span>.<br />
 Since <span class="math inline">\(x\)</span> (study hours) is related to motivation, now <span class="math inline">\(x\)</span> is <strong>correlated with</strong> <span class="math inline">\(\varepsilon\)</span>.<br />
 As a result, your estimate of the effect of study hours on test scores (<span class="math inline">\(\hat{\beta}_1\)</span>) will be <strong>biased</strong>.</p>
-<hr />
-</div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
-<p>This is known as an <strong>endogeneity problem</strong>, and it violates a core OLS assumption.<br />
-To fix it, consider methods like:</p>
-<ul>
-<li>Instrumental variables (IV)</li>
-<li>Fixed effects models</li>
-<li>Control function approaches</li>
-<li>Structural Equation Modeling</li>
-</ul>
-<hr />
 </div>

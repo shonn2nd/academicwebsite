@@ -11,7 +11,7 @@ output:
     preserve_yaml: true
     toc: false
     toc_depth: 2
-draft: true
+draft: false
 ---
 
 $$
@@ -80,26 +80,11 @@ If $\text{Cov}(x, \varepsilon) \neq 0$, then:
 
 ## Interpretation
 
-Imagine you’re studying the effect of **study hours ($x$)** on **test
-scores ($y$)**.  
+Imagine you’re studying the effect of **study hours (**$x$) on **test
+scores (**$y$).  
 If **motivation** affects both study hours and test scores but is **not
 included** in the model, it ends up in the error term $\varepsilon$.  
 Since $x$ (study hours) is related to motivation, now $x$ is
 **correlated with** $\varepsilon$.  
 As a result, your estimate of the effect of study hours on test scores
 ($\hat{\beta}_1$) will be **biased**.
-
-------------------------------------------------------------------------
-
-## Summary
-
-This is known as an **endogeneity problem**, and it violates a core OLS
-assumption.  
-To fix it, consider methods like:
-
-- Instrumental variables (IV)
-- Fixed effects models
-- Control function approaches
-- Structural Equation Modeling
-
-------------------------------------------------------------------------
