@@ -160,10 +160,28 @@ colnames(x) <- c("X1", "X2", "X3")
 
 # Constant vector c'
 c <- c(10, 20, 30)
+c
+```
 
+    ## [1] 10 20 30
+
+``` r
 # Check: Cov(x, c') should be 0
 x_centered <- scale(x, center = TRUE, scale = FALSE)
+x_centered
+```
 
+    ##      X1 X2 X3
+    ## [1,] -2 -2  2
+    ## [2,] -1 -1  1
+    ## [3,]  0  0  0
+    ## [4,]  1  1 -1
+    ## [5,]  2  2 -2
+    ## attr(,"scaled:center")
+    ## X1 X2 X3 
+    ##  3  4  3
+
+``` r
 # Manually calculate covariance with constant vector c by subtracting the constant mean
 cov_x_c <- apply(x_centered, 2, function(col) sum(col * rep(c, length(col))) / (length(col) - 1))
 cov_x_c
