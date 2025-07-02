@@ -3,7 +3,7 @@ title: "SEM (notes for myself)"
 authors: 
   - admin
 tags: [R, stats]
-date: "2000-1-1"
+date: "2000-01-01"
 categories: 
   - R
 output:
