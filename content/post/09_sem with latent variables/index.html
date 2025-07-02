@@ -86,3 +86,80 @@ x_2 = \lambda_2 \xi_1 + \delta_2
 <hr />
 </div>
 </div>
+<div id="p.23" class="section level1">
+<h1>p.23</h1>
+<div id="derivation-covx-c-0" class="section level2">
+<h2>1. Derivation: Cov(x, c′) = 0</h2>
+<p>Let <span class="math inline">\(\mathbf{x}\)</span> be a random vector and <span class="math inline">\(\mathbf{c}\)</span> a constant vector.</p>
+<p><span class="math display">\[
+\text{Cov}(\mathbf{x}, \mathbf{c}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}])(\mathbf{c}^\top - \mathbb{E}[\mathbf{c}^\top]) \right]
+\]</span></p>
+<p>But since <span class="math inline">\(\mathbf{c}^\top\)</span> is constant, <span class="math inline">\(\mathbb{E}[\mathbf{c}^\top] = \mathbf{c}^\top\)</span>, so:</p>
+<p><span class="math display">\[
+\mathbf{c}^\top - \mathbb{E}[\mathbf{c}^\top] = \mathbf{0}
+\]</span></p>
+<p>Hence:</p>
+<p><span class="math display">\[
+\text{Cov}(\mathbf{x}, \mathbf{c}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}]) \cdot \mathbf{0} \right] = \mathbf{0}
+\]</span></p>
+</div>
+<div id="derivation-varx-covx-x-σ" class="section level2">
+<h2>2. Derivation: Var(x) = Cov(x, x′) = Σ</h2>
+<p>By definition:</p>
+<p><span class="math display">\[
+\text{Var}(\mathbf{x}) = \text{Cov}(\mathbf{x}, \mathbf{x}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}])(\mathbf{x} - \mathbb{E}[\mathbf{x}])^\top \right]
+\]</span></p>
+<p>This is the population covariance matrix, denoted as:</p>
+<p><span class="math display">\[
+\boldsymbol{\Sigma}
+\]</span></p>
+</div>
+<div id="numerical-example-in-r" class="section level2">
+<h2>3. Numerical Example in R</h2>
+<pre class="r"><code># Set seed and generate data
+set.seed(123)
+
+# Simulate random vector x (5 observations, 3 variables)
+x &lt;- matrix(c(1, 2, 3, 4, 5,
+              2, 3, 4, 5, 6,
+              5, 4, 3, 2, 1), ncol = 3)
+
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    5
+## [2,]    2    3    4
+## [3,]    3    4    3
+## [4,]    4    5    2
+## [5,]    5    6    1</code></pre>
+<pre class="r"><code>colnames(x) &lt;- c(&quot;X1&quot;, &quot;X2&quot;, &quot;X3&quot;)
+
+# Constant vector c&#39;
+c &lt;- c(10, 20, 30)
+
+# Check: Cov(x, c&#39;) should be 0
+x_centered &lt;- scale(x, center = TRUE, scale = FALSE)
+
+# Manually calculate covariance with constant vector c by subtracting the constant mean
+cov_x_c &lt;- apply(x_centered, 2, function(col) sum(col * rep(c, length(col))) / (length(col) - 1))
+cov_x_c</code></pre>
+<pre><code>## X1 X2 X3 
+##  0  0  0</code></pre>
+</div>
+<div id="confirm-varx-covx-x" class="section level2">
+<h2>4. Confirm Var(x) = Cov(x, x′)</h2>
+<pre class="r"><code># Compute covariance matrix of x manually
+Sigma_manual &lt;- t(x_centered) %*% x_centered / (nrow(x) - 1)
+Sigma_manual</code></pre>
+<pre><code>##      X1   X2   X3
+## X1  2.5  2.5 -2.5
+## X2  2.5  2.5 -2.5
+## X3 -2.5 -2.5  2.5</code></pre>
+<pre class="r"><code># Compare with built-in cov()
+Sigma_builtin &lt;- cov(x)
+Sigma_builtin</code></pre>
+<pre><code>##      X1   X2   X3
+## X1  2.5  2.5 -2.5
+## X2  2.5  2.5 -2.5
+## X3 -2.5 -2.5  2.5</code></pre>
+</div>
+</div>

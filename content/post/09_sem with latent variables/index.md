@@ -96,3 +96,102 @@ $$
 $$
 
 ------------------------------------------------------------------------
+
+# p.23
+
+## 1. Derivation: Cov(x, c′) = 0
+
+Let $\mathbf{x}$ be a random vector and $\mathbf{c}$ a constant vector.
+
+$$
+\text{Cov}(\mathbf{x}, \mathbf{c}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}])(\mathbf{c}^\top - \mathbb{E}[\mathbf{c}^\top]) \right]
+$$
+
+But since $\mathbf{c}^\top$ is constant,
+$\mathbb{E}[\mathbf{c}^\top] = \mathbf{c}^\top$, so:
+
+$$
+\mathbf{c}^\top - \mathbb{E}[\mathbf{c}^\top] = \mathbf{0}
+$$
+
+Hence:
+
+$$
+\text{Cov}(\mathbf{x}, \mathbf{c}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}]) \cdot \mathbf{0} \right] = \mathbf{0}
+$$
+
+## 2. Derivation: Var(x) = Cov(x, x′) = Σ
+
+By definition:
+
+$$
+\text{Var}(\mathbf{x}) = \text{Cov}(\mathbf{x}, \mathbf{x}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}])(\mathbf{x} - \mathbb{E}[\mathbf{x}])^\top \right]
+$$
+
+This is the population covariance matrix, denoted as:
+
+$$
+\boldsymbol{\Sigma}
+$$
+
+## 3. Numerical Example in R
+
+``` r
+# Set seed and generate data
+set.seed(123)
+
+# Simulate random vector x (5 observations, 3 variables)
+x <- matrix(c(1, 2, 3, 4, 5,
+              2, 3, 4, 5, 6,
+              5, 4, 3, 2, 1), ncol = 3)
+
+x
+```
+
+    ##      [,1] [,2] [,3]
+    ## [1,]    1    2    5
+    ## [2,]    2    3    4
+    ## [3,]    3    4    3
+    ## [4,]    4    5    2
+    ## [5,]    5    6    1
+
+``` r
+colnames(x) <- c("X1", "X2", "X3")
+
+# Constant vector c'
+c <- c(10, 20, 30)
+
+# Check: Cov(x, c') should be 0
+x_centered <- scale(x, center = TRUE, scale = FALSE)
+
+# Manually calculate covariance with constant vector c by subtracting the constant mean
+cov_x_c <- apply(x_centered, 2, function(col) sum(col * rep(c, length(col))) / (length(col) - 1))
+cov_x_c
+```
+
+    ## X1 X2 X3 
+    ##  0  0  0
+
+## 4. Confirm Var(x) = Cov(x, x′)
+
+``` r
+# Compute covariance matrix of x manually
+Sigma_manual <- t(x_centered) %*% x_centered / (nrow(x) - 1)
+Sigma_manual
+```
+
+    ##      X1   X2   X3
+    ## X1  2.5  2.5 -2.5
+    ## X2  2.5  2.5 -2.5
+    ## X3 -2.5 -2.5  2.5
+
+``` r
+# Compare with built-in cov()
+Sigma_builtin <- cov(x)
+Sigma_builtin
+```
+
+    ##      X1   X2   X3
+    ## X1  2.5  2.5 -2.5
+    ## X2  2.5  2.5 -2.5
+    ## X3 -2.5 -2.5  2.5
