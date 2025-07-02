@@ -54,3 +54,35 @@ draft: false
 </div>
 </div>
 </div>
+<div id="p.22" class="section level1">
+<h1>p.22</h1>
+<div id="covariance-derivation-in-confirmatory-factor-analysis" class="section level2">
+<h2>Covariance Derivation in Confirmatory Factor Analysis</h2>
+<p>We start with the observed variables <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>:</p>
+<p><span class="math display">\[
+x_1 = \lambda_1 \xi_1 + \delta_1
+\]</span>
+<span class="math display">\[
+x_2 = \lambda_2 \xi_1 + \delta_2
+\]</span></p>
+<p>We want to find <span class="math inline">\(\text{Cov}(x_1, x_2)\)</span>:</p>
+<p><span class="math display">\[
+\text{Cov}(x_1, x_2) = \text{Cov}(\lambda_1 \xi_1 + \delta_1, \lambda_2 \xi_1 + \delta_2)
+\]</span></p>
+<p>Using bilinearity of covariance:</p>
+<p><span class="math display">\[
+= \lambda_1 \lambda_2 \text{Cov}(\xi_1, \xi_1) + \lambda_1 \text{Cov}(\xi_1, \delta_2) + \lambda_2 \text{Cov}(\delta_1, \xi_1) + \text{Cov}(\delta_1, \delta_2)
+\]</span></p>
+<p>Assuming:<br />
+- <span class="math inline">\(\text{Cov}(\xi_1, \delta_2) = 0\)</span><br />
+- <span class="math inline">\(\text{Cov}(\delta_1, \xi_1) = 0\)</span><br />
+- <span class="math inline">\(\text{Cov}(\delta_1, \delta_2) = 0\)</span><br />
+- <span class="math inline">\(\text{Var}(\xi_1) = \phi_{11}\)</span><br />
+</p>
+<p>Then:</p>
+<p><span class="math display">\[
+\text{Cov}(x_1, x_2) = \lambda_1 \lambda_2 \phi_{11}
+\]</span></p>
+<hr />
+</div>
+</div>

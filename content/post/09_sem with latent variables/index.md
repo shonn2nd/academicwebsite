@@ -58,3 +58,41 @@ $$
 $$
 
 ------------------------------------------------------------------------
+
+# p.22
+
+## Covariance Derivation in Confirmatory Factor Analysis
+
+We start with the observed variables $x_1$ and $x_2$:
+
+$$
+x_1 = \lambda_1 \xi_1 + \delta_1
+$$ $$
+x_2 = \lambda_2 \xi_1 + \delta_2
+$$
+
+We want to find $\text{Cov}(x_1, x_2)$:
+
+$$
+\text{Cov}(x_1, x_2) = \text{Cov}(\lambda_1 \xi_1 + \delta_1, \lambda_2 \xi_1 + \delta_2)
+$$
+
+Using bilinearity of covariance:
+
+$$
+= \lambda_1 \lambda_2 \text{Cov}(\xi_1, \xi_1) + \lambda_1 \text{Cov}(\xi_1, \delta_2) + \lambda_2 \text{Cov}(\delta_1, \xi_1) + \text{Cov}(\delta_1, \delta_2)
+$$
+
+Assuming:  
+- $\text{Cov}(\xi_1, \delta_2) = 0$  
+- $\text{Cov}(\delta_1, \xi_1) = 0$  
+- $\text{Cov}(\delta_1, \delta_2) = 0$  
+- $\text{Var}(\xi_1) = \phi_{11}$  
+
+Then:
+
+$$
+\text{Cov}(x_1, x_2) = \lambda_1 \lambda_2 \phi_{11}
+$$
+
+------------------------------------------------------------------------
