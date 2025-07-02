@@ -1,0 +1,60 @@
+---
+title: "SEM (notes for myself)"
+authors: 
+  - admin
+tags: [R, stats]
+date: "2099-12-31"
+categories: 
+  - R
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+    toc: false
+    toc_depth: 2
+math: true
+draft: false
+---
+
+# p.21
+
+## Covariance Derivation
+
+The covariance between two random variables $X_1$ and $X_2$ is defined
+as:
+
+$$
+\text{Cov}(X_1, X_2) = \mathbb{E}\left[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))\right]
+$$
+
+### Step 1: Expanding the expression
+
+First, expand the product inside the expectation:
+
+$$
+(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2)) = X_1X_2 - X_1\mathbb{E}(X_2) - \mathbb{E}(X_1)X_2 + \mathbb{E}(X_1)\mathbb{E}(X_2)
+$$
+
+### Step 2: Taking the expectation
+
+Now, take the expectation of both sides:
+
+$$
+\mathbb{E}\left[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))\right] = \mathbb{E}(X_1X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2) + \mathbb{E}(X_1)\mathbb{E}(X_2)
+$$
+
+### Step 3: Simplifying the result
+
+Notice that the terms $\mathbb{E}(X_1)\mathbb{E}(X_2)$ cancel out:
+
+$$
+\mathbb{E}(X_1X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2)
+$$
+
+Thus, we arrive at the final formula for the covariance:
+
+$$
+\text{Cov}(X_1, X_2) = \mathbb{E}(X_1X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2)
+$$
+
+------------------------------------------------------------------------

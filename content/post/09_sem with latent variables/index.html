@@ -1,0 +1,56 @@
+---
+title: "SEM (notes for myself)"
+authors: 
+  - admin
+tags: [R, stats]
+date: "2099-12-31"
+categories: 
+  - R
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+    toc: false
+    toc_depth: 2
+math: true
+draft: false
+---
+
+
+
+<div id="p.21" class="section level1">
+<h1>p.21</h1>
+<div id="covariance-derivation" class="section level2">
+<h2>Covariance Derivation</h2>
+<p>The covariance between two random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is defined as:</p>
+<p><span class="math display">\[
+\text{Cov}(X_1, X_2) = \mathbb{E}\left[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))\right]
+\]</span></p>
+<div id="step-1-expanding-the-expression" class="section level3">
+<h3>Step 1: Expanding the expression</h3>
+<p>First, expand the product inside the expectation:</p>
+<p><span class="math display">\[
+(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2)) = X_1X_2 - X_1\mathbb{E}(X_2) - \mathbb{E}(X_1)X_2 + \mathbb{E}(X_1)\mathbb{E}(X_2)
+\]</span></p>
+</div>
+<div id="step-2-taking-the-expectation" class="section level3">
+<h3>Step 2: Taking the expectation</h3>
+<p>Now, take the expectation of both sides:</p>
+<p><span class="math display">\[
+\mathbb{E}\left[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))\right] = \mathbb{E}(X_1X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2) + \mathbb{E}(X_1)\mathbb{E}(X_2)
+\]</span></p>
+</div>
+<div id="step-3-simplifying-the-result" class="section level3">
+<h3>Step 3: Simplifying the result</h3>
+<p>Notice that the terms <span class="math inline">\(\mathbb{E}(X_1)\mathbb{E}(X_2)\)</span> cancel out:</p>
+<p><span class="math display">\[
+\mathbb{E}(X_1X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2)
+\]</span></p>
+<p>Thus, we arrive at the final formula for the covariance:</p>
+<p><span class="math display">\[
+\text{Cov}(X_1, X_2) = \mathbb{E}(X_1X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2)
+\]</span></p>
+<hr />
+</div>
+</div>
+</div>
