@@ -176,3 +176,57 @@ Sigma_manual_s
 Sigma_builtin <- cov(x)
 Sigma_builtin
 ```
+
+------------------------------------------------------------------------
+
+# p.28
+
+## Step 1: Create the data for Disposable Income and Consumers' Expenditures
+
+```{r}
+income <- c(433, 483, 479, 486, 494, 498, 511, 534, 478, 440, 372, 381, 419, 449, 511, 520, 477, 517, 548, 629)
+
+consum <- c(394, 423, 437, 434, 447, 447, 466, 474, 439, 399, 350, 364, 392, 416, 463, 469, 444, 471, 494, 529)
+```
+
+### Step 2: Combine the data into a matrix
+
+```{r}
+data <- cbind(consum, income)
+
+data
+```
+
+### Step 3: Center the data by subtracting the mean of each variable
+
+```{r}
+Z <- scale(data, center = TRUE, scale = FALSE)  # Centers the data (but doesn't scale it)
+Z
+```
+
+### Step 4: Compute Z' (transpose of Z)
+
+```{r}
+Z_t <- t(Z)
+Z_t
+```
+
+### Step 5: Compute Z'Z (matrix multiplication of Z' and Z)
+
+```{r}
+Z_t_Z <- Z_t %*% Z
+Z_t_Z
+```
+
+### Step 6: Apply the 1/(N-1) factor
+
+```{r}
+N <- nrow(Z)  # Number of observations (rows)
+cov_matrix_manual <- (1 / (N - 1)) * Z_t_Z
+```
+
+### Display the result
+
+```{r}
+print(cov_matrix_manual)
+```
