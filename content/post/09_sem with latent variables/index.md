@@ -156,30 +156,19 @@ x
     ## [5,]    5    6    1
 
 ``` r
-colnames(x) <- c("X1", "X2", "X3")
-
-# Constant vector c'
-c <- c(10, 20, 30)
-c
-```
-
-    ## [1] 10 20 30
-
-``` r
 # Check: Cov(x, c') should be 0
 x_centered <- scale(x, center = TRUE, scale = FALSE)
 x_centered
 ```
 
-    ##      X1 X2 X3
-    ## [1,] -2 -2  2
-    ## [2,] -1 -1  1
-    ## [3,]  0  0  0
-    ## [4,]  1  1 -1
-    ## [5,]  2  2 -2
+    ##      [,1] [,2] [,3]
+    ## [1,]   -2   -2    2
+    ## [2,]   -1   -1    1
+    ## [3,]    0    0    0
+    ## [4,]    1    1   -1
+    ## [5,]    2    2   -2
     ## attr(,"scaled:center")
-    ## X1 X2 X3 
-    ##  3  4  3
+    ## [1] 3 4 3
 
 ## 4. Confirm Var(x) = Cov(x, x′)
 
@@ -190,10 +179,10 @@ Sigma_manual_p <- t(x_centered) %*% x_centered / (nrow(x))
 Sigma_manual_p
 ```
 
-    ##    X1 X2 X3
-    ## X1  2  2 -2
-    ## X2  2  2 -2
-    ## X3 -2 -2  2
+    ##      [,1] [,2] [,3]
+    ## [1,]    2    2   -2
+    ## [2,]    2    2   -2
+    ## [3,]   -2   -2    2
 
 ``` r
 # sample covariance matrix
@@ -201,10 +190,10 @@ Sigma_manual_s <- t(x_centered) %*% x_centered / (nrow(x) - 1)
 Sigma_manual_s
 ```
 
-    ##      X1   X2   X3
-    ## X1  2.5  2.5 -2.5
-    ## X2  2.5  2.5 -2.5
-    ## X3 -2.5 -2.5  2.5
+    ##      [,1] [,2] [,3]
+    ## [1,]  2.5  2.5 -2.5
+    ## [2,]  2.5  2.5 -2.5
+    ## [3,] -2.5 -2.5  2.5
 
 ``` r
 # Compare with built-in cov()
@@ -213,7 +202,7 @@ Sigma_builtin <- cov(x)
 Sigma_builtin
 ```
 
-    ##      X1   X2   X3
-    ## X1  2.5  2.5 -2.5
-    ## X2  2.5  2.5 -2.5
-    ## X3 -2.5 -2.5  2.5
+    ##      [,1] [,2] [,3]
+    ## [1,]  2.5  2.5 -2.5
+    ## [2,]  2.5  2.5 -2.5
+    ## [3,] -2.5 -2.5  2.5

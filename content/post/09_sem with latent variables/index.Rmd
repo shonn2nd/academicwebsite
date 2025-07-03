@@ -156,12 +156,6 @@ x <- matrix(c(1, 2, 3, 4, 5,
 
 x
 
-colnames(x) <- c("X1", "X2", "X3")
-
-# Constant vector c'
-c <- c(10, 20, 30)
-c
-
 # Check: Cov(x, c') should be 0
 x_centered <- scale(x, center = TRUE, scale = FALSE)
 x_centered
