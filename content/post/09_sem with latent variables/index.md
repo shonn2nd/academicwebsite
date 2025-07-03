@@ -181,21 +181,24 @@ x_centered
     ## X1 X2 X3 
     ##  3  4  3
 
-``` r
-# Manually calculate covariance with constant vector c by subtracting the constant mean
-cov_x_c <- apply(x_centered, 2, function(col) sum(col * rep(c, length(col))) / (length(col) - 1))
-cov_x_c
-```
-
-    ## X1 X2 X3 
-    ##  0  0  0
-
 ## 4. Confirm Var(x) = Cov(x, x′)
 
 ``` r
 # Compute covariance matrix of x manually
-Sigma_manual <- t(x_centered) %*% x_centered / (nrow(x) - 1)
-Sigma_manual
+# population covariance matrix
+Sigma_manual_p <- t(x_centered) %*% x_centered / (nrow(x))
+Sigma_manual_p
+```
+
+    ##    X1 X2 X3
+    ## X1  2  2 -2
+    ## X2  2  2 -2
+    ## X3 -2 -2  2
+
+``` r
+# sample covariance matrix
+Sigma_manual_s <- t(x_centered) %*% x_centered / (nrow(x) - 1)
+Sigma_manual_s
 ```
 
     ##      X1   X2   X3
@@ -205,6 +208,7 @@ Sigma_manual
 
 ``` r
 # Compare with built-in cov()
+# sample covariance matrix
 Sigma_builtin <- cov(x)
 Sigma_builtin
 ```

@@ -149,22 +149,26 @@ x_centered</code></pre>
 ## attr(,&quot;scaled:center&quot;)
 ## X1 X2 X3 
 ##  3  4  3</code></pre>
-<pre class="r"><code># Manually calculate covariance with constant vector c by subtracting the constant mean
-cov_x_c &lt;- apply(x_centered, 2, function(col) sum(col * rep(c, length(col))) / (length(col) - 1))
-cov_x_c</code></pre>
-<pre><code>## X1 X2 X3 
-##  0  0  0</code></pre>
 </div>
 <div id="confirm-varx-covx-x" class="section level2">
 <h2>4. Confirm Var(x) = Cov(x, x′)</h2>
 <pre class="r"><code># Compute covariance matrix of x manually
-Sigma_manual &lt;- t(x_centered) %*% x_centered / (nrow(x) - 1)
-Sigma_manual</code></pre>
+# population covariance matrix
+Sigma_manual_p &lt;- t(x_centered) %*% x_centered / (nrow(x))
+Sigma_manual_p</code></pre>
+<pre><code>##    X1 X2 X3
+## X1  2  2 -2
+## X2  2  2 -2
+## X3 -2 -2  2</code></pre>
+<pre class="r"><code># sample covariance matrix
+Sigma_manual_s &lt;- t(x_centered) %*% x_centered / (nrow(x) - 1)
+Sigma_manual_s</code></pre>
 <pre><code>##      X1   X2   X3
 ## X1  2.5  2.5 -2.5
 ## X2  2.5  2.5 -2.5
 ## X3 -2.5 -2.5  2.5</code></pre>
 <pre class="r"><code># Compare with built-in cov()
+# sample covariance matrix
 Sigma_builtin &lt;- cov(x)
 Sigma_builtin</code></pre>
 <pre><code>##      X1   X2   X3
