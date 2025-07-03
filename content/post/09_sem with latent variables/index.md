@@ -156,7 +156,6 @@ x
     ## [5,]    5    6    1
 
 ``` r
-# Check: Cov(x, c') should be 0
 x_centered <- scale(x, center = TRUE, scale = FALSE)
 x_centered
 ```
