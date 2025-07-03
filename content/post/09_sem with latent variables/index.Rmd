@@ -183,4 +183,3 @@ Sigma_manual_s
 Sigma_builtin <- cov(x)
 Sigma_builtin
 ```
-
