@@ -218,7 +218,7 @@ income <- c(433, 483, 479, 486, 494, 498, 511, 534, 478, 440, 372, 381, 419, 449
 consum <- c(394, 423, 437, 434, 447, 447, 466, 474, 439, 399, 350, 364, 392, 416, 463, 469, 444, 471, 494, 529)
 ```
 
-### Step 2: Combine the data into a matrix
+## Step 2: Combine the data into a matrix
 
 ``` r
 data <- cbind(consum, income)
@@ -248,7 +248,7 @@ data
     ## [19,]    494    548
     ## [20,]    529    629
 
-### Step 3: Center the data by subtracting the mean of each variable
+## Step 3: Center the data by subtracting the mean of each variable
 
 ``` r
 Z <- scale(data, center = TRUE, scale = FALSE)  # Centers the data (but doesn't scale it)
@@ -280,7 +280,7 @@ Z
     ## consum income 
     ## 437.60 482.95
 
-### Step 4: Compute Z’ (transpose of Z)
+## Step 4: Compute Z’ (transpose of Z)
 
 ``` r
 Z_t <- t(Z)
@@ -297,7 +297,7 @@ Z_t
     ## consum income 
     ## 437.60 482.95
 
-### Step 5: Compute Z’Z (matrix multiplication of Z’ and Z)
+## Step 5: Compute Z’Z (matrix multiplication of Z’ and Z)
 
 ``` r
 Z_t_Z <- Z_t %*% Z
@@ -308,7 +308,7 @@ Z_t_Z
     ## consum 35886.8 47584.60
     ## income 47584.6 64992.95
 
-### Step 6: Apply the 1/(N-1) factor
+## Step 6: Apply the 1/(N-1) factor
 
 ``` r
 N <- nrow(Z)  # Number of observations (rows)
