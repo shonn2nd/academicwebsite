@@ -61,8 +61,8 @@ draft: false
 <p>We start with the observed variables <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>:</p>
 <p><span class="math display">\[
 x_1 = \lambda_1 \xi_1 + \delta_1
-\]</span>
-<span class="math display">\[
+\]</span></p>
+<p><span class="math display">\[
 x_2 = \lambda_2 \xi_1 + \delta_2
 \]</span></p>
 <p>We want to find <span class="math inline">\(\text{Cov}(x_1, x_2)\)</span>:</p>
@@ -376,5 +376,225 @@ legend(&quot;topright&quot;, legend = paste(&quot;Expected Mean =&quot;, round(e
 <li>Observations with high <span class="math inline">\(a_{ii}\)</span> values are flagged as potential <strong>outliers</strong> in multivariate space.</li>
 </ul>
 <p>This method is especially helpful in the context of SEM, factor analysis, or other multivariate procedures where unusual cases may affect model fit or estimates.</p>
+<hr />
+</div>
+</div>
+<div id="p.-30" class="section level1">
+<h1>p. 30</h1>
+<div id="introduction-1" class="section level2">
+<h2>Introduction</h2>
+<p>The formula for calculating multidimensional outliers:</p>
+<p><span class="math display">\[
+Z(Z&#39;Z)^{-1}Z&#39;
+\]</span></p>
+<p>Where:</p>
+<p><span class="math inline">\(Z\)</span> is the standardized data matrix.</p>
+<p><span class="math inline">\(Z&#39;Z\)</span> is the product of the transposed <span class="math inline">\(Z\)</span> matrix and <span class="math inline">\(Z\)</span> itself.</p>
+<p><span class="math inline">\((Z&#39;Z)^{-1}\)</span> is the inverse of the matrix <span class="math inline">\(Z&#39;Z\)</span>.</p>
+<p>The final result gives a measure of how far each observation is from the multivariate centroid.</p>
+<p>We will apply this formula to a dataset that contains estimates of cloud cover (COVER1, COVER2, COVER3).</p>
+</div>
+<div id="data-preparation" class="section level2">
+<h2>Data Preparation</h2>
+<pre class="r"><code># Define the data
+data &lt;- data.frame(
+  COVER1 = c(0, 20, 80, 50, 5, 1, 5, 0, 10, 0, 0, 10, 0, 10, 0, 0, 5, 10, 20, 35, 90, 50, 35, 25, 0, 0, 10, 40, 35, 55, 35, 0, 0, 5, 20, 0, 0, 0, 15, 95, 40, 40, 15, 30, 75, 100, 100, 100, 100, 100, 100, 100, 0, 5, 80, 80, 80, 40, 20, 1),
+  COVER2 = c(5, 20, 85, 50, 2, 1, 5, 0, 15, 0, 0, 30, 2, 10, 0, 0, 0, 20, 45, 75, 99, 90, 85, 15, 0, 0, 10, 75, 70, 90, 95, 0, 0, 1, 60, 0, 0, 0, 55, 0, 35, 50, 60, 30, 85, 100, 90, 95, 95, 99, 30, 5, 0, 5, 90, 95, 90, 55, 40, 0),
+  COVER3 = c(0, 20, 90, 70, 5, 2, 2, 0, 5, 0, 0, 10, 2, 5, 0, 0, 20, 20, 15, 60, 100, 80, 70, 40, 0, 0, 20, 30, 20, 90, 80, 0, 0, 2, 50, 0, 0, 0, 50, 40, 30, 40, 5, 15, 75, 100, 85, 100, 100, 100, 95, 95, 0, 5, 85, 80, 70, 50, 5, 0)
+)
+
+dplyr::glimpse(data)</code></pre>
+<pre><code>## Rows: 60
+## Columns: 3
+## $ COVER1 &lt;dbl&gt; 0, 20, 80, 50, 5, 1, 5, 0, 10, 0, 0, 10, 0, 10, 0, 0, 5, 10, 20…
+## $ COVER2 &lt;dbl&gt; 5, 20, 85, 50, 2, 1, 5, 0, 15, 0, 0, 30, 2, 10, 0, 0, 0, 20, 45…
+## $ COVER3 &lt;dbl&gt; 0, 20, 90, 70, 5, 2, 2, 0, 5, 0, 0, 10, 2, 5, 0, 0, 20, 20, 15,…</code></pre>
+<pre class="r"><code># View the data to check it
+head(data)</code></pre>
+<pre><code>##   COVER1 COVER2 COVER3
+## 1      0      5      0
+## 2     20     20     20
+## 3     80     85     90
+## 4     50     50     70
+## 5      5      2      5
+## 6      1      1      2</code></pre>
+</div>
+<div id="mean-centering" class="section level2">
+<h2>Mean-Centering</h2>
+<p>We will now mean-center the data to create the Z matrix.</p>
+<pre class="r"><code># Mean-centering the data (subtracting the mean of each column from the data)
+Z &lt;- scale(data, center = TRUE, scale = FALSE)
+
+Z</code></pre>
+<pre><code>##       COVER1 COVER2 COVER3
+##  [1,] -32.95 -32.65 -35.55
+##  [2,] -12.95 -17.65 -15.55
+##  [3,]  47.05  47.35  54.45
+##  [4,]  17.05  12.35  34.45
+##  [5,] -27.95 -35.65 -30.55
+##  [6,] -31.95 -36.65 -33.55
+##  [7,] -27.95 -32.65 -33.55
+##  [8,] -32.95 -37.65 -35.55
+##  [9,] -22.95 -22.65 -30.55
+## [10,] -32.95 -37.65 -35.55
+## [11,] -32.95 -37.65 -35.55
+## [12,] -22.95  -7.65 -25.55
+## [13,] -32.95 -35.65 -33.55
+## [14,] -22.95 -27.65 -30.55
+## [15,] -32.95 -37.65 -35.55
+## [16,] -32.95 -37.65 -35.55
+## [17,] -27.95 -37.65 -15.55
+## [18,] -22.95 -17.65 -15.55
+## [19,] -12.95   7.35 -20.55
+## [20,]   2.05  37.35  24.45
+## [21,]  57.05  61.35  64.45
+## [22,]  17.05  52.35  44.45
+## [23,]   2.05  47.35  34.45
+## [24,]  -7.95 -22.65   4.45
+## [25,] -32.95 -37.65 -35.55
+## [26,] -32.95 -37.65 -35.55
+## [27,] -22.95 -27.65 -15.55
+## [28,]   7.05  37.35  -5.55
+## [29,]   2.05  32.35 -15.55
+## [30,]  22.05  52.35  54.45
+## [31,]   2.05  57.35  44.45
+## [32,] -32.95 -37.65 -35.55
+## [33,] -32.95 -37.65 -35.55
+## [34,] -27.95 -36.65 -33.55
+## [35,] -12.95  22.35  14.45
+## [36,] -32.95 -37.65 -35.55
+## [37,] -32.95 -37.65 -35.55
+## [38,] -32.95 -37.65 -35.55
+## [39,] -17.95  17.35  14.45
+## [40,]  62.05 -37.65   4.45
+## [41,]   7.05  -2.65  -5.55
+## [42,]   7.05  12.35   4.45
+## [43,] -17.95  22.35 -30.55
+## [44,]  -2.95  -7.65 -20.55
+## [45,]  42.05  47.35  39.45
+## [46,]  67.05  62.35  64.45
+## [47,]  67.05  52.35  49.45
+## [48,]  67.05  57.35  64.45
+## [49,]  67.05  57.35  64.45
+## [50,]  67.05  61.35  64.45
+## [51,]  67.05  -7.65  59.45
+## [52,]  67.05 -32.65  59.45
+## [53,] -32.95 -37.65 -35.55
+## [54,] -27.95 -32.65 -30.55
+## [55,]  47.05  52.35  49.45
+## [56,]  47.05  57.35  44.45
+## [57,]  47.05  52.35  34.45
+## [58,]   7.05  17.35  14.45
+## [59,] -12.95   2.35 -30.55
+## [60,] -31.95 -37.65 -35.55
+## attr(,&quot;scaled:center&quot;)
+## COVER1 COVER2 COVER3 
+##  32.95  37.65  35.55</code></pre>
+<pre class="r"><code># Check the mean-centered data (Z matrix)
+head(Z)</code></pre>
+<pre><code>##      COVER1 COVER2 COVER3
+## [1,] -32.95 -32.65 -35.55
+## [2,] -12.95 -17.65 -15.55
+## [3,]  47.05  47.35  54.45
+## [4,]  17.05  12.35  34.45
+## [5,] -27.95 -35.65 -30.55
+## [6,] -31.95 -36.65 -33.55</code></pre>
+</div>
+<div id="calculating-zz" class="section level2">
+<h2>Calculating <span class="math inline">\(Z&#39;Z\)</span></h2>
+<p>Next, we compute the product of the transposed matrix <span class="math inline">\(Z\)</span> and the matrix <span class="math inline">\(Z\)</span>.</p>
+<pre class="r"><code># Calculate Z&#39;Z (transposed Z matrix multiplied by Z)
+ZZT &lt;- t(Z) %*% Z
+
+# View the result of Z&#39;Z
+ZZT</code></pre>
+<pre><code>##          COVER1   COVER2   COVER3
+## COVER1 76734.85 60191.95 72989.65
+## COVER2 60191.95 86335.65 70795.55
+## COVER3 72989.65 70795.55 82812.85</code></pre>
+</div>
+<div id="inverse-of-zz" class="section level2">
+<h2>Inverse of <span class="math inline">\(Z&#39;Z\)</span></h2>
+<p>Now, we calculate the inverse of the matrix <span class="math inline">\(Z&#39;Z\)</span>.</p>
+<pre class="r"><code># Calculate the inverse of Z&#39;Z
+ZZT_inv &lt;- solve(ZZT)
+
+# View the inverse of Z&#39;Z
+ZZT_inv</code></pre>
+<pre><code>##               COVER1        COVER2        COVER3
+## COVER1  8.186873e-05  6.996057e-06 -7.813835e-05
+## COVER2  6.996057e-06  3.933723e-05 -3.979504e-05
+## COVER3 -7.813835e-05 -3.979504e-05  1.149653e-04</code></pre>
+</div>
+<div id="calculate-zzz-1z" class="section level2">
+<h2>Calculate <span class="math inline">\(Z(Z&#39;Z)^{-1}Z&#39;\)</span></h2>
+<p>Finally, using the inverse of <span class="math inline">\(Z&#39;Z\)</span>, we compute the multidimensional outlier scores.</p>
+<pre class="r"><code># Calculate the multidimensional outliers
+outliers &lt;- Z %*% ZZT_inv %*% t(Z)
+
+# Extract the diagonal of the outlier matrix (outlier scores)
+outlier_scores &lt;- diag(outliers)
+
+# View the outlier scores for each observation
+outlier_scores</code></pre>
+<pre><code>##  [1] 0.015726795 0.003667134 0.035888471 0.043531791 0.015067469 0.016818904
+##  [7] 0.014336636 0.017711895 0.013230015 0.017711895 0.017711895 0.015735922
+## [13] 0.016767037 0.012571539 0.017711895 0.017711895 0.047722524 0.011226588
+## [19] 0.033505745 0.044503013 0.051723149 0.067601060 0.085473686 0.043702080
+## [25] 0.017711895 0.017711895 0.019881286 0.088784132 0.115257068 0.090112579
+## [31] 0.141386847 0.017711895 0.017711895 0.016124246 0.056874143 0.017711895
+## [37] 0.017711895 0.017711895 0.078447969 0.310744264 0.012569282 0.004286889
+## [43] 0.116357798 0.029894426 0.031821437 0.061860674 0.081910183 0.059274389
+## [49] 0.059274389 0.061186068 0.182763526 0.317232262 0.017711895 0.013128462
+## [55] 0.034993660 0.045793479 0.063100245 0.005752862 0.064705791 0.017427449</code></pre>
+<pre class="r"><code>sum(outlier_scores)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="sample-covariance-matrix" class="section level2">
+<h2>Sample Covariance Matrix</h2>
+<pre class="r"><code>Z_t &lt;- t(Z)
+Z_t</code></pre>
+<pre><code>##          [,1]   [,2]  [,3]  [,4]   [,5]   [,6]   [,7]   [,8]   [,9]  [,10]
+## COVER1 -32.95 -12.95 47.05 17.05 -27.95 -31.95 -27.95 -32.95 -22.95 -32.95
+## COVER2 -32.65 -17.65 47.35 12.35 -35.65 -36.65 -32.65 -37.65 -22.65 -37.65
+## COVER3 -35.55 -15.55 54.45 34.45 -30.55 -33.55 -33.55 -35.55 -30.55 -35.55
+##         [,11]  [,12]  [,13]  [,14]  [,15]  [,16]  [,17]  [,18]  [,19] [,20]
+## COVER1 -32.95 -22.95 -32.95 -22.95 -32.95 -32.95 -27.95 -22.95 -12.95  2.05
+## COVER2 -37.65  -7.65 -35.65 -27.65 -37.65 -37.65 -37.65 -17.65   7.35 37.35
+## COVER3 -35.55 -25.55 -33.55 -30.55 -35.55 -35.55 -15.55 -15.55 -20.55 24.45
+##        [,21] [,22] [,23]  [,24]  [,25]  [,26]  [,27] [,28]  [,29] [,30] [,31]
+## COVER1 57.05 17.05  2.05  -7.95 -32.95 -32.95 -22.95  7.05   2.05 22.05  2.05
+## COVER2 61.35 52.35 47.35 -22.65 -37.65 -37.65 -27.65 37.35  32.35 52.35 57.35
+## COVER3 64.45 44.45 34.45   4.45 -35.55 -35.55 -15.55 -5.55 -15.55 54.45 44.45
+##         [,32]  [,33]  [,34]  [,35]  [,36]  [,37]  [,38]  [,39]  [,40] [,41]
+## COVER1 -32.95 -32.95 -27.95 -12.95 -32.95 -32.95 -32.95 -17.95  62.05  7.05
+## COVER2 -37.65 -37.65 -36.65  22.35 -37.65 -37.65 -37.65  17.35 -37.65 -2.65
+## COVER3 -35.55 -35.55 -33.55  14.45 -35.55 -35.55 -35.55  14.45   4.45 -5.55
+##        [,42]  [,43]  [,44] [,45] [,46] [,47] [,48] [,49] [,50] [,51]  [,52]
+## COVER1  7.05 -17.95  -2.95 42.05 67.05 67.05 67.05 67.05 67.05 67.05  67.05
+## COVER2 12.35  22.35  -7.65 47.35 62.35 52.35 57.35 57.35 61.35 -7.65 -32.65
+## COVER3  4.45 -30.55 -20.55 39.45 64.45 49.45 64.45 64.45 64.45 59.45  59.45
+##         [,53]  [,54] [,55] [,56] [,57] [,58]  [,59]  [,60]
+## COVER1 -32.95 -27.95 47.05 47.05 47.05  7.05 -12.95 -31.95
+## COVER2 -37.65 -32.65 52.35 57.35 52.35 17.35   2.35 -37.65
+## COVER3 -35.55 -30.55 49.45 44.45 34.45 14.45 -30.55 -35.55
+## attr(,&quot;scaled:center&quot;)
+## COVER1 COVER2 COVER3 
+##  32.95  37.65  35.55</code></pre>
+<pre class="r"><code>Z_t_Z &lt;- Z_t %*% Z
+Z_t_Z</code></pre>
+<pre><code>##          COVER1   COVER2   COVER3
+## COVER1 76734.85 60191.95 72989.65
+## COVER2 60191.95 86335.65 70795.55
+## COVER3 72989.65 70795.55 82812.85</code></pre>
+<pre class="r"><code>N &lt;- nrow(Z)  # Number of observations (rows)
+cov_matrix_manual &lt;- (1 / (N - 1)) * Z_t_Z
+
+# Display the result
+print(cov_matrix_manual)</code></pre>
+<pre><code>##          COVER1   COVER2   COVER3
+## COVER1 1300.591 1020.203 1237.113
+## COVER2 1020.203 1463.316 1199.925
+## COVER3 1237.113 1199.925 1403.608</code></pre>
 </div>
 </div>
