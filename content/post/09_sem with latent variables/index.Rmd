@@ -72,38 +72,38 @@ $$
 
 ## Covariance Derivation in Confirmatory Factor Analysis
 
-We start with the observed variables \( x_1 \) and \( x_2 \):
+We start with the observed variables $x_1$ and $x_2$:
 
-\[
+$$
 x_1 = \lambda_1 \xi_1 + \delta_1
-\]
-\[
+$$ 
+$$
 x_2 = \lambda_2 \xi_1 + \delta_2
-\]
+$$
 
-We want to find \( \text{Cov}(x_1, x_2) \):
+We want to find $\text{Cov}(x_1, x_2)$:
 
-\[
+$$
 \text{Cov}(x_1, x_2) = \text{Cov}(\lambda_1 \xi_1 + \delta_1, \lambda_2 \xi_1 + \delta_2)
-\]
+$$
 
 Using bilinearity of covariance:
 
-\[
+$$
 = \lambda_1 \lambda_2 \text{Cov}(\xi_1, \xi_1) + \lambda_1 \text{Cov}(\xi_1, \delta_2) + \lambda_2 \text{Cov}(\delta_1, \xi_1) + \text{Cov}(\delta_1, \delta_2)
-\]
+$$
 
 Assuming:\
-- \( \text{Cov}(\xi_1, \delta_2) = 0 \)\
-- \( \text{Cov}(\delta_1, \xi_1) = 0 \)\
-- \( \text{Cov}(\delta_1, \delta_2) = 0 \)\
-- \( \text{Var}(\xi_1) = \phi_{11} \)\
+- $\text{Cov}(\xi_1, \delta_2) = 0$\
+- $\text{Cov}(\delta_1, \xi_1) = 0$\
+- $\text{Cov}(\delta_1, \delta_2) = 0$\
+- $\text{Var}(\xi_1) = \phi_{11}$\
 
 Then:
 
-\[
+$$
 \text{Cov}(x_1, x_2) = \lambda_1 \lambda_2 \phi_{11}
-\]
+$$
 
 ------------------------------------------------------------------------
 
@@ -113,35 +113,35 @@ Then:
 
 Let $\mathbf{x}$ be a random vector and $\mathbf{c}$ a constant vector.
 
-\[
+$$
 \text{Cov}(\mathbf{x}, \mathbf{c}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}])(\mathbf{c}^\top - \mathbb{E}[\mathbf{c}^\top]) \right]
-\]
+$$
 
 But since $\mathbf{c}^\top$ is constant, $\mathbb{E}[\mathbf{c}^\top] = \mathbf{c}^\top$, so:
 
-\[
+$$
 \mathbf{c}^\top - \mathbb{E}[\mathbf{c}^\top] = \mathbf{0}
-\]
+$$
 
 Hence:
 
-\[
+$$
 \text{Cov}(\mathbf{x}, \mathbf{c}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}]) \cdot \mathbf{0} \right] = \mathbf{0}
-\]
+$$
 
 ## 2. Derivation: Var(x) = Cov(x, x′) = Σ
 
 By definition:
 
-\[
+$$
 \text{Var}(\mathbf{x}) = \text{Cov}(\mathbf{x}, \mathbf{x}^\top) = \mathbb{E} \left[ (\mathbf{x} - \mathbb{E}[\mathbf{x}])(\mathbf{x} - \mathbb{E}[\mathbf{x}])^\top \right]
-\]
+$$
 
 This is the population covariance matrix, denoted as:
 
-\[
+$$
 \boldsymbol{\Sigma}
-\]
+$$
 
 ## 3. Numerical Example in R
 
@@ -223,10 +223,120 @@ Z_t_Z
 ```{r}
 N <- nrow(Z)  # Number of observations (rows)
 cov_matrix_manual <- (1 / (N - 1)) * Z_t_Z
-```
 
-### Display the result
-
-```{r}
+# Display the result
 print(cov_matrix_manual)
 ```
+
+------------------------------------------------------------------------
+
+# p.28
+
+## Introduction
+
+In multivariate statistics, it is often important to detect observations that deviate significantly from the center of the multivariate data cloud. One useful tool is the matrix:
+
+$$
+\mathbf{A} = \mathbf{Z(Z'Z)^{-1}Z'}
+$$
+
+Where:
+
+$\mathbf{Z}$ is the mean-centered data matrix of size $N \times (p + q)$,
+
+$\mathbf{Z}'\mathbf{Z}$ is the cross-product matrix,
+
+$(\mathbf{Z}'\mathbf{Z})^{-1}$ is its inverse,
+
+$\mathbf{A}$ is a square $N \times N$ matrix whose diagonal entries $a_{ii}$ represent the multivariate "distance" of each observation from the center.
+
+The average value of $a_{ii}$ is:
+
+$$
+\frac{(p + q)}{N}
+$$
+
+Observations with much higher $a_{ii}$ values than the average are potential **multivariate outliers**.
+
+## Step-by-Step Example
+
+We will use a simple example dataset with 3 observations and 2 variables.
+
+```{r}
+# Define the data matrix (3 observations, 2 variables)
+X <- matrix(c(2, 3, 4, 4, 6, 5), ncol = 2, byrow = FALSE)
+colnames(X) <- c("X1", "X2")
+rownames(X) <- paste0("Obs", 1:3)
+X
+```
+
+## Step 1: Center the Data (Create Z)
+
+We subtract the mean from each variable to obtain the matrix $\mathbf{Z}$.
+
+```{r}
+Z <- scale(X, center = TRUE, scale = FALSE)
+Z
+```
+
+## Step 2: Compute $\mathbf{Z}'\mathbf{Z}$
+
+```{r}
+ZtZ <- t(Z) %*% Z
+ZtZ
+```
+
+## Step 3: Compute $(\mathbf{Z}'\mathbf{Z})^{-1}$
+
+```{r}
+ZtZ_inv <- solve(ZtZ)
+ZtZ_inv
+```
+
+## Step 4: Compute $\mathbf{A} = \mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$
+
+```{r}
+A <- Z %*% ZtZ_inv %*% t(Z)
+round(A, 3)
+```
+
+## Step 5: Extract Diagonal Elements $a_{ii}$
+
+These diagonal values represent the multivariate distance for each observation.
+
+```{r}
+a_ii <- diag(A)
+names(a_ii) <- rownames(X)
+a_ii
+```
+
+## Step 6: Compare to Expected Average
+
+```{r}
+p_plus_q <- ncol(Z)  # total number of observed variables (p + q)
+N <- nrow(Z)  # number of observations
+expected_mean <- p_plus_q / N
+expected_mean
+```
+
+Any $a_{ii}$ significantly greater than `r expected_mean` may indicate a multivariate outlier.
+
+## Step 7: Visualization
+
+```{r}
+barplot(a_ii, names.arg = names(a_ii), 
+        main = "Multivariate Distance (a_ii) for Each Observation", 
+        ylab = "a_ii", col = "skyblue", ylim = c(0, 1))
+abline(h = expected_mean, col = "red", lty = 2)
+legend("topright", legend = paste("Expected Mean =", round(expected_mean, 3)), 
+       col = "red", lty = 2)
+```
+
+## Conclusion
+
+-   Matrix $\mathbf{A} = \mathbf{Z(Z'Z)^{-1}Z'}$ provides a way to measure the multivariate distance of each observation.
+-   Diagonal values $a_{ii}$ indicate how far each case is from the multivariate mean.
+-   The average of the $a_{ii}$'s is $\frac{(p + q)}{N}$, which provides a benchmark.
+-   Observations with high $a_{ii}$ values are flagged as potential **outliers** in multivariate space.
+
+This method is especially helpful in the context of SEM, factor analysis, or other multivariate procedures where unusual cases may affect model fit or estimates.

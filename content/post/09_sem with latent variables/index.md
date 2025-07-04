@@ -313,14 +313,173 @@ Z_t_Z
 ``` r
 N <- nrow(Z)  # Number of observations (rows)
 cov_matrix_manual <- (1 / (N - 1)) * Z_t_Z
-```
 
-### Display the result
-
-``` r
+# Display the result
 print(cov_matrix_manual)
 ```
 
     ##          consum   income
     ## consum 1888.779 2504.453
     ## income 2504.453 3420.682
+
+------------------------------------------------------------------------
+
+# p.28
+
+## Introduction
+
+In multivariate statistics, it is often important to detect observations
+that deviate significantly from the center of the multivariate data
+cloud. One useful tool is the matrix:
+
+$$
+\mathbf{A} = \mathbf{Z(Z'Z)^{-1}Z'}
+$$
+
+Where:
+
+$\mathbf{Z}$ is the mean-centered data matrix of size
+$N \times (p + q)$,
+
+$\mathbf{Z}'\mathbf{Z}$ is the cross-product matrix,
+
+$(\mathbf{Z}'\mathbf{Z})^{-1}$ is its inverse,
+
+$\mathbf{A}$ is a square $N \times N$ matrix whose diagonal entries
+$a_{ii}$ represent the multivariate “distance” of each observation from
+the center.
+
+The average value of $a_{ii}$ is:
+
+$$
+\frac{(p + q)}{N}
+$$
+
+Observations with much higher $a_{ii}$ values than the average are
+potential **multivariate outliers**.
+
+## Step-by-Step Example
+
+We will use a simple example dataset with 3 observations and 2
+variables.
+
+``` r
+# Define the data matrix (3 observations, 2 variables)
+X <- matrix(c(2, 3, 4, 4, 6, 5), ncol = 2, byrow = FALSE)
+colnames(X) <- c("X1", "X2")
+rownames(X) <- paste0("Obs", 1:3)
+X
+```
+
+    ##      X1 X2
+    ## Obs1  2  4
+    ## Obs2  3  6
+    ## Obs3  4  5
+
+## Step 1: Center the Data (Create Z)
+
+We subtract the mean from each variable to obtain the matrix
+$\mathbf{Z}$.
+
+``` r
+Z <- scale(X, center = TRUE, scale = FALSE)
+Z
+```
+
+    ##      X1 X2
+    ## Obs1 -1 -1
+    ## Obs2  0  1
+    ## Obs3  1  0
+    ## attr(,"scaled:center")
+    ## X1 X2 
+    ##  3  5
+
+## Step 2: Compute $\mathbf{Z}'\mathbf{Z}$
+
+``` r
+ZtZ <- t(Z) %*% Z
+ZtZ
+```
+
+    ##    X1 X2
+    ## X1  2  1
+    ## X2  1  2
+
+## Step 3: Compute $(\mathbf{Z}'\mathbf{Z})^{-1}$
+
+``` r
+ZtZ_inv <- solve(ZtZ)
+ZtZ_inv
+```
+
+    ##            X1         X2
+    ## X1  0.6666667 -0.3333333
+    ## X2 -0.3333333  0.6666667
+
+## Step 4: Compute $\mathbf{A} = \mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$
+
+``` r
+A <- Z %*% ZtZ_inv %*% t(Z)
+round(A, 3)
+```
+
+    ##        Obs1   Obs2   Obs3
+    ## Obs1  0.667 -0.333 -0.333
+    ## Obs2 -0.333  0.667 -0.333
+    ## Obs3 -0.333 -0.333  0.667
+
+## Step 5: Extract Diagonal Elements $a_{ii}$
+
+These diagonal values represent the multivariate distance for each
+observation.
+
+``` r
+a_ii <- diag(A)
+names(a_ii) <- rownames(X)
+a_ii
+```
+
+    ##      Obs1      Obs2      Obs3 
+    ## 0.6666667 0.6666667 0.6666667
+
+## Step 6: Compare to Expected Average
+
+``` r
+p_plus_q <- ncol(Z)  # total number of observed variables (p + q)
+N <- nrow(Z)  # number of observations
+expected_mean <- p_plus_q / N
+expected_mean
+```
+
+    ## [1] 0.6666667
+
+Any $a_{ii}$ significantly greater than 0.6666667 may indicate a
+multivariate outlier.
+
+## Step 7: Visualization
+
+``` r
+barplot(a_ii, names.arg = names(a_ii), 
+        main = "Multivariate Distance (a_ii) for Each Observation", 
+        ylab = "a_ii", col = "skyblue", ylim = c(0, 1))
+abline(h = expected_mean, col = "red", lty = 2)
+legend("topright", legend = paste("Expected Mean =", round(expected_mean, 3)), 
+       col = "red", lty = 2)
+```
+
+![](index_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+
+## Conclusion
+
+- Matrix $\mathbf{A} = \mathbf{Z(Z'Z)^{-1}Z'}$ provides a way to measure
+  the multivariate distance of each observation.
+- Diagonal values $a_{ii}$ indicate how far each case is from the
+  multivariate mean.
+- The average of the $a_{ii}$’s is $\frac{(p + q)}{N}$, which provides a
+  benchmark.
+- Observations with high $a_{ii}$ values are flagged as potential
+  **outliers** in multivariate space.
+
+This method is especially helpful in the context of SEM, factor
+analysis, or other multivariate procedures where unusual cases may
+affect model fit or estimates.

@@ -258,14 +258,123 @@ Z_t_Z</code></pre>
 <div id="step-6-apply-the-1n-1-factor" class="section level3">
 <h3>Step 6: Apply the 1/(N-1) factor</h3>
 <pre class="r"><code>N &lt;- nrow(Z)  # Number of observations (rows)
-cov_matrix_manual &lt;- (1 / (N - 1)) * Z_t_Z</code></pre>
-</div>
-<div id="display-the-result" class="section level3">
-<h3>Display the result</h3>
-<pre class="r"><code>print(cov_matrix_manual)</code></pre>
+cov_matrix_manual &lt;- (1 / (N - 1)) * Z_t_Z
+
+# Display the result
+print(cov_matrix_manual)</code></pre>
 <pre><code>##          consum   income
 ## consum 1888.779 2504.453
 ## income 2504.453 3420.682</code></pre>
+<hr />
 </div>
+</div>
+</div>
+<div id="p.28-1" class="section level1">
+<h1>p.28</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In multivariate statistics, it is often important to detect observations that deviate significantly from the center of the multivariate data cloud. One useful tool is the matrix:</p>
+<p><span class="math display">\[
+\mathbf{A} = \mathbf{Z(Z&#39;Z)^{-1}Z&#39;}
+\]</span></p>
+<p>Where:</p>
+<p><span class="math inline">\(\mathbf{Z}\)</span> is the mean-centered data matrix of size <span class="math inline">\(N \times (p + q)\)</span>,</p>
+<p><span class="math inline">\(\mathbf{Z}&#39;\mathbf{Z}\)</span> is the cross-product matrix,</p>
+<p><span class="math inline">\((\mathbf{Z}&#39;\mathbf{Z})^{-1}\)</span> is its inverse,</p>
+<p><span class="math inline">\(\mathbf{A}\)</span> is a square <span class="math inline">\(N \times N\)</span> matrix whose diagonal entries <span class="math inline">\(a_{ii}\)</span> represent the multivariate “distance” of each observation from the center.</p>
+<p>The average value of <span class="math inline">\(a_{ii}\)</span> is:</p>
+<p><span class="math display">\[
+\frac{(p + q)}{N}
+\]</span></p>
+<p>Observations with much higher <span class="math inline">\(a_{ii}\)</span> values than the average are potential <strong>multivariate outliers</strong>.</p>
+</div>
+<div id="step-by-step-example" class="section level2">
+<h2>Step-by-Step Example</h2>
+<p>We will use a simple example dataset with 3 observations and 2 variables.</p>
+<pre class="r"><code># Define the data matrix (3 observations, 2 variables)
+X &lt;- matrix(c(2, 3, 4, 4, 6, 5), ncol = 2, byrow = FALSE)
+colnames(X) &lt;- c(&quot;X1&quot;, &quot;X2&quot;)
+rownames(X) &lt;- paste0(&quot;Obs&quot;, 1:3)
+X</code></pre>
+<pre><code>##      X1 X2
+## Obs1  2  4
+## Obs2  3  6
+## Obs3  4  5</code></pre>
+</div>
+<div id="step-1-center-the-data-create-z" class="section level2">
+<h2>Step 1: Center the Data (Create Z)</h2>
+<p>We subtract the mean from each variable to obtain the matrix <span class="math inline">\(\mathbf{Z}\)</span>.</p>
+<pre class="r"><code>Z &lt;- scale(X, center = TRUE, scale = FALSE)
+Z</code></pre>
+<pre><code>##      X1 X2
+## Obs1 -1 -1
+## Obs2  0  1
+## Obs3  1  0
+## attr(,&quot;scaled:center&quot;)
+## X1 X2 
+##  3  5</code></pre>
+</div>
+<div id="step-2-compute-mathbfzmathbfz" class="section level2">
+<h2>Step 2: Compute <span class="math inline">\(\mathbf{Z}&#39;\mathbf{Z}\)</span></h2>
+<pre class="r"><code>ZtZ &lt;- t(Z) %*% Z
+ZtZ</code></pre>
+<pre><code>##    X1 X2
+## X1  2  1
+## X2  1  2</code></pre>
+</div>
+<div id="step-3-compute-mathbfzmathbfz-1" class="section level2">
+<h2>Step 3: Compute <span class="math inline">\((\mathbf{Z}&#39;\mathbf{Z})^{-1}\)</span></h2>
+<pre class="r"><code>ZtZ_inv &lt;- solve(ZtZ)
+ZtZ_inv</code></pre>
+<pre><code>##            X1         X2
+## X1  0.6666667 -0.3333333
+## X2 -0.3333333  0.6666667</code></pre>
+</div>
+<div id="step-4-compute-mathbfa-mathbfzmathbfzmathbfz-1mathbfz" class="section level2">
+<h2>Step 4: Compute <span class="math inline">\(\mathbf{A} = \mathbf{Z}(\mathbf{Z}&#39;\mathbf{Z})^{-1}\mathbf{Z}&#39;\)</span></h2>
+<pre class="r"><code>A &lt;- Z %*% ZtZ_inv %*% t(Z)
+round(A, 3)</code></pre>
+<pre><code>##        Obs1   Obs2   Obs3
+## Obs1  0.667 -0.333 -0.333
+## Obs2 -0.333  0.667 -0.333
+## Obs3 -0.333 -0.333  0.667</code></pre>
+</div>
+<div id="step-5-extract-diagonal-elements-a_ii" class="section level2">
+<h2>Step 5: Extract Diagonal Elements <span class="math inline">\(a_{ii}\)</span></h2>
+<p>These diagonal values represent the multivariate distance for each observation.</p>
+<pre class="r"><code>a_ii &lt;- diag(A)
+names(a_ii) &lt;- rownames(X)
+a_ii</code></pre>
+<pre><code>##      Obs1      Obs2      Obs3 
+## 0.6666667 0.6666667 0.6666667</code></pre>
+</div>
+<div id="step-6-compare-to-expected-average" class="section level2">
+<h2>Step 6: Compare to Expected Average</h2>
+<pre class="r"><code>p_plus_q &lt;- ncol(Z)  # total number of observed variables (p + q)
+N &lt;- nrow(Z)  # number of observations
+expected_mean &lt;- p_plus_q / N
+expected_mean</code></pre>
+<pre><code>## [1] 0.6666667</code></pre>
+<p>Any <span class="math inline">\(a_{ii}\)</span> significantly greater than 0.6666667 may indicate a multivariate outlier.</p>
+</div>
+<div id="step-7-visualization" class="section level2">
+<h2>Step 7: Visualization</h2>
+<pre class="r"><code>barplot(a_ii, names.arg = names(a_ii), 
+        main = &quot;Multivariate Distance (a_ii) for Each Observation&quot;, 
+        ylab = &quot;a_ii&quot;, col = &quot;skyblue&quot;, ylim = c(0, 1))
+abline(h = expected_mean, col = &quot;red&quot;, lty = 2)
+legend(&quot;topright&quot;, legend = paste(&quot;Expected Mean =&quot;, round(expected_mean, 3)), 
+       col = &quot;red&quot;, lty = 2)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<ul>
+<li>Matrix <span class="math inline">\(\mathbf{A} = \mathbf{Z(Z&#39;Z)^{-1}Z&#39;}\)</span> provides a way to measure the multivariate distance of each observation.</li>
+<li>Diagonal values <span class="math inline">\(a_{ii}\)</span> indicate how far each case is from the multivariate mean.</li>
+<li>The average of the <span class="math inline">\(a_{ii}\)</span>’s is <span class="math inline">\(\frac{(p + q)}{N}\)</span>, which provides a benchmark.</li>
+<li>Observations with high <span class="math inline">\(a_{ii}\)</span> values are flagged as potential <strong>outliers</strong> in multivariate space.</li>
+</ul>
+<p>This method is especially helpful in the context of SEM, factor analysis, or other multivariate procedures where unusual cases may affect model fit or estimates.</p>
 </div>
 </div>
