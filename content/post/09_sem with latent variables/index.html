@@ -598,3 +598,56 @@ print(cov_matrix_manual)</code></pre>
 ## COVER3 1237.113 1199.925 1403.608</code></pre>
 </div>
 </div>
+<div id="p.-35" class="section level1">
+<h1>p. 35</h1>
+<div id="covariance-decomposition-derivation" class="section level2">
+<h2>Covariance Decomposition Derivation</h2>
+<p>We are given the covariance expression for two variables, <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_4\)</span>:</p>
+<p><span class="math display">\[
+\text{COV}(x_1, x_4) = \text{COV}(\lambda_{11} \xi_1 + \delta_1, \lambda_{41} \xi_1 + \delta_4)
+\]</span></p>
+</div>
+<div id="step-by-step-derivation" class="section level2">
+<h2>Step-by-Step Derivation:</h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Start with the covariance formula</strong>:<br />
+We are looking at the covariance between two linear combinations of random variables:</p>
+<p><span class="math display">\[
+\text{COV}(a + b, c + d)
+\]</span></p>
+<p>The general covariance formula for two linear combinations is:</p>
+<p><span class="math display">\[
+\text{COV}(a + b, c + d) = \text{COV}(a, c) + \text{COV}(a, d) + \text{COV}(b, c) + \text{COV}(b, d)
+\]</span></p>
+<p>In our case, the random variables are <span class="math inline">\(\lambda_{11} \xi_1 + \delta_1\)</span> and <span class="math inline">\(\lambda_{41} \xi_1 + \delta_4\)</span>.</p></li>
+<li><p><strong>Applying the formula</strong>:<br />
+Expanding the covariance expression:</p>
+<p><span class="math display">\[
+\text{COV}(\lambda_{11} \xi_1 + \delta_1, \lambda_{41} \xi_1 + \delta_4)
+\]</span></p>
+<p>Since <span class="math inline">\(\lambda_{11}\)</span> and <span class="math inline">\(\lambda_{41}\)</span> are constants, we can take them outside of the covariance:</p>
+<p><span class="math display">\[
+\text{COV}(\lambda_{11} \xi_1 + \delta_1, \lambda_{41} \xi_1 + \delta_4) = \lambda_{11} \lambda_{41} \cdot \text{COV}(\xi_1, \xi_1) + \lambda_{11} \cdot \text{COV}(\xi_1, \delta_4) + \lambda_{41} \cdot \text{COV}(\delta_1, \xi_1) + \text{COV}(\delta_1, \delta_4)
+\]</span></p></li>
+<li><p><strong>Simplifying the terms</strong>:</p>
+<ul>
+<li><span class="math inline">\(\text{COV}(\xi_1, \xi_1) = \phi_{11}\)</span> (the variance of <span class="math inline">\(\xi_1\)</span>)</li>
+<li><span class="math inline">\(\text{COV}(\xi_1, \delta_4) = 0\)</span> (assuming <span class="math inline">\(\xi_1\)</span> and <span class="math inline">\(\delta_4\)</span> are independent)</li>
+<li><span class="math inline">\(\text{COV}(\delta_1, \xi_1) = 0\)</span> (assuming <span class="math inline">\(\delta_1\)</span> and <span class="math inline">\(\xi_1\)</span> are independent)</li>
+<li><span class="math inline">\(\text{COV}(\delta_1, \delta_4) = 0\)</span> (assuming <span class="math inline">\(\delta_1\)</span> and <span class="math inline">\(\delta_4\)</span> are uncorrelated)</li>
+</ul>
+<p>Therefore, the expression simplifies to:</p>
+<p><span class="math display">\[
+\text{COV}(x_1, x_4) = \lambda_{11} \lambda_{41} \cdot \phi_{11}
+\]</span></p></li>
+</ol>
+</div>
+<div id="conclusion-1" class="section level2">
+<h2>Conclusion:</h2>
+<p>The covariance between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_4\)</span> is:</p>
+<p><span class="math display">\[
+\text{COV}(x_1, x_4) = \lambda_{11} \lambda_{41} \phi_{11}
+\]</span></p>
+<hr />
+</div>
+</div>

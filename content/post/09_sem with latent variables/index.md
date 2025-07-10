@@ -758,3 +758,73 @@ print(cov_matrix_manual)
     ## COVER1 1300.591 1020.203 1237.113
     ## COVER2 1020.203 1463.316 1199.925
     ## COVER3 1237.113 1199.925 1403.608
+
+# p. 35
+
+## Covariance Decomposition Derivation
+
+We are given the covariance expression for two variables, $x_1$ and
+$x_4$:
+
+$$
+\text{COV}(x_1, x_4) = \text{COV}(\lambda_{11} \xi_1 + \delta_1, \lambda_{41} \xi_1 + \delta_4)
+$$
+
+## Step-by-Step Derivation:
+
+1.  **Start with the covariance formula**:  
+    We are looking at the covariance between two linear combinations of
+    random variables:
+
+    $$
+    \text{COV}(a + b, c + d)
+    $$
+
+    The general covariance formula for two linear combinations is:
+
+    $$
+    \text{COV}(a + b, c + d) = \text{COV}(a, c) + \text{COV}(a, d) + \text{COV}(b, c) + \text{COV}(b, d)
+    $$
+
+    In our case, the random variables are
+    $\lambda_{11} \xi_1 + \delta_1$ and $\lambda_{41} \xi_1 + \delta_4$.
+
+2.  **Applying the formula**:  
+    Expanding the covariance expression:
+
+    $$
+    \text{COV}(\lambda_{11} \xi_1 + \delta_1, \lambda_{41} \xi_1 + \delta_4)
+    $$
+
+    Since $\lambda_{11}$ and $\lambda_{41}$ are constants, we can take
+    them outside of the covariance:
+
+    $$
+    \text{COV}(\lambda_{11} \xi_1 + \delta_1, \lambda_{41} \xi_1 + \delta_4) = \lambda_{11} \lambda_{41} \cdot \text{COV}(\xi_1, \xi_1) + \lambda_{11} \cdot \text{COV}(\xi_1, \delta_4) + \lambda_{41} \cdot \text{COV}(\delta_1, \xi_1) + \text{COV}(\delta_1, \delta_4)
+    $$
+
+3.  **Simplifying the terms**:
+
+    - $\text{COV}(\xi_1, \xi_1) = \phi_{11}$ (the variance of $\xi_1$)
+    - $\text{COV}(\xi_1, \delta_4) = 0$ (assuming $\xi_1$ and $\delta_4$
+      are independent)
+    - $\text{COV}(\delta_1, \xi_1) = 0$ (assuming $\delta_1$ and $\xi_1$
+      are independent)
+    - $\text{COV}(\delta_1, \delta_4) = 0$ (assuming $\delta_1$ and
+      $\delta_4$ are uncorrelated)
+
+    Therefore, the expression simplifies to:
+
+    $$
+    \text{COV}(x_1, x_4) = \lambda_{11} \lambda_{41} \cdot \phi_{11}
+    $$
+
+## Conclusion:
+
+The covariance between $x_1$ and $x_4$ is:
+
+$$
+\text{COV}(x_1, x_4) = \lambda_{11} \lambda_{41} \phi_{11}
+$$
+
+------------------------------------------------------------------------
