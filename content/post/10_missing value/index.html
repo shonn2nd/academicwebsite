@@ -1,0 +1,195 @@
+---
+title: "Missing Value (notes for myself)"
+authors: 
+  - admin
+tags: [R, stats]
+date: "2025-07-19"
+categories: 
+  - R
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+    toc: false
+    toc_depth: 2
+math: true
+draft: false
+---
+
+
+
+<div id="p.16-17" class="section level1">
+<h1>p.16-17</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This part explains the detailed steps of calculating Little’s test statistic to check for the <strong>Missing Completely at Random (MCAR)</strong> assumption, as described in the provided example. The test is based on comparing the means of observed and missing data patterns, with the computation of the test statistic <span class="math inline">\(T_L\)</span> and its interpretation.</p>
+<div id="step-1-define-the-grand-means-and-covariance-matrix" class="section level3">
+<h3>Step 1: Define the Grand Means and Covariance Matrix</h3>
+<p>From the given example, the maximum likelihood estimates of the grand means <span class="math inline">\(\mu\)</span> and the variance-covariance matrix <span class="math inline">\(\Sigma\)</span> are as follows:</p>
+<p><span class="math display">\[
+\hat{\mu} = \begin{bmatrix} 20.31 \\ 14.29 \end{bmatrix}, \quad
+\hat{\Sigma} = \begin{bmatrix} 27.27 &amp; -13.80 \\ -13.80 &amp; 36.15 \end{bmatrix}
+\]</span></p>
+<ul>
+<li><p><strong>20.31</strong> is the mean of the first variable (denoted as <span class="math inline">\(v_1\)</span>), i.e., the average value for the first variable across all observations.</p></li>
+<li><p><strong>14.29</strong> is the mean of the second variable (denoted as <span class="math inline">\(v_2\)</span>), i.e., the average value for the second variable across all observations.</p></li>
+<li><p><strong>27.27</strong> is the variance of the first variable (<span class="math inline">\(v_1\)</span>), representing the spread of values for the first variable.</p></li>
+<li><p><strong>36.15</strong> is the variance of the second variable (<span class="math inline">\(v_2\)</span>), representing the spread of values for the second variable.</p></li>
+<li><p><strong>-13.80</strong> is the covariance between the first and second variables. This tells us how the two variables vary together. A negative value indicates that as one variable increases, the other tends to decrease.</p></li>
+</ul>
+<p>These are the benchmarks against which we compare the pattern-specific means for the observed data.</p>
+</div>
+<div id="step-2-define-the-pattern-specific-means" class="section level3">
+<h3>Step 2: Define the Pattern-Specific Means</h3>
+<p>There are two missing data patterns in the dataset, represented by the two groups. For this example, the two groups have the following arithmetic means:</p>
+<p>Group 1 (for <span class="math inline">\(v_1 = 2, v_2 = 1\)</span>):</p>
+<p><span class="math display">\[
+\mathbf{\overline{Y}}_1 = \begin{bmatrix}
+23.27 \\
+12.79
+\end{bmatrix}
+\]</span></p>
+<p>Group 2 (for <span class="math inline">\(v_1 = 2, v_2 = 0\)</span>):</p>
+<p><span class="math display">\[
+\mathbf{\overline{Y}}_2 = \begin{bmatrix}
+17.19 \\   
+{NA}
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="step-3-compute-the-test-statistic" class="section level3">
+<h3>Step 3: Compute the Test Statistic</h3>
+<p>The formula for the test statistic <span class="math inline">\(T_L\)</span> is as follows:</p>
+<p><span class="math display">\[
+T_L = \sum_{g=1}^{G} n_g \left( \mathbf{Y}_g - \mu_g \right)^\top \Sigma^{-1} \left( \mathbf{Y}_g - \mu_g \right)
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(n_g\)</span> is the number of cases in group <span class="math inline">\(g\)</span>,</li>
+<li><span class="math inline">\(\mathbf{Y}_g\)</span> is the group-specific mean,</li>
+<li><span class="math inline">\(\mu_g\)</span> is the grand mean for the variable,</li>
+<li><span class="math inline">\(\Sigma^{-1}\)</span> is the inverse of the covariance matrix.</li>
+</ul>
+<div id="for-group-1" class="section level4">
+<h4>For Group 1:</h4>
+<p>The difference between Group 1’s mean and the grand mean is:</p>
+<p><span class="math display">\[
+\mathbf{Y}_1 - \mu = \begin{bmatrix} 23.27 \\ 12.79 \end{bmatrix} - \begin{bmatrix} 20.31 \\ 14.29 \end{bmatrix} = \begin{bmatrix} 2.96 \\ -1.50 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\left( \mathbf{Y}_1 - \mu \right)^\top = \begin{bmatrix} 2.96 &amp; -1.50 \end{bmatrix}
+\]</span>
+<span class="math display">\[
+\Sigma = \begin{bmatrix}
+27.27 &amp; -13.80 \\
+-13.80 &amp; 36.15
+\end{bmatrix}
+\]</span> For any 2x2 matrix:</p>
+<p><span class="math display">\[
+A = \begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+\]</span></p>
+<p>The inverse of this matrix <span class="math inline">\(A^{-1}\)</span> is given by:</p>
+<p><span class="math display">\[
+A^{-1} = \frac{1}{\text{det}(A)} \begin{bmatrix}
+d &amp; -b \\
+-c &amp; a
+\end{bmatrix}
+\]</span></p>
+<p>Where <span class="math inline">\(\text{det}(A)\)</span> is the <strong>determinant</strong> of the matrix, and it is calculated as:</p>
+<p><span class="math display">\[
+\text{det}(A) = ad - bc
+\]</span></p>
+<p>The determinant of <span class="math inline">\(\Sigma\)</span>, denoted <span class="math inline">\(\text{det}(\Sigma)\)</span>, is calculated as:</p>
+<p><span class="math display">\[
+\text{det}(\Sigma) = (27.27)(36.15) - (-13.80)(-13.80)
+\]</span></p>
+<p><span class="math display">\[
+\text{det}(\Sigma) = 985.8105 - 190.44 = 795.3705
+\]</span></p>
+<p><span class="math display">\[
+\Sigma^{-1} = \frac{1}{795.3705} \begin{bmatrix}
+36.15 &amp; 13.80 \\
+13.80 &amp; 27.27
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\Sigma^{-1} = \begin{bmatrix}
+\frac{36.15}{795.3705} &amp; \frac{13.80}{795.3705} \\
+\frac{13.80}{795.3705} &amp; \frac{27.27}{795.3705}
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\Sigma^{-1} = \begin{bmatrix}
+0.04545052 &amp; 0.0173504 \\
+0.0173504 &amp; 0.03428591
+\end{bmatrix}
+\]</span>
+<span class="math display">\[
+\text{First, multiply:} \quad \begin{bmatrix} 2.96 &amp; -1.50 \end{bmatrix} \times \begin{bmatrix}
+0.04545052 &amp; 0.0173504 \\
+0.0173504 &amp; 0.03428591
+\end{bmatrix}
+\]</span>
+<span class="math display">\[
+\begin{bmatrix}
+(2.96)(0.04545052) + (-1.50)(0.0173504) &amp; (2.96)(0.0173504) + (-1.50)(0.03428591)
+\end{bmatrix}
+= \begin{bmatrix}
+0.1085079 &amp; −0.000071681
+\end{bmatrix}
+\]</span></p>
+<p>$$
+( _1 - ) ( _1 - ) =</p>
+<span class="math display">\[\begin{bmatrix} 0.1085079 &amp; −0.000071681 \end{bmatrix}\]</span>
+<span class="math display">\[\begin{bmatrix} 2.96 \\ -1.50 \end{bmatrix}\]</span>
+<p>$$</p>
+<p><span class="math display">\[
+(0.1085079)(2.96) + (−0.000071681)(-1.50) = 0.3211834 + 0.0001075215 = 0.3212909
+\]</span></p>
+<p>This is the squared difference for Group 1. By multiplying this by <span class="math inline">\(n_1 = 141\)</span>, you get <span class="math inline">\(45.30202\)</span>.</p>
+</div>
+<div id="for-group-2" class="section level4">
+<h4>For Group 2:</h4>
+<p>The difference between Group 2’s mean and the grand mean is:</p>
+<p><span class="math display">\[
+\mathbf{Y}_2 - \mu = \begin{bmatrix} 17.19 \\ \text{NA} \end{bmatrix} - \begin{bmatrix} 20.31 \\ 14.29 \end{bmatrix} = \begin{bmatrix} -3.12 \\ \text{NA} \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\left( \mathbf{Y}_2 - \mu \right)^\top = \begin{bmatrix} -3.12 &amp; NA \end{bmatrix}
+\]</span></p>
+<p>For missing data, we can’t compute the full Mahalanobis distance, but for the observed part, we compute:</p>
+<p><span class="math display">\[
+\frac{(Y_{\text{obs}} - \mu_{\text{obs}})^2}{\text{Var}_{\text{obs}}}
+\]</span>
+Which here becomes:</p>
+<p><span class="math display">\[
+\frac{(17.19 - 20.31)^2}{27.27}
+\]</span></p>
+<p><span class="math display">\[
+134 \times \frac{(17.19 - 20.31)^2}{27.27} = 47.8331353136
+\]</span></p>
+<p>For this example:</p>
+<p><span class="math display">\[
+T_L = 141 \times \left( \mathbf{Y}_1 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_1 - \mu \right) + 134 \times \left( \mathbf{Y}_2 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_2 - \mu \right)
+\]</span></p>
+<p>Substituting the values:</p>
+<p><span class="math display">\[
+T_L = 45.30202 + 47.8331353136 = 93.13516
+\]</span></p>
+</div>
+</div>
+<div id="step-4-interpretation-of-the-result" class="section level3">
+<h3>Step 4: Interpretation of the Result</h3>
+<p>The computed test statistic <span class="math inline">\(T_L\)</span> is <strong>93.13516</strong>, which is compared against a chi-square distribution with degrees of freedom <span class="math inline">\(u = (2 + 1) - 2 = 1\)</span>.</p>
+<p>Given that this test statistic is statistically significant (with <span class="math inline">\(p &lt; 0.001\)</span>), we can conclude that the missing data is not <strong>Missing Completely at Random (MCAR)</strong>.</p>
+<hr />
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>This computation demonstrates the process of using Little’s test to evaluate the MCAR assumption in a dataset. The test statistic value indicates that the missing data in this example is <strong>not MCAR</strong>.</p>
+</div>
+</div>
