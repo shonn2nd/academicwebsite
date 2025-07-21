@@ -100,8 +100,7 @@ $$
 
 $$
 \left( \mathbf{Y}_1 - \mu \right)^\top = \begin{bmatrix} 2.96 & -1.50 \end{bmatrix}
-$$
-$$
+$$ $$
 \Sigma = \begin{bmatrix} 
 27.27 & -13.80 \\
 -13.80 & 36.15 
@@ -159,14 +158,12 @@ $$
 0.04545052 & 0.0173504 \\
 0.0173504 & 0.03428591 
 \end{bmatrix}
-$$
-$$
+$$ $$
 \text{First, multiply:} \quad \begin{bmatrix} 2.96 & -1.50 \end{bmatrix} \times \begin{bmatrix} 
 0.04545052 & 0.0173504 \\
 0.0173504 & 0.03428591
 \end{bmatrix}
-$$ 
-$$
+$$ $$
 \begin{bmatrix} 
 (2.96)(0.04545052) + (-1.50)(0.0173504) & (2.96)(0.0173504) + (-1.50)(0.03428591) 
 \end{bmatrix}
@@ -176,13 +173,10 @@ $$
 $$
 
 $$
-\left( \mathbf{Y}\_1 - \mu \right)\top \Sigma{-1} \left( \mathbf{Y}\_1 - \mu \right) =
-
-\begin{bmatrix} 0.1085079 & −0.000071681 \end{bmatrix}
-
-\times
-
-\begin{bmatrix} 2.96 \\ -1.50 \end{bmatrix}
+\text{Then:} \begin{bmatrix} 
+0.1085079 & −0.000071681
+\end{bmatrix}
+\quad \times \begin{bmatrix} 2.96 \\ -1.50 \end{bmatrix}
 $$
 
 $$
@@ -207,23 +201,20 @@ For missing data, we can't compute the full Mahalanobis distance, but for the ob
 
 $$
 \frac{(Y_{\text{obs}} - \mu_{\text{obs}})^2}{\text{Var}_{\text{obs}}}
-$$
-Which here becomes:
+$$ Which here becomes:
 
 $$
 \frac{(17.19 - 20.31)^2}{27.27}
 $$
 
-
 $$
 134 \times \frac{(17.19 - 20.31)^2}{27.27} = 47.8331353136
 $$
 
-
 For this example:
 
 $$
-T_L = 141 \times \left( \mathbf{Y}_1 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_1 - \mu \right) + 134 \times \left( \mathbf{Y}_2 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_2 - \mu \right)
+T_L = \left( \mathbf{Y}_1 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_1 - \mu \right) + \left( \mathbf{Y}_2 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_2 - \mu \right)
 $$
 
 Substituting the values:

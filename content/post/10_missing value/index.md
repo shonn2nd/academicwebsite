@@ -178,9 +178,12 @@ $$ $$
 \end{bmatrix}
 $$
 
-\$\$ ( \_1 - ) ( \_1 - ) =
-
-\$\$
+$$
+\text{Then:} \begin{bmatrix} 
+0.1085079 & −0.000071681
+\end{bmatrix}
+\quad \times \begin{bmatrix} 2.96 \\ -1.50 \end{bmatrix}
+$$
 
 $$
 (0.1085079)(2.96) + (−0.000071681)(-1.50) = 0.3211834 + 0.0001075215 = 0.3212909
@@ -219,7 +222,7 @@ $$
 For this example:
 
 $$
-T_L = 141 \times \left( \mathbf{Y}_1 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_1 - \mu \right) + 134 \times \left( \mathbf{Y}_2 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_2 - \mu \right)
+T_L = \left( \mathbf{Y}_1 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_1 - \mu \right) + \left( \mathbf{Y}_2 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_2 - \mu \right)
 $$
 
 Substituting the values:

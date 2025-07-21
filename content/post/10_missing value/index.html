@@ -78,8 +78,7 @@ T_L = \sum_{g=1}^{G} n_g \left( \mathbf{Y}_g - \mu_g \right)^\top \Sigma^{-1} \l
 \]</span></p>
 <p><span class="math display">\[
 \left( \mathbf{Y}_1 - \mu \right)^\top = \begin{bmatrix} 2.96 &amp; -1.50 \end{bmatrix}
-\]</span>
-<span class="math display">\[
+\]</span> <span class="math display">\[
 \Sigma = \begin{bmatrix}
 27.27 &amp; -13.80 \\
 -13.80 &amp; 36.15
@@ -126,14 +125,12 @@ d &amp; -b \\
 0.04545052 &amp; 0.0173504 \\
 0.0173504 &amp; 0.03428591
 \end{bmatrix}
-\]</span>
-<span class="math display">\[
+\]</span> <span class="math display">\[
 \text{First, multiply:} \quad \begin{bmatrix} 2.96 &amp; -1.50 \end{bmatrix} \times \begin{bmatrix}
 0.04545052 &amp; 0.0173504 \\
 0.0173504 &amp; 0.03428591
 \end{bmatrix}
-\]</span>
-<span class="math display">\[
+\]</span> <span class="math display">\[
 \begin{bmatrix}
 (2.96)(0.04545052) + (-1.50)(0.0173504) &amp; (2.96)(0.0173504) + (-1.50)(0.03428591)
 \end{bmatrix}
@@ -141,11 +138,12 @@ d &amp; -b \\
 0.1085079 &amp; −0.000071681
 \end{bmatrix}
 \]</span></p>
-<p>$$
-( _1 - ) ( _1 - ) =</p>
-<span class="math display">\[\begin{bmatrix} 0.1085079 &amp; −0.000071681 \end{bmatrix}\]</span>
-<span class="math display">\[\begin{bmatrix} 2.96 \\ -1.50 \end{bmatrix}\]</span>
-<p>$$</p>
+<p><span class="math display">\[
+\text{Then:} \begin{bmatrix}
+0.1085079 &amp; −0.000071681
+\end{bmatrix}
+\quad \times \begin{bmatrix} 2.96 \\ -1.50 \end{bmatrix}
+\]</span></p>
 <p><span class="math display">\[
 (0.1085079)(2.96) + (−0.000071681)(-1.50) = 0.3211834 + 0.0001075215 = 0.3212909
 \]</span></p>
@@ -163,8 +161,7 @@ d &amp; -b \\
 <p>For missing data, we can’t compute the full Mahalanobis distance, but for the observed part, we compute:</p>
 <p><span class="math display">\[
 \frac{(Y_{\text{obs}} - \mu_{\text{obs}})^2}{\text{Var}_{\text{obs}}}
-\]</span>
-Which here becomes:</p>
+\]</span> Which here becomes:</p>
 <p><span class="math display">\[
 \frac{(17.19 - 20.31)^2}{27.27}
 \]</span></p>
@@ -173,7 +170,7 @@ Which here becomes:</p>
 \]</span></p>
 <p>For this example:</p>
 <p><span class="math display">\[
-T_L = 141 \times \left( \mathbf{Y}_1 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_1 - \mu \right) + 134 \times \left( \mathbf{Y}_2 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_2 - \mu \right)
+T_L = \left( \mathbf{Y}_1 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_1 - \mu \right) + \left( \mathbf{Y}_2 - \mu \right)^\top \Sigma^{-1} \left( \mathbf{Y}_2 - \mu \right)
 \]</span></p>
 <p>Substituting the values:</p>
 <p><span class="math display">\[
